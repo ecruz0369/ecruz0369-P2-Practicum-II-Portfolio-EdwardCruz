@@ -79,7 +79,62 @@ knitr::include_graphics(here("assets","antigen-recognition.png"))
 
 ## Data import and cleaning
 
-*Write code that reads in the file and cleans it so it's ready for analysis. Since this will be fairly long code for most datasets, it might be a good idea to have it in one or several R scripts. If that is the case, explain here briefly what kind of cleaning/processing you do, and provide more details and well documented code somewhere (e.g. as supplement in a paper). All materials, including files that contain code, should be commented well so everyone can follow along.*
+```{r}
+library(readxl)
+library(tidyverse)
+
+
+```
+
+
+
+```{r}
+
+
+data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/DatabyState.csv")
+
+
+```
+
+```{r}
+
+
+# Select all columns except 3, 6, and 9
+Data_Clean <- dplyr::select(data, -c(3, 6, 9))
+
+```
+
+```{r}
+
+# Output cleaned data file to a csv file.
+write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Clean.csv")
+
+
+
+
+```
+
+
+```{r}
+
+
+# Filter for rows where "Loss" is present in any column (case-insensitive)
+library(stringr)  
+data_filtered <- Data_Clean[rowSums(sapply(data, grepl, pattern = c("Loss"), ignore.case = TRUE)) > 0, ]
+
+
+
+```
+
+
+```{r}
+
+# Output cleaned data file to a csv file.
+write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Filtered.csv")
+
+
+```
+
 
 ## Statistical analysis
 
