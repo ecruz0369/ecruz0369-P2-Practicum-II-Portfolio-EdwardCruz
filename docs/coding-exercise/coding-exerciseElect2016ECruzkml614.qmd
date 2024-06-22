@@ -163,6 +163,8 @@ text(47, 53, bquote(.(rsq_str) * .(r_square)), cex=0.75)
 # Add regression line
 abline(regression, col='darkblue', lwd=1.75)
 ```
+****************************interpret the clinton and trump raw results************************************************
+
 #Additional Data Processing to determine any missing data or NA
 #None Found
 ```{r}
