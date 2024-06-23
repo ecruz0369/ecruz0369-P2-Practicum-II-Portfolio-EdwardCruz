@@ -142,7 +142,7 @@ lwd=1.75)
 ```
 
 ** STILL NEED TO ANSWER QUESTION AT THE END OF THE PLOTTING SECTION**
-
+ The graph attempts to demonstrate that relationship between Population increase and life expectancy overcoming life expectancy with a low R^2 is not dependent on life expectancy but possibly resulting from the stongest will survive and improving healthcare accissbility, GDP-gross domestic product, eduction and food source successfully allowing those Africans to survive and continue.  
 ## More Data Processing
 ### Missing Years For Infant Mortality Data
 ```{r}
@@ -220,6 +220,17 @@ abline(
 
 #### Population Effect
 ```{r}
+fit2 = lm(african_mortality2000$life_expectancy ~ african_mortality2000$population)
+summary(fit2)
+```
+```{r}
+# Logarithmic regression
+fit2 = lm(life_expectancy ~ log(population), data=african_mortality2000)
+summary(fit2)
+
+```
+
+```{r}
 regression = lm(african_mortality2000$life_expectancy ~ african_mortality2000$population)
 rsq <- function(x, y) summary(lm(african_mortality2000$life_expectancy ~ african_mortality2000$population))$r.squared
 r_square = round(rsq(obs, mod), 3)
@@ -292,7 +303,8 @@ fit2 = lm(life_expectancy ~ log(population), data=african_mortality2000)
 summary(fit2)
 
 ```
-
+#### Conclusion
+The African population and life expectancy analysis shows no significant relationship between population size and life expectancy in African countries according to this linear model. The very low R-squared value indicates that population size explains only a tiny fraction of the variation in life expectancy. This suggests that other factors, such as healthcare access, economic conditions, education, and other social determinants, are likely much more important in explaining differences in life expectancy across African countries. TO reiterate, there is tremendous suffering and mortality with the children of the populations however the resiliency of this country has been successfully documented indicating the economics, education and healthcare is improving to continue allowing the population with access to these areas to successfully prosper and survive. 
 
 ***  This part contributed by Leonel Salazar, IGE436 ***
 
