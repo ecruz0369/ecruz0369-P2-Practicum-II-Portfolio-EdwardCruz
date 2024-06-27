@@ -12,10 +12,10 @@ website:
         menu:
           - text: "Starter Analysis Exercise"
             file: starter-analysis-exercise/products/report/starter-analysis-report.qmd
-          - text: "Data Exercise"
-            file: data-exercise/data-exercise.qmd
           - text: "R Coding Exercise"
             file: coding-exercise/coding-exercise.qmd
+          - text: "Data Exercise"
+            file: data-exercise/data-exercise.qmd
           - text: "Presentation Exercise"
             file: presentation-exercise/presentation-exercise.qmd
           - text: "Tidy Tuesday Exercise"
