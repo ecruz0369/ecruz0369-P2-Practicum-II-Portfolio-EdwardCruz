@@ -187,7 +187,7 @@ ggplot(applicant_final, aes(x = situational, y = performance)) +
   labs(title = "Scatter Plot: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\Conclusion*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+\*\*\*\*\*\*\*Conclusion\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 
 
