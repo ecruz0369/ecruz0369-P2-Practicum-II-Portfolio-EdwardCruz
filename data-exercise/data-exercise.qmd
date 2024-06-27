@@ -3,134 +3,180 @@ title: "Date Exercise"
 ---
 
 Placeholder file for the future data exercise.
+
 ```{r}
-#update.packages('dslabs')
-library(dslabs) # to import dataset
-library(tidyverse) # data aggregation
-library(dplyr) # data aggregation? 
-data(gapminder)
+library(MASS)
+library(synthpop)
+library(tidyverse)
+library(dplyr)
+library(writexl)
+library(ggplot2)
 ```
 
-### Help Function
 ```{r}
-help("gapminder")
+id <- paste0("Applicant #", 1:320)
 ```
 
-### Data Structure Overview
 ```{r}
-str(gapminder)
-```
-### Data Summary
-```{r}
-summary(gapminder)
-```
-### Class Functions - Object Determination
-```{r}
-class(gapminder)
+# Assign Management Experience Randomly
+set.seed(0717)
+management_random <- rbinom(320, 1, 0.5)
+management <- ifelse(management_random == 0, "manager", "non-manager")
 ```
 
-## Processing Data
-### Assign only African countries to a new object/variable.
 ```{r}
-africadata = filter(gapminder, continent == 'Africa')
-head(africadata)
+set.seed(0717)
+coding_viz <- rnorm(320, 85, 5)
+coding_viz <- pmin(coding_viz, 100)  # Caps scores at 100
+coding_viz <- round(coding_viz, 2)  # Rounds scores to two decimal places
 ```
 
-### Africa Data Structure Overview
 ```{r}
-str(africadata)
-```
-### Africa Summary
-```{r}
-summary(africadata)
-```
-### African Infant Mortality Object
-```{r}
-infant_survival_rate = africadata %>%
-  select(infant_mortality, life_expectancy)
-head(infant_survival_rate)
-```
-
-### African Infant Mortality Data Structure
-```{r}
-str(infant_survival_rate)
-```
-
-### African Infant Mortality Data Summary
-```{r}
-summary(infant_survival_rate)
-```
-### African Mortality Object
-```{r}
-african_mortality = africadata %>%
-  select(population, life_expectancy)
-head(african_mortality)
-```
-
-### African Mortality Data Structure
-```{r}
-str(african_mortality)
-```
-
-### African Mortality Data Summary
-```{r}
-summary(african_mortality)
-```
-## Plotting
-### Life Expectancy as a Function of Infant Mortality
-```{r}
-regression = lm(infant_survival_rate$life_expectancy ~ infant_survival_rate$infant_mortality)
-rsq <- function(x, y) summary(lm(infant_survival_rate$life_expectancy ~ infant_survival_rate$infant_mortality))$r.squared
-r_square = round(rsq(obs, mod), 3)
-# summary(regression)$coefficients - keep to sanity check
-coeff = round(summary(regression)$coefficients[2],3)
-y_int = round(summary(regression)$coefficients[1],3)
-plot(
-  infant_survival_rate$infant_mortality,
-  infant_survival_rate$life_expectancy,
-  main='African Life Expectancy \n Infant Mortality Effect',
-  xlab='Infant Mortality',
-  ylab='Life Expectancy',
-   col='aquamarine', 
-   bg='cornflowerblue', 
-   pch = 21,
+cor_var_means <- c(6.8, 7.2, 8.4, 77, 84, 80)
+cor_var_matrix <- matrix(
+  c(
+    0.87, 0.6, 0.7, 0.36, 1.55, 0.57,
+    0.6, 1.2, 0.52, 0.5, 1.2, 2.34,
+    0.7, 0.52, 0.68, 0.45, 0.89, 0.75,
+    0.36, 0.5, 0.45, 15.2, 1.09, 1.64,
+    1.55, 1.2, 0.89, 1.09, 17.2, 1.88,
+    0.57, 2.34, 0.75, 1.64, 1.88, 9.3
+  ), byrow = T, nrow = 6
 )
-# rsq_str = expression(paste("r"^"2:"))
-rsq_str = "r2: "
-text(175, 75, paste0('y = ', coeff, 'x + ', y_int), cex=0.75)
-text(170, 70, paste0(rsq_str, r_square), cex=0.75)
-abline(
-  lm(
-    infant_survival_rate$life_expectancy ~ infant_survival_rate$infant_mortality),
-  col='darkblue',
-  lwd=1.75)
+set.seed(0717)
+correlated_vars_df <- as.data.frame(mvrnorm(n = 320, mu = cor_var_means, Sigma = cor_var_matrix))
 ```
 
-### Life Expectancy as a Function of Population
 ```{r}
-regression = lm(african_mortality$life_expectancy ~ african_mortality$population)
-rsq <- function(x, y) summary(lm(african_mortality$life_expectancy ~ african_mortality$population))$r.squared
-r_square = round(rsq(obs, mod), 3)
-# summary(regression)$coefficients - keep to sanity check
-coeff = round(summary(regression)$coefficients[2],9)
-y_int = round(summary(regression)$coefficients[1],3)
-plot(
-  african_mortality$population,
-  african_mortality$life_expectancy,
-  main='African Life Expectancy \n Population Effect',
-  xlab='Population',
-  ylab='Life Expectancy',
-  col='aquamarine', 
-  bg='cornflowerblue', 
-  pch = 21,
+# Define the cap_score function
+cap_score <- function(x, max_value) {
+  pmin(x, max_value)
+}
+```
+
+```{r}
+# Assuming correlated_vars_df is already defined
+correlated_vars_df_cols <- c("interview_p1", "interview_p2", "interview_p3", "coding_cleaning", "coding_ml", "performance")
+colnames(correlated_vars_df) <- correlated_vars_df_cols
+
+correlated_vars_df <- correlated_vars_df %>%
+  mutate(
+    interview_p1 = round(cap_score(interview_p1, 10), 1),
+    interview_p2 = round(cap_score(interview_p2, 10), 1),
+    interview_p3 = round(cap_score(interview_p3, 10), 1),
+    coding_cleaning = round(cap_score(coding_cleaning, 100), 2),
+    coding_ml = round(cap_score(coding_ml, 100), 2),
+    performance = round(cap_score(performance, 100))
+  )
+```
+
+```{r}
+
+# Define the absences variable
+set.seed(0717)
+absences <- rpois(320, lambda = 1)
+
+# Define the coding_viz variable
+set.seed(0717)
+coding_viz <- rnorm(320, 85, 5)
+coding_viz <- pmin(coding_viz, 100)
+coding_viz <- round(coding_viz, 2)
+
+```
+
+```{r}
+# Define the situational variable
+set.seed(0717)
+situational <- round(runif(320, 60, 100))
+```
+
+```{r}
+# Assuming correlated_vars_df is already defined and processed
+# If not, please define it similarly to other variables
+
+# Example definition of correlated_vars_df
+# Make sure correlated_vars_df has 320 rows
+correlated_vars_df <- data.frame(
+  interview_p1 = rnorm(320, 7, 2),
+  interview_p2 = rnorm(320, 7, 2),
+  interview_p3 = rnorm(320, 7, 2),
+  coding_cleaning = rnorm(320, 90, 5),
+  coding_ml = rnorm(320, 90, 5),
+  performance = rnorm(320, 85, 10)
 )
-# rsq_str = expression(paste("r"^"2:"))
-rsq_str = "r2: "
-text(155000000, 75, paste0('y = ', coeff, 'x + ', y_int), cex=0.75)
-text(155000000, 70, paste0(rsq_str, r_square), cex=0.75)
-abline(
-lm(
-  african_mortality$life_expectancy ~ african_mortality$population),
-col='darkblue',
-lwd=1.75)
+```
+
+```{r}
+# Cap the scores as in previous steps
+cap_score <- function(x, max_value) {
+  pmin(x, max_value)
+}
+
+correlated_vars_df <- correlated_vars_df %>%
+  mutate(
+    interview_p1 = round(cap_score(interview_p1, 10), 1),
+    interview_p2 = round(cap_score(interview_p2, 10), 1),
+    interview_p3 = round(cap_score(interview_p3, 10), 1),
+    coding_cleaning = round(cap_score(coding_cleaning, 100), 2),
+    coding_ml = round(cap_score(coding_ml, 100), 2),
+    performance = round(cap_score(performance, 100))
+  )
+
+# Assuming id and management are defined
+# Example definition
+id <- 1:320
+management <- sample(70:100, 320, replace = TRUE)
+
+# Combine into applicant_scores data frame
+applicant_scores <- cbind(
+  id, management, situational, coding_viz, correlated_vars_df, absences
+)
+
+# Subset the first 300 rows
+applicant_final <- applicant_scores[1:300, ]
+
+```
+
+```{r}
+# Write to Excel file
+#write_xlsx(as.data.frame(applicant_final), "Employee_Selection_Scores.xlsx")
+```
+
+```{r}
+# Histogram of situational scores
+ggplot(applicant_final, aes(x = situational)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black") +
+  labs(title = "Histogram of Situational Scores", x = "Situational Score", y = "Frequency")
+```
+
+```{r}
+# Generalized linear model plot
+ggplot(applicant_final, aes(x = situational, y = performance)) +
+  geom_point() +
+  geom_smooth(method = "glm", se = FALSE, color = "green") +
+  labs(title = "Generalized Linear Model: Situational vs Performance", x = "Situational Score", y = "Performance Score")
+
+```
+
+```{r}
+# Linear model plot
+ggplot(applicant_final, aes(x = situational, y = performance)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Linear Model: Situational vs Performance", x = "Situational Score", y = "Performance Score")
+```
+
+```{r}
+# Generalized linear model plot
+ggplot(applicant_final, aes(x = situational, y = performance)) +
+  geom_point() +
+  geom_smooth(method = "glm", se = FALSE, color = "green") +
+  labs(title = "Generalized Linear Model: Situational vs Performance", x = "Situational Score", y = "Performance Score")
+```
+
+```{r}
+# Scatter plot
+ggplot(applicant_final, aes(x = situational, y = performance)) +
+  geom_point(color = "blue") +
+  labs(title = "Scatter Plot: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
