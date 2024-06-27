@@ -1,5 +1,5 @@
 ---
-title: "Date Exercise"
+title: "Data Exercise"
 ---
 
 Placeholder file for the future data exercise.
@@ -180,3 +180,26 @@ ggplot(applicant_final, aes(x = situational, y = performance)) +
   geom_point(color = "blue") +
   labs(title = "Scatter Plot: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
