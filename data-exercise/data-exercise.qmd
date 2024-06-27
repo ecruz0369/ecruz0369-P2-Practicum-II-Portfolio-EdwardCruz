@@ -16,7 +16,6 @@ library(tidyverse)
 library(dplyr)
 library(writexl)
 library(ggplot2)
-library(broom)
 ```
 
 ```{r}
