@@ -13,9 +13,9 @@ website:
           - text: "Starter Analysis Exercise"
             file: starter-analysis-exercise/products/report/starter-analysis-report.qmd
           - text: "R Coding Exercise"
-            file: docs/coding-exercise/coding-exercise.qmd
+            file: coding-exercise/coding-exercise.qmd
           - text: "Data Exercise"
-            file: data-exercise/data-exercise.qmd  
+            file: docs/data-exercise/data-exercise.qmd  
           - text: "Presentation Exercise"
             file: presentation-exercise/presentation-exercise.qmd
           - text: "Tidy Tuesday Exercise"
