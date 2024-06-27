@@ -13,7 +13,7 @@ website:
           - text: "Starter Analysis Exercise"
             file: starter-analysis-exercise/products/report/starter-analysis-report.qmd
           - text: "R Coding Exercise"
-            file: coding-exercise/coding-exercise.qmd
+            file: docs/coding-exercise/coding-exercise.qmd
           - text: "Data Exercise"
             file: data-exercise/data-exercise.qmd  
           - text: "Presentation Exercise"
