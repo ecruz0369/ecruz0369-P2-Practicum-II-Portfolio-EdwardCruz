@@ -3,7 +3,11 @@ title: "Data Exercise"
 ---
 
 Placeholder file for the future data exercise.
-## Running Code
+
+
+
+## Loading and Checking Data
+## Import Libraries
 ```{r}
 library(MASS)
 library(synthpop)
@@ -169,6 +173,8 @@ ggplot(applicant_final, aes(x = situational, y = performance)) +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   labs(title = "Linear Model: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
+
+
 ```{r}
 # Generalized linear model plot
 ggplot(applicant_final, aes(x = situational, y = performance)) +
