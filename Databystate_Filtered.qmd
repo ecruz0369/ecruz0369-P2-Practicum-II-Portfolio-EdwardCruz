@@ -16,7 +16,7 @@ library(tidyverse)
 ```{r}
 
 
-data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/DatabyState.csv")
+data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/DatabyState.csv")
 
 
 ```
@@ -42,7 +42,7 @@ head(Data_State)
 ```{r}
 
 # Output cleaned data file to a csv file.
-write.csv(Data_State, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Data_State.csv")
+write.csv(Data_State, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/Data_State.csv")
 
 ```
 
