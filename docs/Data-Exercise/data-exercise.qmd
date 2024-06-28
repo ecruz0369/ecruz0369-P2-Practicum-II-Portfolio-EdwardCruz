@@ -144,7 +144,7 @@ applicant_final <- applicant_scores[1:300, ]
 
 ```{r}
 # Write to Excel file
-#write_xlsx(as.data.frame(applicant_final), "Employee_Selection_Scores.xlsx")
+write_xlsx(as.data.frame(applicant_final), "Employee_Selection_Scores.xlsx")
 ```
 
 ```{r}
