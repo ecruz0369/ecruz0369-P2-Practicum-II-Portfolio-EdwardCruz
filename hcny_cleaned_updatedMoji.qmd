@@ -216,7 +216,7 @@ ggplot(my_data, aes(x = disease, y = varroa_mites)) +
 # Multivariable GLM
 
 ```{r}
-install.packages("tidymodels")
+#install.packages("tidymodels")
 library(tidymodels)
 library(broom)
 
