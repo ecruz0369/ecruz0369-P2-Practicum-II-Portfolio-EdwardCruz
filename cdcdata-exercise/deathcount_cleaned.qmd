@@ -32,7 +32,7 @@ summary(DthCount_data)
 ```
 
 ```{r}
-view(DthCount_data)
+#view(DthCount_data)
 ```
 
 ```{r}
@@ -50,7 +50,7 @@ head(DthCount_cleaned)
 ```
 
 ```{r}
-view(DthCount_cleaned)
+#view(DthCount_cleaned)
 ```
 
 ```{r}
@@ -87,7 +87,7 @@ DthCount3_cleaned <- DthCount2_cleaned %>% select(-Suppress,-Note,-Types)
 ```
 
 ```{r}
-view(DthCount3_cleaned)
+#view(DthCount3_cleaned)
 ```
 
 ```{r}
@@ -150,13 +150,18 @@ write.csv(DthCount3_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Scie
 
 
 ```{r}
-# Assuming hcnydata_cleaned is your data frame
+# Assuming dat_cleaned is your data frame
 DthCount3A_cleaned <- DthCount3_cleaned[apply(DthCount3_cleaned, 1, function(x) !all(is.na(x))), ]
 
 # Print the modified data frame to verify the changes
 head(DthCount3_cleaned)
-view(DthCount3_cleaned)
 
+
+```
+
+
+```{r}
+#view(DthCount3_cleaned)
 ```
 
 ```{r}
@@ -179,14 +184,6 @@ head(DthCount3_cleaned)
 ```{r}
 # Step 3: Reindex the rows starting from 1
 rownames(DthCount3A_cleaned) <- NULL
-```
-
-```{r}
-# Identify the rows to exclude
-#rows_to_exclude <- c(46)
-
-# Remove rows 45 to 52 while excluding row 46
-#data_hcny <- hcnydata_cleaned[-c(45:52)[-which(c(45:52) %in% rows_to_exclude)], ]
 ```
 
 ```{r}
@@ -226,8 +223,6 @@ DeathCnt_data <- DthCount3A_cleaned %>% drop_na()
 # Verify that NAs have been removed
 glimpse(DeathCnt_data)
 ```
-
-# Bivariate Analysis
 
 ```{r, message=FALSE, warning=FALSE}
 ## Example of a bivariate plot between 'state' and 'varroa_mites'
@@ -270,3 +265,75 @@ write.csv(DeathCntFinal_data, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Sci
 ```
 
 ################################Eddie Cruz #################################################################
+
+```{r}
+# Install and load necessary packages
+library(synthpop)
+```
+
+
+```{r}
+# Output cleaned data file to a csv file.
+DthCount_data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/Storage CDCdata-exercise/DeathCntFinal_data.csv", header = FALSE, stringsAsFactors = FALSE)
+```
+
+```{r}
+# Load your data (assuming it's saved as a CSV file)
+data <- read.csv("DeathCntFinal_data.csv")
+
+```
+
+```{r}
+# Subset the data to keep only the first 500 observations
+data <- data[1:500, ]
+```
+
+
+```{r}
+# Handle missing values (for simplicity, we'll remove rows with any NAs)
+data <- na.omit(data)
+
+```
+
+```{r}
+# Identify and remove constant columns
+constant_columns <- sapply(data, function(col) length(unique(col)) == 1)
+data <- data[, !constant_columns]
+```
+
+
+```{r}
+# Convert Week_Ending_Date to Date type and create a new variable for month
+data$Week_Ending_Date <- as.Date(data$Week_Ending_Date)
+```
+
+
+```{r}
+# Remove the original Week_Ending_Date column to avoid issues with high levels
+data$Week_Ending_Date <- NULL
+
+```
+
+```{r}
+# Convert numeric variables with few levels to factors
+data$Year <- as.factor(data$Year)
+data$Period <- as.factor(data$Period)
+
+# Create a predictor matrix to handle collinear variables
+predictor_matrix <- syn(data)$predictor.matrix
+# Set collinear variables to 0 for others' synthesis
+predictor_matrix["Period", "Year"] <- 0
+predictor_matrix["Year", "Period"] <- 0
+predictor_matrix["Avg_No_Deaths", "Death_Count"] <- 0
+predictor_matrix["Death_Count", "Avg_No_Deaths"] <- 0
+
+# Generate synthetic data
+synth_data <- syn(data, predictor.matrix = predictor_matrix, maxfaclevels = 200, minnumlevels = 5)
+
+# Access the synthetic dataset
+synthetic_data <- synth_data$syn
+
+# Save the synthetic dataset to a CSV file
+write.csv(synthetic_data, "synthetic_data.csv", row.names = FALSE)
+```
+
