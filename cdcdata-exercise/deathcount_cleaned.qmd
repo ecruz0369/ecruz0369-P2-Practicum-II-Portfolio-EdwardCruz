@@ -6,11 +6,8 @@ format: docx
 
 ```{r}
 library(readxl)
-#update.packages("tidyverse")
 library(tidyverse)
-#update.packages("dplyr")
 library(dplyr)
-#update.packages('mgcv')
 library(mgcv)
 ```
 
@@ -20,11 +17,14 @@ DthCount_data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science
 ```
 
 ```{r}
+#Review variables
 head(DthCount_data)
 ```
 
 ```{r}
+# Type of variable
 str(DthCount_data)
+
 ```
 
 ```{r}
@@ -54,7 +54,7 @@ head(DthCount_cleaned)
 ```
 
 ```{r}
-# Assuming DthCount_cleaned is your cleaned data frame
+# Clean up variable labels
 colnames(DthCount_cleaned) <- c("Jurisdiction", "Week_Ending_Date", "State", "Year", "Week","Cause","Death_Count","Cause_Subgroup","Period","Suppress","Note","Avg_No_Deaths","Variance_2015_2019_2020", "Perc_Diff_2015_2019_2020","Types")
 ```
 
@@ -78,12 +78,12 @@ head(DthCount2_cleaned)
 
 ```{r}
 # Write the cleaned data to a new CSV file
-write.csv(DthCount2_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/cdcdata-exercise/DthCount2_cleaned.csv", row.names = FALSE)
+#write.csv(DthCount2_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/cdcdata-exercise/DthCount2_cleaned.csv", row.names = FALSE)
 ```
 
 ```{r}
+#suppress three variables
 DthCount3_cleaned <- DthCount2_cleaned %>% select(-Suppress,-Note,-Types)
-
 ```
 
 ```{r}
@@ -145,19 +145,22 @@ ggplot(DthCount3_cleaned, aes(x = Year, y = Death_Count)) +
 
 ```{r}
 # Write the cleaned data to a new CSV file
-write.csv(DthCount3_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/cdcdata-exercise/DthCount3_cleaned.csv", row.names = FALSE)
+#write.csv(DthCount3_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/cdcdata-exercise/DthCount3_cleaned.csv", row.names = FALSE)
 ```
 
 
 ```{r}
 # Assuming dat_cleaned is your data frame
 DthCount3A_cleaned <- DthCount3_cleaned[apply(DthCount3_cleaned, 1, function(x) !all(is.na(x))), ]
+```
 
+
+```{r}
 # Print the modified data frame to verify the changes
 head(DthCount3_cleaned)
 
-
 ```
+
 
 
 ```{r}
@@ -176,10 +179,14 @@ library(mgcv)
 ```{r}
 # Convert the 'state' column to a factor
 DthCount3A_cleaned$State <- as.factor(DthCount3_cleaned$State)
+```
 
+
+```{r}
 # Display the resulting data frame
 head(DthCount3_cleaned)
 ```
+
 
 ```{r}
 # Step 3: Reindex the rows starting from 1
@@ -189,7 +196,7 @@ rownames(DthCount3A_cleaned) <- NULL
 ```{r}
 str(DthCount3A_cleaned)
 ```
-
+##########################################################Edward Cruz###########################################################################
 ```{r}
 library(ggplot2)
 
@@ -214,16 +221,15 @@ ggplot(data = DthCount3A_cleaned, aes(x = State, y = Death_Count)) +
 # Remove all rows with any NA values
 
 ```{r}
-
-library(tidyr)
-
-
+#Remove NA values
 DeathCnt_data <- DthCount3A_cleaned %>% drop_na()
+```
 
+```{r}
 # Verify that NAs have been removed
 glimpse(DeathCnt_data)
 ```
-
+# View a cleaner plot
 ```{r, message=FALSE, warning=FALSE}
 ## Example of a bivariate plot between 'state' and 'varroa_mites'
 ggplot(DeathCnt_data, aes(x = State, y = Death_Count)) +
@@ -260,11 +266,11 @@ ggplot(data = DeathCntFinal_data, aes(x = State, y = Death_Count)) +
 ```
 
 ```{r}
-# Write the cleaned data to a new CSV file
+# Write the cleaned data to a new CSV file which will be used to create synthetic data
 write.csv(DeathCntFinal_data, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/cdcdata-exercise/DeathCntFinal_data.csv", row.names = FALSE)
 ```
 
-################################Eddie Cruz #################################################################
+################################Eddie Cruz & Leonels Salazar #################################################################
 
 ```{r}
 # Install and load necessary packages
@@ -292,7 +298,6 @@ data <- data[1:500, ]
 ```{r}
 # Handle missing values (for simplicity, we'll remove rows with any NAs)
 data <- na.omit(data)
-
 ```
 
 ```{r}
@@ -311,7 +316,6 @@ data$Week_Ending_Date <- as.Date(data$Week_Ending_Date)
 ```{r}
 # Remove the original Week_Ending_Date column to avoid issues with high levels
 data$Week_Ending_Date <- NULL
-
 ```
 
 ```{r}
@@ -336,4 +340,4 @@ synthetic_data <- synth_data$syn
 # Save the synthetic dataset to a CSV file
 write.csv(synthetic_data, "synthetic_data.csv", row.names = FALSE)
 ```
-
+#####################################################Leonel Salazar#############################################################################
