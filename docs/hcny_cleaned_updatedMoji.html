@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,6 +145,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Data Exercise</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./cdcdata-exercise/cdcdata-exercise.html">
+ <span class="dropdown-text">CDC Data Exercise</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./presentation-exercise/presentation-exercise.html">
  <span class="dropdown-text">Presentation Exercise</span></a>
   </li>  
@@ -172,7 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hcny_cleaned_updatedMoji.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -215,37 +220,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcny_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       V1           V2          V3      V4         V5    V6      V7
-1   state varroa_mites other_pests disease pesticides other unknown
-2    &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
-3    &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
-4 Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5 Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6   Idaho         40.9         6.7     5.9        5.7   1.3     1.4</code></pre>
+<pre><code>        V1           V2          V3      V4         V5    V6      V7
+1    state varroa_mites other_pests disease pesticides other unknown
+2   Kansas         35.5           2     0.1       21.7   3.4       2
+3 Kentucky            8         2.9       1        1.3   0.5     5.6
+4     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+5     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+6     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(hcny_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   49 obs. of  7 variables:
- $ V1: chr  "state" NA NA "Florida" ...
- $ V2: chr  "varroa_mites" NA NA "49.5" ...
- $ V3: chr  "other_pests" NA NA "21.8" ...
- $ V4: chr  "disease" NA NA "7.1" ...
- $ V5: chr  "pesticides" NA NA "18.2" ...
- $ V6: chr  "other" NA NA "15.1" ...
- $ V7: chr  "unknown" NA NA "7.7" ...</code></pre>
+<pre><code>'data.frame':   41 obs. of  7 variables:
+ $ V1: chr  "state" "Kansas" "Kentucky" NA ...
+ $ V2: chr  "varroa_mites" "35.5" "8" NA ...
+ $ V3: chr  "other_pests" "2" "2.9" NA ...
+ $ V4: chr  "disease" "0.1" "1" NA ...
+ $ V5: chr  "pesticides" "21.7" "1.3" NA ...
+ $ V6: chr  "other" "3.4" "0.5" NA ...
+ $ V7: chr  "unknown" "2" "5.6" NA ...</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hcny_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      V1                 V2                 V3                 V4           
- Length:49          Length:49          Length:49          Length:49         
+ Length:41          Length:41          Length:41          Length:41         
  Class :character   Class :character   Class :character   Class :character  
  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
       V5                 V6                 V7           
- Length:49          Length:49          Length:49         
+ Length:41          Length:41          Length:41         
  Class :character   Class :character   Class :character  
  Mode  :character   Mode  :character   Mode  :character  </code></pre>
 </div>
@@ -268,20 +273,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the resulting data frame</span></span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcny_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   state NA varroa_mites NA other_pests NA disease NA pesticides NA other NA
-4   Florida            49.5           21.8        7.1          18.2     15.1
-5   Georgia            30.2           12.2        2.4           3.9      9.8
-6     Idaho            40.9            6.7        5.9           5.7      1.3
-7  Illinois            25.6           13.3        3.2           6.8      6.7
-8   Indiana            23.8            5.6        1.6           7.4     18.3
-NA     &lt;NA&gt;            &lt;NA&gt;           &lt;NA&gt;       &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;
-   unknown NA
-4         7.7
-5         7.1
-6         1.4
-7         3.7
-8           3
-NA       &lt;NA&gt;</code></pre>
+<pre><code>     state Kansas varroa_mites 35.5 other_pests 2 disease 0.1 pesticides 21.7
+NA           &lt;NA&gt;              &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+NA.1         &lt;NA&gt;              &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+NA.2         &lt;NA&gt;              &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+NA.3         &lt;NA&gt;              &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+8        Michigan              16.5           1.7         1.8             2.1
+NA.4         &lt;NA&gt;              &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+     other 3.4 unknown 2
+NA        &lt;NA&gt;      &lt;NA&gt;
+NA.1      &lt;NA&gt;      &lt;NA&gt;
+NA.2      &lt;NA&gt;      &lt;NA&gt;
+NA.3      &lt;NA&gt;      &lt;NA&gt;
+8          3.3      10.3
+NA.4      &lt;NA&gt;      &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -291,13 +296,13 @@ NA       &lt;NA&gt;</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcny_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3       3
-NA     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</code></pre>
+<pre><code>        state varroa_mites other_pests disease pesticides other unknown
+NA       &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.1     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.2     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.3     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+8    Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+NA.4     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -308,51 +313,51 @@ NA     &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;    &lt;NA&gt;       &lt;N
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the resulting data frame</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3     3.0
-NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
+<pre><code>        state varroa_mites other_pests disease pesticides other unknown
+NA       &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.1     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.2     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.3     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+8    Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+NA.4     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3     3.0
-NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
+<pre><code>        state varroa_mites other_pests disease pesticides other unknown
+NA       &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.1     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.2     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.3     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+8    Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+NA.4     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the changes</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   46 obs. of  7 variables:
- $ state       : chr  "Florida" "Georgia" "Idaho" "Illinois" ...
- $ varroa_mites: num  49.5 30.2 40.9 25.6 23.8 NA 35.5 8 NA NA ...
- $ other_pests : num  21.8 12.2 6.7 13.3 5.6 NA 2 2.9 NA NA ...
- $ disease     : num  7.1 2.4 5.9 3.2 1.6 NA 0.1 1 NA NA ...
- $ pesticides  : num  18.2 3.9 5.7 6.8 7.4 NA 21.7 1.3 NA NA ...
- $ other       : num  15.1 9.8 1.3 6.7 18.3 NA 3.4 0.5 NA NA ...
- $ unknown     : num  7.7 7.1 1.4 3.7 3 NA 2 5.6 NA NA ...</code></pre>
+<pre><code>'data.frame':   38 obs. of  7 variables:
+ $ state       : chr  NA NA NA NA ...
+ $ varroa_mites: num  NA NA NA NA 16.5 NA 12.6 13.1 NA 26.8 ...
+ $ other_pests : num  NA NA NA NA 1.7 NA 3.5 6.4 NA 3.9 ...
+ $ disease     : num  NA NA NA NA 1.8 NA 1 0.8 NA 0.6 ...
+ $ pesticides  : num  NA NA NA NA 2.1 NA 3.2 0.5 NA 0.5 ...
+ $ other       : num  NA NA NA NA 3.3 NA 9.1 4.8 NA 0.6 ...
+ $ unknown     : num  NA NA NA NA 10.3 NA 2.4 3.4 NA 3.7 ...</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3     3.0
-NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
+<pre><code>        state varroa_mites other_pests disease pesticides other unknown
+NA       &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.1     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.2     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+NA.3     &lt;NA&gt;           NA          NA      NA         NA    NA      NA
+8    Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+NA.4     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -380,27 +385,27 @@ NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</cod
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the modified data frame to verify the changes</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3     3.0
-10   Kansas         35.5         2.0     0.1       21.7   3.4     2.0</code></pre>
+<pre><code>          state varroa_mites other_pests disease pesticides other unknown
+8      Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+10  Mississippi         12.6         3.5     1.0        3.2   9.1     2.4
+11     Missouri         13.1         6.4     0.8        0.5   4.8     3.4
+13     Nebraska         26.8         3.9     0.6        0.5   0.6     3.7
+19         Ohio         65.3        33.5     0.7        5.7   1.0     4.4
+22 Pennsylvania         13.8         7.2     2.7        6.9   1.1     1.1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   16 obs. of  7 variables:
- $ state       : chr  "Florida" "Georgia" "Idaho" "Illinois" ...
- $ varroa_mites: num  49.5 30.2 40.9 25.6 23.8 35.5 8 16.5 12.6 13.1 ...
- $ other_pests : num  21.8 12.2 6.7 13.3 5.6 2 2.9 1.7 3.5 6.4 ...
- $ disease     : num  7.1 2.4 5.9 3.2 1.6 0.1 1 1.8 1 0.8 ...
- $ pesticides  : num  18.2 3.9 5.7 6.8 7.4 21.7 1.3 2.1 3.2 0.5 ...
- $ other       : num  15.1 9.8 1.3 6.7 18.3 3.4 0.5 3.3 9.1 4.8 ...
- $ unknown     : num  7.7 7.1 1.4 3.7 3 2 5.6 10.3 2.4 3.4 ...</code></pre>
+<pre><code>'data.frame':   9 obs. of  7 variables:
+ $ state       : chr  "Michigan" "Mississippi" "Missouri" "Nebraska" ...
+ $ varroa_mites: num  16.5 12.6 13.1 26.8 65.3 13.8 46.8 67.2 50.9
+ $ other_pests : num  1.7 3.5 6.4 3.9 33.5 7.2 42.3 9.8 13.9
+ $ disease     : num  1.8 1 0.8 0.6 0.7 2.7 10.9 47.8 6.5
+ $ pesticides  : num  2.1 3.2 0.5 0.5 5.7 6.9 12.1 49.2 10.5
+ $ other       : num  3.3 9.1 4.8 0.6 1 1.1 30.1 48.1 13.6
+ $ unknown     : num  10.3 2.4 3.4 3.7 4.4 1.1 10.2 46.8 6</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -420,13 +425,13 @@ NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</cod
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the resulting data frame</span></span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hcnydata_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      state varroa_mites other_pests disease pesticides other unknown
-4   Florida         49.5        21.8     7.1       18.2  15.1     7.7
-5   Georgia         30.2        12.2     2.4        3.9   9.8     7.1
-6     Idaho         40.9         6.7     5.9        5.7   1.3     1.4
-7  Illinois         25.6        13.3     3.2        6.8   6.7     3.7
-8   Indiana         23.8         5.6     1.6        7.4  18.3     3.0
-10   Kansas         35.5         2.0     0.1       21.7   3.4     2.0</code></pre>
+<pre><code>          state varroa_mites other_pests disease pesticides other unknown
+8      Michigan         16.5         1.7     1.8        2.1   3.3    10.3
+10  Mississippi         12.6         3.5     1.0        3.2   9.1     2.4
+11     Missouri         13.1         6.4     0.8        0.5   4.8     3.4
+13     Nebraska         26.8         3.9     0.6        0.5   0.6     3.7
+19         Ohio         65.3        33.5     0.7        5.7   1.0     4.4
+22 Pennsylvania         13.8         7.2     2.7        6.9   1.1     1.1</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -470,15 +475,15 @@ NA     &lt;NA&gt;           NA          NA      NA         NA    NA      NA</cod
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that NAs have been removed</span></span>
 <span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 16
+<pre><code>Rows: 9
 Columns: 7
-$ state        &lt;fct&gt; Florida, Georgia, Idaho, Illinois, Indiana, Kansas, Kentu…
-$ varroa_mites &lt;dbl&gt; 49.5, 30.2, 40.9, 25.6, 23.8, 35.5, 8.0, 16.5, 12.6, 13.1…
-$ other_pests  &lt;dbl&gt; 21.8, 12.2, 6.7, 13.3, 5.6, 2.0, 2.9, 1.7, 3.5, 6.4, 3.9,…
-$ disease      &lt;dbl&gt; 7.1, 2.4, 5.9, 3.2, 1.6, 0.1, 1.0, 1.8, 1.0, 0.8, 0.6, 0.…
-$ pesticides   &lt;dbl&gt; 18.2, 3.9, 5.7, 6.8, 7.4, 21.7, 1.3, 2.1, 3.2, 0.5, 0.5, …
-$ other        &lt;dbl&gt; 15.1, 9.8, 1.3, 6.7, 18.3, 3.4, 0.5, 3.3, 9.1, 4.8, 0.6, …
-$ unknown      &lt;dbl&gt; 7.7, 7.1, 1.4, 3.7, 3.0, 2.0, 5.6, 10.3, 2.4, 3.4, 3.7, 4…</code></pre>
+$ state        &lt;fct&gt; Michigan, Mississippi, Missouri, Nebraska, Ohio, Pennsylv…
+$ varroa_mites &lt;dbl&gt; 16.5, 12.6, 13.1, 26.8, 65.3, 13.8, 46.8, 67.2, 50.9
+$ other_pests  &lt;dbl&gt; 1.7, 3.5, 6.4, 3.9, 33.5, 7.2, 42.3, 9.8, 13.9
+$ disease      &lt;dbl&gt; 1.8, 1.0, 0.8, 0.6, 0.7, 2.7, 10.9, 47.8, 6.5
+$ pesticides   &lt;dbl&gt; 2.1, 3.2, 0.5, 0.5, 5.7, 6.9, 12.1, 49.2, 10.5
+$ other        &lt;dbl&gt; 3.3, 9.1, 4.8, 0.6, 1.0, 1.1, 30.1, 48.1, 13.6
+$ unknown      &lt;dbl&gt; 10.3, 2.4, 3.4, 3.7, 4.4, 1.1, 10.2, 46.8, 6.0</code></pre>
 </div>
 </div>
 </section>
@@ -504,42 +509,39 @@ $ unknown      &lt;dbl&gt; 7.7, 7.1, 1.4, 3.7, 3.0, 2.0, 5.6, 10.3, 2.4, 3.4, 3.
 <section id="multivariable-glm" class="level1">
 <h1>Multivariable GLM</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidymodels"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidymodels' is in use and will not be installed</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the GLM model</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>glm_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a recipe for preprocessing the data</span></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>glm_recipe <span class="ot">&lt;-</span> <span class="fu">recipe</span>(varroa_mites <span class="sc">~</span> other_pests <span class="sc">+</span> disease <span class="sc">+</span> pesticides <span class="sc">+</span> other <span class="sc">+</span> unknown, <span class="at">data =</span> my_data) <span class="sc">%&gt;%</span></span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a workflow</span></span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>glm_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(glm_spec) <span class="sc">%&gt;%</span></span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(glm_recipe)</span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
-<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>glm_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(glm_workflow, <span class="at">data =</span> my_data)</span>
-<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary using tidy()</span></span>
-<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>model_summary <span class="ot">&lt;-</span> <span class="fu">tidy</span>(glm_fit)</span>
-<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidymodels")</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the GLM model</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>glm_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a recipe for preprocessing the data</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>glm_recipe <span class="ot">&lt;-</span> <span class="fu">recipe</span>(varroa_mites <span class="sc">~</span> other_pests <span class="sc">+</span> disease <span class="sc">+</span> pesticides <span class="sc">+</span> other <span class="sc">+</span> unknown, <span class="at">data =</span> my_data) <span class="sc">%&gt;%</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a workflow</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>glm_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(glm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(glm_recipe)</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>glm_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(glm_workflow, <span class="at">data =</span> my_data)</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary using tidy()</span></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>model_summary <span class="ot">&lt;-</span> <span class="fu">tidy</span>(glm_fit)</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-  term        estimate std.error statistic     p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-1 (Intercept)    32.9       2.75    12.0   0.000000300
-2 other_pests    12.5       3.27     3.83  0.00333    
-3 disease         7.95     13.6      0.586 0.571      
-4 pesticides     12.8       6.33     2.03  0.0703     
-5 other          -9.57      6.51    -1.47  0.172      
-6 unknown        -1.73     11.0     -0.157 0.879      </code></pre>
+  term        estimate std.error statistic p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept)    34.8       5.02     6.92  0.00618
+2 other_pests    14.6       8.25     1.76  0.176  
+3 disease       -52.1      97.6     -0.533 0.631  
+4 pesticides     51.0      60.7      0.840 0.463  
+5 other          -8.94     21.6     -0.414 0.707  
+6 unknown        23.1      34.0      0.681 0.544  </code></pre>
 </div>
 </div>
 

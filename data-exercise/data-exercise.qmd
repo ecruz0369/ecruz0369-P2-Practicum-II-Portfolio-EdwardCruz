@@ -1,8 +1,8 @@
 ---
-title: "Data Exercise"
+title: "R Coding Exercise"
 ---
 
-Placeholder file for the future R coding exercise.
+Placeholder file for data coding exercise.
 
 
 
@@ -185,28 +185,4 @@ ggplot(applicant_final, aes(x = situational, y = performance)) +
   geom_point(color = "blue") +
   labs(title = "Scatter Plot: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
