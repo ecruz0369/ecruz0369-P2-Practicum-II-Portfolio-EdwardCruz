@@ -206,10 +206,10 @@ str(DthCount3A_cleaned)
 ```{r}
 library(ggplot2)
 
-# Bar chart of Death Count by State with skyblue fill and flipped coordinates
+# Bar chart of Death Count by State with darkblue fill and flipped coordinates
 ggplot(data = DthCount3A_cleaned, aes(x = State, y = Death_Count)) +
   geom_bar(stat = "identity", fill = "darkblue") +
-  labs(title = "Varroa Mites by State",
+  labs(title = "Death Count by State",
        x = "State",
        y = "Death Count") +
   theme_minimal() +
@@ -257,7 +257,7 @@ library(ggplot2)
 # Bar chart of Death Count by State with skyblue fill and flipped coordinates
 ggplot(data = DeathCntFinal_data, aes(x = State, y = Death_Count)) +
   geom_bar(stat = "identity", fill = "darkblue") +
-  labs(title = "Varroa Mites by State",
+  labs(title = "Death Count by State",
        x = "State",
        y = "Death Count") +
   theme_minimal() +
