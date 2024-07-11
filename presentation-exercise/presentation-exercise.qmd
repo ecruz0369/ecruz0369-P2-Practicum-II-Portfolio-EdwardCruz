@@ -112,11 +112,11 @@ ggplot(data, aes(x = year, y = cpi_change)) +
   scale_x_continuous(breaks = years, labels = years) +  # X-axis labels
   scale_y_continuous(limits = c(0, max(cpi_change) * 1.1), breaks = seq(0, max(cpi_change) * 1.1, by = 1), labels = paste0(seq(0, max(cpi_change) * 1.1, by = 1), "%")) +  # Y-axis labels
   labs(
-    title = "Consumer Price Index Change from One Year Earlier",
+    title = "Consumer Price Index Change from One Year Prior",
     x = "Year",
     y = "CPI Change (%)"
   ) +
-  theme_wsj(base_size = 14) +
+  theme_wsj(base_size =1) +
   theme(
     plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
     axis.title = element_text(size = 16, face = "bold"),
@@ -160,14 +160,14 @@ data <- data.frame(
 ggplot(data, aes(x = month, y = category, fill = percentage_change)) +
   geom_tile(color = "white") +
   scale_fill_gradient2(low = "#D7191C", mid = "white", high = "#1A9641", midpoint = 0, limits = c(-10, 10), name = "Percentage Change (%)") +
-  geom_text(aes(label = paste0(percentage_change, "%")), size = 3, color = "black") +
+  geom_text(aes(label = paste0(percentage_change, "%")), size = 1, color = "black") +
   labs(
-    title = "Year-over-Year Price Changes for Major Categories of Goods",
+    title = "Year-over-Year Price Changes for Major Category of Goods",
     subtitle = "Data as of June 12, 2024\nAll items are percentage change from a year earlier",
     x = "Month",
     y = "Category"
   ) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = 10) +
   theme(
     plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
     plot.subtitle = element_text(hjust = 0.5, size = 14),
