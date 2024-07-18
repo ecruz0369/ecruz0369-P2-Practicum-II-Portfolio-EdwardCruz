@@ -1,0 +1,58 @@
+---
+title: "Honey Bee Code"
+author: "Edward Cruz, Jr."
+editor: visual
+---
+
+```{r}
+# Install necessary packages
+
+# Load the libraries
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(showtext)
+library(ggimage)
+```
+
+```{r}
+# Create a data frame with the composition of honey
+honey_data <- data.frame(
+  component = c("Fructose", "Glucose", "Water", "Maltose", "Trisaccharides, Carbohydrates", "Sucrose", "Minerals, Vitamins, Enzymes"),
+  percentage = c(38.5, 31.0, 17.1, 7.2, 4.2, 1.5, 0.5)
+)
+
+# Define colors for the segments
+honey_data$color <- c("#FFA726", "#FB8C00", "#FFD54F", "#FFB74D", "#90CAF9", "#F06292", "#BA68C8")
+
+# Path to the bee icon
+bee_jpg <- "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/DA-6833-02T-202430 Practicum II/bee_2.jpg" # Update with your bee icon path
+
+```
+
+```{r}
+ggplot(honey_data, aes(x = "", y = percentage, fill = component)) +
+  geom_bar(width = 0.8, stat = "identity", color = "white") +  # Adjust width here
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = honey_data$color) +
+  geom_text(aes(label = paste0(percentage, "%")), position = position_stack(vjust = 0.6), size = 3, color = "black") +
+  labs(
+    title = "COMPOSITION OF HONEY",
+    subtitle = "Illustration of honey components by percentage",
+    fill = NULL
+  ) +
+  theme_void() +
+  theme(
+    plot.title = element_text(size = 22, face = "bold", hjust = 0.5, family = "lobster"),
+    plot.subtitle = element_text(size = 14, hjust = 0.5),
+    legend.position = "bottom",
+    legend.text = element_text(size = 12)
+  ) +
+  # Add the bee icon
+  ggimage::geom_image(aes(x = 1.5, y = 0, image = bee_jpg), size = 0.1)  # Adjust x and y to position the bee outside the pie chart
+```
+
+
+
+
+
