@@ -4,11 +4,10 @@ title: "R Coding Exercise"
 
 Placeholder file for data coding exercise.
 
-
-
-
 ## Loading and Checking Data
+
 ### Import libraries
+
 ```{r}
 library(MASS)
 library(synthpop)
@@ -185,4 +184,3 @@ ggplot(applicant_final, aes(x = situational, y = performance)) +
   geom_point(color = "blue") +
   labs(title = "Scatter Plot: Situational vs Performance", x = "Situational Score", y = "Performance Score")
 ```
-
