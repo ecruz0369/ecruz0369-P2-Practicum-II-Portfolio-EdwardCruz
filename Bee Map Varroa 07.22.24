@@ -1,0 +1,82 @@
+---
+title: "Bee Map"
+author: "Edward Cruz"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+library(ggplot2)
+library(sf)
+library(maps)
+
+```
+
+You can add options to executable code like this
+
+```{r}
+states <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
+
+
+```
+
+```{r}
+varroa_data <- data.frame(
+  state = c("alabama", "alaska", "arizona", "arkansas", "california", "colorado", 
+            "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", 
+            "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", 
+            "maine", "maryland", "massachusetts", "michigan", "minnesota", 
+            "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", 
+            "new jersey", "new mexico", "new york", "north carolina", "north dakota", 
+            "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", 
+            "south carolina", "south dakota", "tennessee", "texas", "utah", 
+            "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"),
+  year = c("1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995",
+           "1986 - 1987", "1988 - 1989", "1990 - 1991", "1992 - 1993", "1994 - 1995")
+)
+
+```
+
+```{r}
+states <- merge(states, varroa_data, by.x = "ID", by.y = "state", all.x = TRUE)
+
+```
+
+```{r}
+ggplot(data = states) +
+  geom_sf(aes(fill = year), color = "black", size = 0.2) +
+  scale_fill_manual(
+    values = c(
+      "1986 - 1987" = "red", 
+      "1988 - 1989" = "orange", 
+      "1990 - 1991" = "yellow", 
+      "1992 - 1993" = "green", 
+      "1994 - 1995" = "blue"
+    ),
+    na.value = "grey50"
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Spread of Varroa Mites",
+    fill = "Year of First Appearance"
+  )
+
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

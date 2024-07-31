@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola">
+
+<title>Edward(Eddie) Cruz,Jr.&nbsp;Data Analysis Portfolio - Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Edward(Eddie) Cruz,Jr.&nbsp;Data Analysis Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../aboutme.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../starter-analysis-exercise/products/report/starter-analysis-report.html">
+ <span class="dropdown-text">Starter Analysis Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../coding-exercise/coding-exercise.html">
+ <span class="dropdown-text">R Coding Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data-exercise/data-exercise.html">
+ <span class="dropdown-text">Data Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cdcdata-exercise/cdcdata-exercise.html">
+ <span class="dropdown-text">CDC Data Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../presentation-exercise/presentation-exercise.html">
+ <span class="dropdown-text">Presentation Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../tidytuesday-exercise/tidytuesday-exercise.html">
+ <span class="dropdown-text">Tidy Tuesday Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../manuscript-exercise/manuscript_final-2.html">
+ <span class="dropdown-text">Manuscript Project</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ecruz0369/ecruz0369-P2-Practicum-II-Portfolio-EdwardCruz"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="summaryabstract" class="level1">
+<h1>Summary/Abstract</h1>
+<p>Group Ten is conducting a comprehensive analysis of historical data from various public agencies to evaluate the impact of Varroa mites, American Foulbrood, and global warming on hive losses in the United States.This research utilizes extensive datasets from the National Agricultural Statistics Service, the Agricultural Statistics Board, and the United States Department of Agriculture (USDA), encompassing multiple years of data. The data highlights the topic on hive losses attributed to mites, bacterial infections, and environmental factors related to global warming. Through advanced data visualization techniques in R, we aim to demonstrate and validate the detrimental effects of these factors on honeybee colonies, highlighting the consequent implications for honey production and broader food security.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Honeybees have served as nature’s pollinators for centuries. With their relationship with humans documented as far back as ancient Egyptian and Hindu cultures. Historically, humans have maintained beehives and utilized honey for its medicinal properties in various civilizations, including the Egyptians, Assyrians, Chinese, Greeks, and Romans. Honey’s natural antibacterial qualities made it a valuable treatment for wounds. This was a practice continued by Romans and Russians during World War I. Honeybees and other pollinators are essential for food production and nutritional security. But even though they face numerous survival challenges Varroa mites pose a significant threat to bee colonies. These tiny red-brown parasites live on adult honeybees and reproduce on larvae and pupae. Another major threat is American Foulbrood Disease (AFB). This is caused by the bacterium Paenibacillus larvae, which is fatal to honeybee larvae and requires incineration of infected hives to prevent its spread. The impact of climate change on honeybee colony losses is a growing area of research. While correlations have been found between higher winter temperatures and increased colony losses, the effects of warmer autumn and winter temperatures on colony dynamics and survival require further investigation.</p>
+<section id="composition-of-honey" class="level3">
+<h3 class="anchored" data-anchor-id="composition-of-honey">Composition of Honey</h3>
+<p>The first image is a pie chart that illustrates the composition of honey by percentage. The main components are:</p>
+<ul>
+<li><strong>Fructose</strong>: 38.5%</li>
+<li><strong>Glucose</strong>: 31%</li>
+<li><strong>Water</strong>: 17.1%</li>
+<li><strong>Maltose</strong>: 7.2%</li>
+<li><strong>Other components</strong>:
+<ul>
+<li>Sucrose: 1.5%</li>
+<li>Minerals, Vitamins, Enzymes: 0.5%</li>
+<li>Trisaccharides, Carbohydrates: 4.2%</li>
+</ul></li>
+</ul>
+<p>This composition indicates that honey is primarily made up of sugars, specifically fructose and glucose, with water being the third major component. The presence of minerals, vitamins, and enzymes, though in smaller amounts, adds nutritional value to honey. This detailed breakdown underscores honey’s role as a natural sweetener with additional health benefits beyond its primary carbohydrate content.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="spread-of-varroa-mites" class="level3">
+<h3 class="anchored" data-anchor-id="spread-of-varroa-mites">Spread of Varroa Mites</h3>
+<p>The second image is a map illustrating the spread of Varroa mites in the United States from 1986 to 1995. The map uses different colors to represent the year of the first appearance of Varroa mites in each state:</p>
+<ul>
+<li><strong>1986 - 1987</strong>: Red</li>
+<li><strong>1988 - 1989</strong>: Yellow</li>
+<li><strong>1990 - 1991</strong>: Green</li>
+<li><strong>1992 - 1993</strong>: Blue</li>
+<li><strong>1994 - 1995</strong>: Grey</li>
+<li><strong>NA</strong>: States where data is not available</li>
+</ul>
+<p>The map reveals the progressive spread of Varroa mites from the mid-1980s to the mid-1990s, affecting bee colonies across the country. The earliest appearances were concentrated in specific regions and gradually spread to more states over time. This visual representation highlights the increasing geographical distribution of Varroa mites and underscores the growing challenge they pose to beekeeping and agricultural industries in the United States.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ lubridate 1.9.3     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.1
+✔ readr     2.1.5     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ readr::col_factor() masks scales::col_factor()
+✖ purrr::discard()    masks scales::discard()
+✖ dplyr::filter()     masks stats::filter()
+✖ dplyr::lag()        masks stats::lag()
+✖ purrr::map()        masks maps::map()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with the provided data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1901</span><span class="sc">:</span><span class="dv">2023</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Earth's surface</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.43</span>, <span class="sc">-</span><span class="fl">1.4</span>, <span class="sc">-</span><span class="fl">0.86</span>, <span class="sc">-</span><span class="fl">1.02</span>, <span class="sc">-</span><span class="fl">0.29</span>, <span class="sc">-</span><span class="fl">0.54</span>, <span class="fl">0.06</span>, <span class="sc">-</span><span class="fl">0.59</span>, <span class="fl">0.4</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="fl">1.79</span>, <span class="sc">-</span><span class="fl">0.48</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="sc">-</span><span class="fl">0.57</span>, <span class="sc">-</span><span class="fl">1.17</span>, <span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.47</span>, <span class="sc">-</span><span class="fl">0.95</span>, <span class="fl">1.78</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="fl">0.38</span>, <span class="sc">-</span><span class="fl">1.43</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.07</span>, <span class="fl">0.13</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="sc">-</span><span class="fl">1.17</span>, <span class="sc">-</span><span class="fl">0.04</span>, <span class="fl">1.52</span>, <span class="sc">-</span><span class="fl">0.29</span>, <span class="fl">0.97</span>, <span class="fl">2.08</span>, <span class="sc">-</span><span class="fl">0.12</span>, <span class="fl">0.13</span>, <span class="sc">-</span><span class="fl">0.47</span>, <span class="fl">1.16</span>, <span class="fl">1.24</span>, <span class="sc">-</span><span class="fl">0.13</span>, <span class="fl">0.64</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.19</span>, <span class="sc">-</span><span class="fl">0.27</span>, <span class="fl">0.93</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="sc">-</span><span class="fl">0.41</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.63</span>, <span class="sc">-</span><span class="fl">0.9</span>, <span class="fl">0.25</span>, <span class="fl">1.35</span>, <span class="fl">1.31</span>, <span class="sc">-</span><span class="fl">0.33</span>, <span class="fl">0.32</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.09</span>, <span class="fl">0.09</span>, <span class="sc">-</span><span class="fl">0.58</span>, <span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.12</span>, <span class="fl">0.24</span>, <span class="sc">-</span><span class="fl">0.35</span>, <span class="sc">-</span><span class="fl">0.33</span>, <span class="sc">-</span><span class="fl">0.53</span>, <span class="sc">-</span><span class="fl">0.26</span>, <span class="sc">-</span><span class="fl">0.7</span>, <span class="sc">-</span><span class="fl">0.52</span>, <span class="sc">-</span><span class="fl">0.41</span>, <span class="sc">-</span><span class="fl">0.36</span>, <span class="sc">-</span><span class="fl">0.65</span>, <span class="fl">0.27</span>, <span class="fl">0.24</span>, <span class="sc">-</span><span class="fl">0.52</span>, <span class="sc">-</span><span class="fl">0.55</span>, <span class="fl">0.53</span>, <span class="sc">-</span><span class="fl">0.97</span>, <span class="sc">-</span><span class="fl">1.14</span>, <span class="fl">0.37</span>, <span class="fl">1.1</span>, <span class="sc">-</span><span class="fl">0.67</span>, <span class="sc">-</span><span class="fl">0.14</span>, <span class="sc">-</span><span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.72</span>, <span class="fl">1.3</span>, <span class="fl">1.31</span>, <span class="fl">0.61</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="fl">1.49</span>, <span class="fl">1.14</span>, <span class="fl">0.58</span>, <span class="sc">-</span><span class="fl">0.76</span>, <span class="fl">0.85</span>, <span class="fl">0.63</span>, <span class="sc">-</span><span class="fl">0.13</span>, <span class="fl">0.18</span>, <span class="fl">2.21</span>, <span class="fl">1.86</span>, <span class="fl">1.25</span>, <span class="fl">1.68</span>, <span class="fl">1.19</span>, <span class="fl">1.24</span>, <span class="fl">1.08</span>, <span class="fl">1.62</span>, <span class="fl">2.23</span>, <span class="fl">1.63</span>, <span class="fl">0.27</span>, <span class="fl">0.37</span>, <span class="fl">0.96</span>, <span class="fl">1.16</span>, <span class="fl">3.26</span>, <span class="fl">0.41</span>, <span class="fl">0.52</span>, <span class="fl">2.38</span>, <span class="fl">2.9</span>, <span class="fl">2.53</span>, <span class="fl">1.5</span>, <span class="fl">0.66</span>, <span class="fl">2.35</span>, <span class="fl">2.49</span>, <span class="fl">1.37</span>, <span class="fl">2.39</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Lower troposphere (UAH)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">78</span>), <span class="fl">0.049093434</span>, <span class="fl">0.731593434</span>, <span class="fl">1.102093434</span>, <span class="fl">0.008593434</span>, <span class="fl">0.034093434</span>, <span class="fl">0.292093434</span>, <span class="fl">0.110593434</span>, <span class="fl">1.220593434</span>, <span class="fl">1.054093434</span>, <span class="fl">0.698593434</span>, <span class="fl">0.548593434</span>, <span class="fl">1.451593434</span>, <span class="fl">1.031593434</span>, <span class="fl">0.484093434</span>, <span class="sc">-</span><span class="fl">0.174406566</span>, <span class="fl">1.043593434</span>, <span class="fl">0.797593434</span>, <span class="fl">0.502093434</span>, <span class="fl">0.457093434</span>, <span class="fl">1.691593434</span>, <span class="fl">1.796593434</span>, <span class="fl">1.351093434</span>, <span class="fl">1.255093434</span>, <span class="fl">0.994093434</span>, <span class="fl">1.223593434</span>, <span class="fl">0.769093434</span>, <span class="fl">1.303093434</span>, <span class="fl">1.444093434</span>, <span class="fl">1.765093434</span>, <span class="fl">0.467593434</span>, <span class="fl">0.524593434</span>, <span class="fl">0.929593434</span>, <span class="fl">1.013593434</span>, <span class="fl">1.955593434</span>, <span class="fl">0.655093434</span>, <span class="fl">0.763093434</span>, <span class="fl">2.234593434</span>, <span class="fl">2.030593434</span>, <span class="fl">2.252593434</span>, <span class="fl">1.645093434</span>, <span class="fl">1.133593434</span>, <span class="fl">1.970593434</span>, <span class="fl">2.059093434</span>, <span class="fl">1.567093434</span>, <span class="cn">NA</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Lower troposphere (RSS)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">78</span>), <span class="sc">-</span><span class="fl">0.808971111</span>, <span class="fl">0.178178889</span>, <span class="fl">0.658778889</span>, <span class="sc">-</span><span class="fl">0.579771111</span>, <span class="sc">-</span><span class="fl">0.383871111</span>, <span class="sc">-</span><span class="fl">0.217371111</span>, <span class="sc">-</span><span class="fl">1.053021111</span>, <span class="fl">0.737978889</span>, <span class="fl">1.111328889</span>, <span class="fl">0.557978889</span>, <span class="fl">0.221828889</span>, <span class="fl">1.280228889</span>, <span class="fl">1.043228889</span>, <span class="fl">0.585278889</span>, <span class="sc">-</span><span class="fl">0.261321111</span>, <span class="fl">1.078178889</span>, <span class="fl">0.772628889</span>, <span class="fl">0.278078889</span>, <span class="fl">0.418178889</span>, <span class="fl">1.911578889</span>, <span class="fl">1.882928889</span>, <span class="fl">1.471328889</span>, <span class="fl">1.536578889</span>, <span class="fl">1.144628889</span>, <span class="fl">1.465628889</span>, <span class="fl">1.058528889</span>, <span class="fl">1.583078889</span>, <span class="fl">1.749278889</span>, <span class="fl">1.858928889</span>, <span class="fl">0.503378889</span>, <span class="fl">0.595928889</span>, <span class="fl">0.997028889</span>, <span class="fl">1.109378889</span>, <span class="fl">2.677328889</span>, <span class="fl">0.696278889</span>, <span class="fl">0.781478889</span>, <span class="fl">2.547878889</span>, <span class="fl">2.476328889</span>, <span class="fl">2.350478889</span>, <span class="fl">1.793978889</span>, <span class="fl">1.221428889</span>, <span class="fl">2.290628889</span>, <span class="fl">2.485328889</span>, <span class="fl">1.596878889</span>, <span class="fl">1.886228889</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot the data for plotting</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Earth's surface</span><span class="st">`</span>, <span class="st">`</span><span class="at">Lower troposphere (UAH)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Lower troposphere (RSS)</span><span class="st">`</span>), </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Measurement"</span>, <span class="at">values_to =</span> <span class="st">"Temperature"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Temperature, <span class="at">color =</span> Measurement)) <span class="sc">+</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Temperature Changes Over the Years"</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Temperature Anomaly (°C)"</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Measurement"</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Earth's surface"</span> <span class="ot">=</span> <span class="st">"#254976"</span>, <span class="st">"Lower troposphere (UAH)"</span> <span class="ot">=</span> <span class="st">"#4A8C1D"</span>, <span class="st">"Lower troposphere (RSS)"</span> <span class="ot">=</span> <span class="st">"#B5153A"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 157 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 157 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the United States. Beesource Beekeeping Forums. https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/ ## General Background Information</p>
+</section>
+<section id="uncapped-honey-floresvilletexas-hive" class="level3">
+<h3 class="anchored" data-anchor-id="uncapped-honey-floresvilletexas-hive"><strong>Uncapped Honey Floresville,Texas Hive</strong></h3>
+<p><img src="images/Bee Frame 2024-01.jpg" class="img-fluid" width="674"></p>
+</section>
+<section id="capped-honey-one-month-later-same-hive-frame--italian-bees-floresville-texas" class="level3">
+<h3 class="anchored" data-anchor-id="capped-honey-one-month-later-same-hive-frame--italian-bees-floresville-texas"><strong>Capped Honey one Month Later same hive frame- Italian bees Floresville, Texas</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Bee Frame Capped Honey.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="697"></p>
+</figure>
+</div>
+</section>
+<section id="description-of-data-and-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-data-and-data-source">Description of data and data source</h2>
+<p>Bee colonies maintained by beekeepers are considered livestock by the USDA due to their ability to produce honey, a consumable food item, and their essential role in assisting farmers with pollination crop seasons. Given the importance of bee colonies in agriculture, it was logical to source data from the following two authoritative websites: 1. USDA National Agricultural Statistics Service (NASS): This site provides comprehensive agricultural data, including statistics on honey production and colony health. 2. Bee Informed Partnership: This site offers detailed insights and research on bee colony management and health, contributing valuable information on the status and trends of bee populations. Index Catalog // USDA Economics, Statistics and Market Information System. (n.d.-a). https://usda.library.cornell.edu/catalog?f%5Bkeywords_sim%5D%5B%5D=honey+bees&amp;locale=en<br>
+USDA - National Agricultural Statistics Service - Surveys - honey bee surveys and reports. (n.d.). https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/</p>
+</section>
+<section id="questionshypotheses-to-be-addressed" class="level2">
+<h2 class="anchored" data-anchor-id="questionshypotheses-to-be-addressed">Questions/Hypotheses to be addressed</h2>
+<p>Hypothesis: “The negative impacts of mites, bacterium, and global warming have detrimental effects on honeybee colonies in the United States and Texas, which in turn will lead to a decline in honey production and negatively impact food production.” This hypothesis can be tested and validated through a visualization of outcomes using R, demonstrating the relationship between these factors and their effects on honeybee colonies.</p>
+<section id="bacterium-infection-foul-brood" class="level3">
+<h3 class="anchored" data-anchor-id="bacterium-infection-foul-brood"><strong>Bacterium Infection Foul Brood</strong></h3>
+<p><img src="images/American-Foul-Brood-Comb-1024x768-1.jpg" class="img-fluid"></p>
+</section>
+<section id="dead-bees-resulting-from-extreme-heat-found-in-hive" class="level3">
+<h3 class="anchored" data-anchor-id="dead-bees-resulting-from-extreme-heat-found-in-hive"><strong>Dead bees resulting from extreme heat found in hive</strong></h3>
+<p><img src="images/dead-bees-hive-colony-collapse-600nw-2289939105.webp" class="img-fluid" width="679"></p>
+<p>To cite other work (important everywhere, but likely happens first in introduction), make sure your references are in the bibtex file specified in the YAML header above and have the right bibtex key. Then you can include like this:</p>
+<p>Examples of reproducible research projects can for instance be found in <span class="citation" data-cites="mckay2020 mckay2020a">[@mckay2020; @mckay2020a]</span>.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<p><em>Describe your methods. That should describe the data, the cleaning processes, and the analysis approaches. You might want to provide a shorter description here and all the details in the supplement.</em></p>
+<section id="schematic-of-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="schematic-of-workflow">Schematic of workflow</h2>
+<p>Sometimes you might want to show a schematic diagram/figure that was not created with code (if you can do it with code, do it). <strong>?@fig-schematic</strong> is an example of some - completely random/unrelated - schematic that was generated with Biorender. We store those figures in the <code>assets</code> folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#knitr::include_graphics(here("assets","antigen-recognition.png"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-aquisition" class="level2">
+<h2 class="anchored" data-anchor-id="data-aquisition">Data aquisition</h2>
+<p>We got our data from the United States Department of Agriculture (USDA).</p>
+</section>
+<section id="data-import-and-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-import-and-cleaning">Data import and cleaning</h2>
+<p>We decided to clean out our data from a few different datasets. We had to remove blank spaces and columns that were not pertinent to our analysis. We then filtered out other observations that did not directly deal with the data we are exploring. We are looking for cause of death to bee colonies and how they are affected by mites and climate change so we wanted to single out data that represented the losses so we can explore the different states by year and determine how the colonies were affected.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the here package</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("here")</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 'data' directory within the project</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dir.create(here("data")): 'C:\Users\ecruz\OneDrive\Documents\UTSA -
+Data Science Program\Semester Classes\Practicum II
+Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"Databystate.csv"</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data &lt;- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/DatabyState.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all columns except 3, 6, and 9</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Data_Clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(data, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output cleaned data file to a csv file.</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data_Clean, <span class="st">"Data_Clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Clean.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your data frame is named "data"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for rows where "Loss" or "Deadout" is present in any column (case-insensitive)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)  <span class="co"># Load stringr package for regular expressions</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> Data_Clean[<span class="fu">rowSums</span>(<span class="fu">sapply</span>(data, grepl, <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"Loss"</span>), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output cleaned data file to a csv file.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_filtered, <span class="st">"Data_Filtered.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Filtered.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data str to see what class they are.</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   718 obs. of  6 variables:
+ $ Year      : int  2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 ...
+ $ Period    : chr  "JAN THRU MAR" "JAN THRU MAR" "JAN THRU MAR" "JAN THRU MAR" ...
+ $ State     : chr  "ALABAMA" "ARIZONA" "ARKANSAS" "CALIFORNIA" ...
+ $ State.ANSI: int  1 4 5 6 8 9 12 13 15 16 ...
+ $ Data.Item : chr  "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" ...
+ $ Value     : chr  "250" "2,600" "180" "19,000" ...</code></pre>
+</div>
+</div>
+<section id="boxplot-of-value-by-year-and-data-item" class="level3">
+<h3 class="anchored" data-anchor-id="boxplot-of-value-by-year-and-data-item">Boxplot of Value by Year and Data Item</h3>
+<p>The third image is a boxplot comparing the values for “LOSS, COLONY COLLAPSE DISORDER” and “LOSS, DEADOUT” from 2015 to 2017. The boxplot provides insights into: - The central tendency and spread of losses due to both disorders. - Presence of outliers indicates that there are occasional, significantly higher losses. - Comparative analysis shows that both types of losses have varying distributions each year.</p>
+<p>This indicates that while both types of losses are present each year, the magnitude and frequency of extreme loss events can differ, suggesting variability in the factors contributing to colony losses.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   718 obs. of  6 variables:
+ $ Year      : int  2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 ...
+ $ Period    : chr  "JAN THRU MAR" "JAN THRU MAR" "JAN THRU MAR" "JAN THRU MAR" ...
+ $ State     : chr  "ALABAMA" "ARIZONA" "ARKANSAS" "CALIFORNIA" ...
+ $ State.ANSI: int  1 4 5 6 8 9 12 13 15 16 ...
+ $ Data.Item : chr  "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" ...
+ $ Value     : chr  "250" "2,600" "180" "19,000" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"Data_Filtered.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'Value' to numeric</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>data_filtered<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data_filtered<span class="sc">$</span>Value))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle missing values by replacing NAs with the median value</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>data_filtered<span class="sc">$</span>Value[<span class="fu">is.na</span>(data_filtered<span class="sc">$</span>Value)] <span class="ot">&lt;-</span> <span class="fu">median</span>(data_filtered<span class="sc">$</span>Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of Value by Year and Data.Item</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year), <span class="at">y =</span> Value, <span class="at">fill =</span> Data.Item)) <span class="sc">+</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Value by Year and Data.Item"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplot-of-value-by-state-ansi" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplot-of-value-by-state-ansi">Scatterplot of Value by State ANSI</h3>
+<p>The fourth image is a scatterplot showing values for different states (ANSI coded) across the years 2015 to 2017. Key points include: - Each color represents a different year (2015: Red, 2016: Green, 2017: Blue). - The scatterplot reveals the distribution of values across states and highlights any trends or patterns over the three years.</p>
+<p>This scatterplot indicates that while some states experience consistently high or low values, others show significant variability year over year. This could suggest regional differences in factors affecting bee colony health.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of Value by State.ANSI</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> State.ANSI, <span class="at">y =</span> Value, <span class="at">color =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of Value by State.ANSI"</span>, <span class="at">x =</span> <span class="st">"State.ANSI"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot-of-value-by-period-and-data-item" class="level3">
+<h3 class="anchored" data-anchor-id="boxplot-of-value-by-period-and-data-item">Boxplot of Value by Period and Data Item</h3>
+<p>The fifth image is a boxplot comparing the values for “LOSS, COLONY COLLAPSE DISORDER” and “LOSS, DEADOUT” across different periods of the year: - <strong>APR THRU JUN</strong> - <strong>JAN THRU MAR</strong> - <strong>JUL THRU SEP</strong> - <strong>OCT THRU DEC</strong></p>
+<p>Key insights include: - Seasonal trends in colony losses, with some periods showing higher median losses or more variability. - Outliers indicate extreme loss events occurring in specific periods.</p>
+<p>This seasonal analysis suggests that certain times of the year are more prone to higher losses, potentially due to environmental factors, resource availability, or management practices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming data_filtered is already loaded and has the required columns</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Period, <span class="at">y =</span> Value, <span class="at">fill =</span> Data.Item)) <span class="sc">+</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Value by Period and Data.Item"</span>, <span class="at">x =</span> <span class="st">"Period"</span>, <span class="at">y =</span> <span class="st">"Value"</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the plot</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot-of-value-by-period-and-data-item-1" class="level3">
+<h3 class="anchored" data-anchor-id="boxplot-of-value-by-period-and-data-item-1">Boxplot of Value by Period and Data Item</h3>
+<p>The fifth image is a boxplot comparing the values for “LOSS, COLONY COLLAPSE DISORDER” and “LOSS, DEADOUT” across different periods of the year: - <strong>APR THRU JUN</strong> - <strong>JAN THRU MAR</strong> - <strong>JUL THRU SEP</strong> - <strong>OCT THRU DEC</strong></p>
+<p>Key insights include: - Seasonal trends in colony losses, with some periods showing higher median losses or more variability. - Outliers indicate extreme loss events occurring in specific periods.</p>
+<p>This seasonal analysis suggests that certain times of the year are more prone to higher losses, potentially due to environmental factors, resource availability, or management practices.</p>
+</section>
+<section id="overall-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="overall-analysis">Overall Analysis</h3>
+<ul>
+<li>The composition of honey indicates its high sugar content, essential for energy but also highlighting the presence of beneficial components like enzymes and vitamins.</li>
+<li>The spread of Varroa mites map highlights the widespread and growing impact of these pests over time, emphasizing the need for ongoing management and control efforts.</li>
+<li>The boxplots and scatterplots provide a detailed view of the variability and trends in colony losses due to different factors, both over time and across different regions. These plots suggest that while losses are a consistent issue, their magnitude and causes can vary widely, pointing to the need for tailored strategies to address colony health.</li>
+</ul>
+<p>These visualizations collectively provide a comprehensive overview of the challenges faced by bee colonies, from composition and health to external threats like Varroa mites and seasonal variations in losses.</p>
+</section>
+<section id="varroa-mite-exposed" class="level3">
+<h3 class="anchored" data-anchor-id="varroa-mite-exposed"><strong>VARROA MITE EXPOSED</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/varroa-mite-bee-01.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="244"></p>
+</figure>
+</div>
+</section>
+<section id="varroa-mite" class="level3">
+<h3 class="anchored" data-anchor-id="varroa-mite"><strong>VARROA MITE</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Varrpa 1-02.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="246"></p>
+</figure>
+</div>
+<p>**************&nbsp;Leo provided additional code below and works perfectly********************</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'reshape2' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'reshape2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:tidyr':
+
+    smiths</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'cluster'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:maps':
+
+    votes.repub</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'car'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    recode</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'factoextra' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rpart.plot' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'randomForest' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'randomForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'e1071' was built under R version 4.3.3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your dataset</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your data frame is named 'data_hcny'</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>data_hcny <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"hcny_CleanDraft.csv"</span>))</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">#data_hcny &lt;- read.csv("C:/Users/Leonel/Desktop/MSDA/MS Data Analytics/Current Class/DA 6833/Practicum 2 Github/leonelsalazar-P2-portfolio/Group Project/hcnydata_cleaned.csv")</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data_hcny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive Statistics</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Descriptive Statistics:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Descriptive Statistics:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    state            varroa_mites    other_pests       disease      
+ Length:14          Min.   : 8.00   Min.   : 1.70   Min.   : 0.100  
+ Class :character   1st Qu.:14.47   1st Qu.: 3.60   1st Qu.: 0.850  
+ Mode  :character   Median :26.20   Median : 6.55   Median : 1.700  
+                    Mean   :31.91   Mean   :10.91   Mean   : 6.043  
+                    3rd Qu.:45.33   3rd Qu.:12.43   3rd Qu.: 5.225  
+                    Max.   :67.20   Max.   :42.30   Max.   :47.800  
+   pesticides         other          unknown      
+ Min.   : 0.500   Min.   : 0.50   Min.   : 1.100  
+ 1st Qu.: 2.375   1st Qu.: 1.15   1st Qu.: 2.550  
+ Median : 6.250   Median : 4.10   Median : 3.700  
+ Mean   : 9.543   Mean   :10.14   Mean   : 7.429  
+ 3rd Qu.: 9.725   3rd Qu.:12.47   3rd Qu.: 5.900  
+ Max.   :49.200   Max.   :48.10   Max.   :46.800  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   14 obs. of  7 variables:
+ $ state       : chr  "Idaho" "Illinois" "Indiana" "Kansas" ...
+ $ varroa_mites: num  40.9 25.6 23.8 35.5 8 16.5 12.6 13.1 26.8 65.3 ...
+ $ other_pests : num  6.7 13.3 5.6 2 2.9 1.7 3.5 6.4 3.9 33.5 ...
+ $ disease     : num  5.9 3.2 1.6 0.1 1 1.8 1 0.8 0.6 0.7 ...
+ $ pesticides  : num  5.7 6.8 7.4 21.7 1.3 2.1 3.2 0.5 0.5 5.7 ...
+ $ other       : num  1.3 6.7 18.3 3.4 0.5 3.3 9.1 4.8 0.6 1 ...
+ $ unknown     : num  1.4 3.7 3 2 5.6 10.3 2.4 3.4 3.7 4.4 ...
+ - attr(*, "na.action")= 'omit' Named int [1:37] 2 5 8 9 10 11 13 14 17 19 ...
+  ..- attr(*, "names")= chr [1:37] "2" "5" "8" "9" ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizations</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Plot for varroa_mites by State</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> varroa_mites)) <span class="sc">+</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Varroa Mites by State"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">x =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   14 obs. of  7 variables:
+ $ state       : chr  "Idaho" "Illinois" "Indiana" "Kansas" ...
+ $ varroa_mites: num  40.9 25.6 23.8 35.5 8 16.5 12.6 13.1 26.8 65.3 ...
+ $ other_pests : num  6.7 13.3 5.6 2 2.9 1.7 3.5 6.4 3.9 33.5 ...
+ $ disease     : num  5.9 3.2 1.6 0.1 1 1.8 1 0.8 0.6 0.7 ...
+ $ pesticides  : num  5.7 6.8 7.4 21.7 1.3 2.1 3.2 0.5 0.5 5.7 ...
+ $ other       : num  1.3 6.7 18.3 3.4 0.5 3.3 9.1 4.8 0.6 1 ...
+ $ unknown     : num  1.4 3.7 3 2 5.6 10.3 2.4 3.4 3.7 4.4 ...
+ - attr(*, "na.action")= 'omit' Named int [1:37] 2 5 8 9 10 11 13 14 17 19 ...
+  ..- attr(*, "names")= chr [1:37] "2" "5" "8" "9" ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stacked Bar Plot</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"factor"</span>, <span class="at">value =</span> <span class="st">"percentage"</span>, <span class="sc">-</span>state)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> percentage, <span class="at">fill =</span> factor)) <span class="sc">+</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Factors Affecting Bees by State"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">x =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>data_melt <span class="ot">&lt;-</span> <span class="fu">melt</span>(data_clean, <span class="at">id.vars =</span> <span class="st">"state"</span>)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_melt, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> state, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Factors Affecting Bees"</span>, <span class="at">y =</span> <span class="st">"State"</span>, <span class="at">x =</span> <span class="st">"Factor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart for the United States</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>us_data <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state) <span class="sc">%&gt;%</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"factor"</span>, <span class="at">value =</span> <span class="st">"percentage"</span>)</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(us_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> percentage, <span class="at">fill =</span> factor)) <span class="sc">+</span></span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Factors Affecting Bees in the United States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation Analysis</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>cor_data <span class="ot">&lt;-</span> <span class="fu">cor</span>(data_clean[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Correlation Matrix:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Correlation Matrix:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cor_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             varroa_mites other_pests   disease pesticides     other    unknown
+varroa_mites    1.0000000  0.59837394 0.5924997 0.63612521 0.5430921 0.53337662
+other_pests     0.5983739  1.00000000 0.1266327 0.07979603 0.3234679 0.08235486
+disease         0.5924997  0.12663267 1.0000000 0.90058718 0.8722285 0.96748104
+pesticides      0.6361252  0.07979603 0.9005872 1.00000000 0.8032277 0.86313155
+other           0.5430921  0.32346788 0.8722285 0.80322770 1.0000000 0.83736407
+unknown         0.5333766  0.08235486 0.9674810 0.86313155 0.8373641 1.00000000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assumption Checks for Descriptive Analysis</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Assumption Checks:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Assumption Checks:"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality check</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>shapiro_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data_clean[<span class="sc">-</span><span class="dv">1</span>], <span class="cf">function</span>(column) <span class="fu">shapiro.test</span>(column))</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Shapiro-Wilk Test for Normality:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Shapiro-Wilk Test for Normality:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(shapiro_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$varroa_mites
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.91147, p-value = 0.1655
+
+
+$other_pests
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.71537, p-value = 0.0005356
+
+
+$disease
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.48789, p-value = 4.767e-06
+
+
+$pesticides
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.66524, p-value = 0.000165
+
+
+$other
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.72993, p-value = 0.0007681
+
+
+$unknown
+
+    Shapiro-Wilk normality test
+
+data:  column
+W = 0.50715, p-value = 6.744e-06</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneity of variances</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>levene_results <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(varroa_mites <span class="sc">~</span> state, <span class="at">data =</span> data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+factor.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Levene's Test for Homogeneity of Variances:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Levene's Test for Homogeneity of Variances:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(levene_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group 13     NaN    NaN
+       0               </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cluster Analysis</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>data_cluster <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state)</span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(data_cluster), <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hc, <span class="at">labels =</span> data_clean<span class="sc">$</span>state[data_clean<span class="sc">$</span>state <span class="sc">!=</span> <span class="st">"United States"</span>], <span class="at">main =</span> <span class="st">"Hierarchical Clustering of States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Principal Component Analysis (PCA)</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>data_pca <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state) <span class="sc">%&gt;%</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>pca_result <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data_pca, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4     PC5     PC6
+Standard deviation     2.0417 1.1140 0.60758 0.37053 0.24179 0.15994
+Proportion of Variance 0.6948 0.2068 0.06153 0.02288 0.00974 0.00426
+Cumulative Proportion  0.6948 0.9016 0.96311 0.98599 0.99574 1.00000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca_result, <span class="at">col.var =</span> <span class="st">"contrib"</span>, <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   14 obs. of  7 variables:
+ $ state       : chr  "Idaho" "Illinois" "Indiana" "Kansas" ...
+ $ varroa_mites: num  40.9 25.6 23.8 35.5 8 16.5 12.6 13.1 26.8 65.3 ...
+ $ other_pests : num  6.7 13.3 5.6 2 2.9 1.7 3.5 6.4 3.9 33.5 ...
+ $ disease     : num  5.9 3.2 1.6 0.1 1 1.8 1 0.8 0.6 0.7 ...
+ $ pesticides  : num  5.7 6.8 7.4 21.7 1.3 2.1 3.2 0.5 0.5 5.7 ...
+ $ other       : num  1.3 6.7 18.3 3.4 0.5 3.3 9.1 4.8 0.6 1 ...
+ $ unknown     : num  1.4 3.7 3 2 5.6 10.3 2.4 3.4 3.7 4.4 ...
+ - attr(*, "na.action")= 'omit' Named int [1:37] 2 5 8 9 10 11 13 14 17 19 ...
+  ..- attr(*, "names")= chr [1:37] "2" "5" "8" "9" ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Support Vector Machine (SVM)</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(varroa_mites <span class="sc">~</span> other_pests <span class="sc">+</span> disease <span class="sc">+</span> pesticides <span class="sc">+</span> other <span class="sc">+</span> unknown, <span class="at">data =</span> data_clean)</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+svm(formula = varroa_mites ~ other_pests + disease + pesticides + 
+    other + unknown, data = data_clean)
+
+
+Parameters:
+   SVM-Type:  eps-regression 
+ SVM-Kernel:  radial 
+       cost:  1 
+      gamma:  0.2 
+    epsilon:  0.1 
+
+
+Number of Support Vectors:  13</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming predictions and data_clean$varroa_mites are already created</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Varroa_Mites =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>),</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">other_variable =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a linear model</span></span>
+<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Varroa_Mites <span class="sc">~</span> other_variable, <span class="at">data =</span> data_clean)</span>
+<span id="cb93-11"><a href="#cb93-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions</span></span>
+<span id="cb93-13"><a href="#cb93-13" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> data_clean)</span>
+<span id="cb93-14"><a href="#cb93-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-15"><a href="#cb93-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-16"><a href="#cb93-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb93-17"><a href="#cb93-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(predictions, data_clean<span class="sc">$</span>varroa_mites, </span>
+<span id="cb93-18"><a href="#cb93-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Predictions"</span>, </span>
+<span id="cb93-19"><a href="#cb93-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Varroa Mites"</span>, </span>
+<span id="cb93-20"><a href="#cb93-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Predictions vs Varroa Mites"</span>,</span>
+<span id="cb93-21"><a href="#cb93-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">las =</span> <span class="dv">1</span>, <span class="co"># makes y-axis labels horizontal</span></span>
+<span id="cb93-22"><a href="#cb93-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.lab =</span> <span class="fl">1.2</span>, <span class="co"># increases axis labels size</span></span>
+<span id="cb93-23"><a href="#cb93-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis =</span> <span class="fl">1.2</span>) <span class="co"># increases tick labels size</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="honey-bee-collecting-pollen" class="level3">
+<h3 class="anchored" data-anchor-id="honey-bee-collecting-pollen"><strong>Honey Bee Collecting Pollen</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Bee Feeding-01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="523"></p>
+</figure>
+</div>
+</section>
+<section id="honey-bee-with-exposed-bloated-varroa-mite" class="level3">
+<h3 class="anchored" data-anchor-id="honey-bee-with-exposed-bloated-varroa-mite">Honey Bee with exposed bloated Varroa Mite</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/_20220406_on_varroadestructor_minden_00463080.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="541"></p>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the cleaned data to a new CSV file</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your dataset is named data_hcny</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>data_hcny_clean <span class="ot">&lt;-</span> data_hcny <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_hcny_clean, <span class="fu">here</span>(<span class="st">"hcnydata_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(hcnydata_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/hcny_CleanDraft.csv", row.names = FALSE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="full-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="full-analysis">Full analysis</h2>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
