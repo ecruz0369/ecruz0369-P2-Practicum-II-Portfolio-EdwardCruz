@@ -227,12 +227,11 @@ https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462
 
 ### **Uncapped Honey Floresville,Texas Hive**
 
-![](images/Bee%20Frame%202024-01.jpg){width="674"}
+![](/images/Bee%20Frame%202024.jpg){fig-align="center"}
 
 ### **Capped Honey one Month Later same hive frame- Italian bees Floresville, Texas**
 
-![](images/Bee%20Frame%20Capped%20Honey.jpg){fig-align="center"
-width="697"}
+![](/images/Bee%20Frame%20Capped%20Honey.jpg){fig-align="center"}
 
 ## Description of data and data source
 
@@ -265,25 +264,25 @@ on honeybee colonies.
 
 ### **Bacterium Infection Foul Brood**
 
-![](images/American-Foul-Brood-Comb-1024x768-1.jpg)
+![](/images/American-Foul-Brood-Comb-1024x768-1.jpg){fig-align="center"}
 
 ### **Dead bees resulting from extreme heat found in hive**
 
-![](images/dead-bees-hive-colony-collapse-600nw-2289939105.webp){width="679"}
-#Citation section
-To cite other work (important everywhere, but likely happens first in
-introduction), make sure your references are in the bibtex file
-specified in the YAML header above and have the right bibtex key. Then
-you can include like this:
+![](/images/dead-bees-hive-colony-collapse-600nw-2289939105.webp)
+
+#Citation section To cite other work (important everywhere, but likely
+happens first in introduction), make sure your references are in the
+bibtex file specified in the YAML header above and have the right bibtex
+key. Then you can include like this:
 
 Examples of reproducible research projects can for instance be found in
 [@mckay2020; @mckay2020a].
 
-
 #Here are the BibTex entries for citations:
 
-Using this in RMarkdown:
-#Make sure to save these entries in a file names'reference.bib' and include it in your R Markdown document like this:
+Using this in RMarkdown: #Make sure to save these entries in a file
+names'reference.bib' and include it in your R Markdown document like
+this:
 
 {{< pagebreak >}}
 
@@ -520,11 +519,11 @@ external threats like Varroa mites and seasonal variations in losses.
 
 ### **VARROA MITE EXPOSED**
 
-![](images/varroa-mite-bee-01.webp){fig-align="center" width="244"}
+![](/images/_20220406_on_varroadestructor_minden_00463080.jpg){fig-align="center"}
 
 ### **VARROA MITE**
 
-![](images/Varrpa%201-02.webp){fig-align="center" width="246"}
+![](/images/Varrpa%201.webp){fig-align="center" width="527"}
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\* Leo provided additional code below and
 works perfectly\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
@@ -711,12 +710,11 @@ plot(predictions, data_clean$varroa_mites,
 
 ### **Honey Bee Collecting Pollen**
 
-![](images/Bee%20Feeding-01.jpg){fig-align="center" width="523"}
+![](/images/Bee%20Feeding.jpg){fig-align="center"}
 
 ### Honey Bee with exposed bloated Varroa Mite
 
-![](images/_20220406_on_varroadestructor_minden_00463080.jpg){fig-align="center"
-width="541"}
+![](/images/varroa-mite-bee-01.webp){fig-align="center" width="565"}
 
 ```{r}
 # Write the cleaned data to a new CSV file
@@ -733,16 +731,4 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 
 ## Full analysis
 
-
 #Citations
-```{r}
-library(knitr)
-```
-
-```{r}
-
-
-
-
-
-
