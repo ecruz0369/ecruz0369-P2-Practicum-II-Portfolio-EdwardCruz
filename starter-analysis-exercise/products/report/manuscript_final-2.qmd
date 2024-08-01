@@ -1,7 +1,15 @@
 ---
 title: "Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming"
+subtitle: ""
 author: Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola
-format: html
+date: today
+format:
+  html:
+    toc: false
+    number-sections: true
+    highlight-style: github
+bibliography: ../citations.bib
+csl: ../apa.csl
 editor: 
   markdown: 
     wrap: 72
@@ -31,7 +39,7 @@ bacterial infections, and environmental factors related to global
 warming. Through advanced data visualization techniques in R, we aim to
 demonstrate and validate the detrimental effects of these factors on
 honeybee colonies, highlighting the consequent implications for honey
-production and broader food security.
+production and broader food security. \[\@hivecollapse\]
 
 {{< pagebreak >}}
 
@@ -525,9 +533,6 @@ external threats like Varroa mites and seasonal variations in losses.
 
 ![](/images/Varrpa%201.webp){fig-align="center" width="527"}
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\* Leo provided additional code below and
-works perfectly\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
 ```{r}
 # Load necessary libraries
 library(ggplot2)
@@ -732,3 +737,7 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 ## Full analysis
 
 #Citations
+
+{{< pagebreak >}}
+
+# References
