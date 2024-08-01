@@ -42,8 +42,8 @@ demonstrate and validate the detrimental effects of these factors on
 honeybee colonies, highlighting the consequent implications for honey
 production and broader food security. ***Dennis and Kemp's study on
 honey bee hive collapse [@hivecollapse] provides important insights into
-Allee effects and ecological resilience.***
-***Warmer climate may impact bees[@2024warmer]***
+Allee effects and ecological resilience.*** ***Warmer climate may impact
+bees[@2024warmer]***
 
 {{< pagebreak >}}
 
@@ -69,7 +69,9 @@ higher winter temperatures and increased colony losses, the effects of
 warmer autumn and winter temperatures on colony dynamics and survival
 require further investigation. ***Dennis and Kemp's study on honey bee
 hive collapse [@hivecollapse] provides important insights into Allee
-effects and ecological resilience.***[@usda_honey_bees; @usda_nass]***
+effects and ecological resilience.*** [@usda_honey_bees;
+@usda_nass]\*\*\*
+
 ***Warmer climate may impact bees[@2024warmer]***
 
 ### Composition of Honey
@@ -204,7 +206,7 @@ ggplot(data = states) +
 
 ```
 
-***[@varroamap] Varroa Map of infestation periods***
+[@varroamap] ***Varroa Map of infestation periods***
 
 ```{r}
 # Load necessary libraries
@@ -266,8 +268,10 @@ comprehensive agricultural data, including statistics on honey
 production and colony health. 2. Bee Informed Partnership: This site
 offers detailed insights and research on bee colony management and
 health, contributing valuable information on the status and trends of
-bee populations. Index Catalog // USDA Economics, Statistics and Market
-Information System. (n.d.-a).
+bee populations. [@usda_honey_bees]
+
+Index Catalog // USDA Economics, Statistics and Market Information
+System. (n.d.-a).
 https://usda.library.cornell.edu/catalog?f%5Bkeywords_sim%5D%5B%5D=honey+bees&locale=en\
 USDA - National Agricultural Statistics Service - Surveys - honey bee
 surveys and reports. (n.d.).
@@ -726,11 +730,11 @@ plot(predictions, data_clean$varroa_mites,
 
 ```
 
-### **Honey Bee Collecting Pollen**
+###  **Honey Bee Collecting Pollen**
 
-![](/images/Bee%20Feeding.jpg){fig-align="center"}
+![](/images/Bee%20Feeding.jpg){fig-align="center" width="313"}
 
-### Honey Bee with exposed bloated Varroa Mite
+###                             Honey Bee with exposed bloated Varroa Mite
 
 ![](images/varroa-mite-bee.jpg){fig-align="center"}
 
