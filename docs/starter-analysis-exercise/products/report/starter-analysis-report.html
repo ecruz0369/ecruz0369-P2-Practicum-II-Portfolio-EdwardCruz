@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -214,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="summaryabstract" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Summary/Abstract</h1>
-<p>Group Ten is conducting a comprehensive analysis of historical data from various public agencies to evaluate the impact of Varroa mites, American Foulbrood, and global warming on hive losses in the United States.This research utilizes extensive datasets from the National Agricultural Statistics Service, the Agricultural Statistics Board, and the United States Department of Agriculture (USDA), encompassing multiple years of data. The data highlights the topic on hive losses attributed to mites, bacterial infections, and environmental factors related to global warming. Through advanced data visualization techniques in R, we aim to demonstrate and validate the detrimental effects of these factors on honeybee colonies, highlighting the consequent implications for honey production and broader food security. BeeHive peered reviewed article [@hivecollapse]</p>
+<p>Group Ten is conducting a comprehensive analysis of historical data from various public agencies to evaluate the impact of Varroa mites, American Foulbrood, and global warming on hive losses in the United States.This research utilizes extensive datasets from the National Agricultural Statistics Service, the Agricultural Statistics Board, and the United States Department of Agriculture (USDA), encompassing multiple years of data. The data highlights the topic on hive losses attributed to mites, bacterial infections, and environmental factors related to global warming. Through advanced data visualization techniques in R, we aim to demonstrate and validate the detrimental effects of these factors on honeybee colonies, highlighting the consequent implications for honey production and broader food security. [@hivecollapse]</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="introduction" class="level1" data-number="2">
@@ -378,7 +398,7 @@ USDA - National Agricultural Statistics Service - Surveys - honey bee surveys an
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="dead-bees-resulting-from-extreme-heat-found-in-hive"><span class="header-section-number">2.2.2</span> <strong>Dead bees resulting from extreme heat found in hive</strong></h3>
 <p><img src="../../..\images/dead-bees-hive-colony-collapse-600nw-2289939105.webp" class="img-fluid"></p>
 <p>#Citation section To cite other work (important everywhere, but likely happens first in introduction), make sure your references are in the bibtex file specified in the YAML header above and have the right bibtex key. Then you can include like this:</p>
-<p>Examples of reproducible research projects can for instance be found in <span class="citation" data-cites="mckay2020 mckay2020a">(<a href="#ref-mckay2020" role="doc-biblioref"><strong>mckay2020?</strong></a>; <a href="#ref-mckay2020a" role="doc-biblioref"><strong>mckay2020a?</strong></a>)</span>.</p>
+<p>Examples of reproducible research projects can for instance be found in <span class="citation" data-cites="mckay2020 mckay2020a">(<a href="#ref-mckay2020" role="doc-biblioref">McKay, Ebell, Billings, et al., 2020</a>; <a href="#ref-mckay2020a" role="doc-biblioref">McKay, Ebell, Dale, Shen, &amp; Handel, 2020</a>)</span>.</p>
 <p>#Here are the BibTex entries for citations:</p>
 <p>Using this in RMarkdown: #Make sure to save these entries in a file names’reference.bib’ and include it in your R Markdown document like this:</p>
 <div style="page-break-after: always;"></div>
@@ -1070,12 +1090,20 @@ Number of Support Vectors:  13</code></pre>
 </section>
 </section>
 <section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-mckay2020" class="csl-entry" role="listitem">
+McKay, B., Ebell, M., Billings, W. Z., Dale, A. P., Shen, Y., &amp; Handel, A. (2020). Associations <span>Between Relative Viral Load</span> at <span>Diagnosis</span> and <span>Influenza A Symptoms</span> and <span>Recovery</span>. <em>Open Forum Infectious Diseases</em>, <em>7</em>(11), ofaa494. <a href="https://doi.org/10.1093/ofid/ofaa494">https://doi.org/10.1093/ofid/ofaa494</a>
+</div>
+<div id="ref-mckay2020a" class="csl-entry" role="listitem">
+McKay, B., Ebell, M., Dale, A. P., Shen, Y., &amp; Handel, A. (2020). Virulence-mediated infectiousness and activity trade-offs and their impact on transmission potential of influenza patients. <em>Proceedings. Biological Sciences</em>, <em>287</em>(1927), 20200496. <a href="https://doi.org/10.1098/rspb.2020.0496">https://doi.org/10.1098/rspb.2020.0496</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
