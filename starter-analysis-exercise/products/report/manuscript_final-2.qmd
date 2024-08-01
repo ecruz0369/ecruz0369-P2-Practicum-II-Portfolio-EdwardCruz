@@ -43,6 +43,7 @@ honeybee colonies, highlighting the consequent implications for honey
 production and broader food security. ***Dennis and Kemp's study on
 honey bee hive collapse [@hivecollapse] provides important insights into
 Allee effects and ecological resilience.***
+***Warmer climate may impact bees[@2024warmer]***
 
 {{< pagebreak >}}
 
@@ -68,7 +69,8 @@ higher winter temperatures and increased colony losses, the effects of
 warmer autumn and winter temperatures on colony dynamics and survival
 require further investigation. ***Dennis and Kemp's study on honey bee
 hive collapse [@hivecollapse] provides important insights into Allee
-effects and ecological resilience.***[@usda_honey_bees; @usda_nass]
+effects and ecological resilience.***[@usda_honey_bees; @usda_nass]***
+***Warmer climate may impact bees[@2024warmer]***
 
 ### Composition of Honey
 
