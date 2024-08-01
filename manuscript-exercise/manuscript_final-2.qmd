@@ -270,7 +270,7 @@ on honeybee colonies.
 ### **Dead bees resulting from extreme heat found in hive**
 
 ![](images/dead-bees-hive-colony-collapse-600nw-2289939105.webp){width="679"}
-
+#Citation section
 To cite other work (important everywhere, but likely happens first in
 introduction), make sure your references are in the bibtex file
 specified in the YAML header above and have the right bibtex key. Then
@@ -278,6 +278,12 @@ you can include like this:
 
 Examples of reproducible research projects can for instance be found in
 [@mckay2020; @mckay2020a].
+
+
+#Here are the BibTex entries for citations:
+
+Using this in RMarkdown:
+#Make sure to save these entries in a file names'reference.bib' and include it in your R Markdown document like this:
 
 {{< pagebreak >}}
 
@@ -726,3 +732,17 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 ```
 
 ## Full analysis
+
+
+#Citations
+```{r}
+library(knitr)
+```
+
+```{r}
+
+
+
+
+
+
