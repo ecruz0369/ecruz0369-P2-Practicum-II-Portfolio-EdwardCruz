@@ -14,7 +14,7 @@ website:
             file: starter-analysis-exercise/products/report/starter-analysis-report.qmd
           - text: "R Coding Exercise"
             file: coding-exercise/coding-exercise.qmd
-          - text: "Data Update Exercise"
+          - text: "Data Exercise"
             file: data-exercise/data-exercise.qmd
           - text: "CDC Data Exercise"
             file: cdcdata-exercise/cdcdata-exercise.qmd  
@@ -22,6 +22,7 @@ website:
             file: presentation-exercise/presentation-exercise.qmd
           - text: "Tidy Tuesday Exercise"
             file: tidytuesday-exercise/tidytuesday-exercise.qmd
+          
     right:
       - icon: github 
         href: https://github.com/ecruz0369/ecruz0369-P2-Practicum-II-Portfolio-EdwardCruz       
