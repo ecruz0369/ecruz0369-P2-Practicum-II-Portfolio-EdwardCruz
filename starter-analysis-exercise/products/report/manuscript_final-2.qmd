@@ -239,7 +239,7 @@ ggplot(data_long, aes(x = Year, y = Temperature, color = Measurement)) +
 
 ```
 
-[@epa_climate_indicator] ***Global warming trends from 1900-2024***
+[@epa_climate] ***Global warming trends from 1900-2024***
 
 ***Spread of Varroa Mite by Year of First Apperance [@varroamap]***
 Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the
@@ -294,21 +294,6 @@ on honeybee colonies.
 ### **Dead bees resulting from extreme heat found in hive**
 
 ![](/images/dead-bees-hive-colony-collapse-600nw-2289939105.webp)
-
-#Citation section To cite other work (important everywhere, but likely
-happens first in introduction), make sure your references are in the
-bibtex file specified in the YAML header above and have the right bibtex
-key. Then you can include like this:
-
-Examples of reproducible research projects can for instance be found in
-[@mckay2020; @mckay2020a].
-
-#Here are the BibTex entries for citations:
-
-Using this in RMarkdown: #Make sure to save these entries in a file
-names'reference.bib' and include it in your R Markdown document like
-this:
-
 {{< pagebreak >}}
 
 # Methods
