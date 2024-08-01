@@ -1,14 +1,14 @@
 ---
-title: "Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming"
+title: "Honey Bee Colonies Impacted by Varroa, American Foulbrood and Global Warming"
 subtitle: ""
-author: Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola
+author: Edward Cruz, Jr., Leonel G. Salazar, Amelia Tristan, Mojisola Popoola
 date: today
 format:
   html:
     toc: false
     number-sections: true
     highlight-style: github
-bibliography: ../citations.bib
+bibliography: ../citations.bib 
 csl: ../apa.csl
 editor: 
   markdown: 
@@ -24,6 +24,7 @@ library(dplyr)
 library(scales)
 library(showtext)
 library(ggimage)
+
 ```
 
 # Summary/Abstract
@@ -39,7 +40,9 @@ bacterial infections, and environmental factors related to global
 warming. Through advanced data visualization techniques in R, we aim to
 demonstrate and validate the detrimental effects of these factors on
 honeybee colonies, highlighting the consequent implications for honey
-production and broader food security. \[\@hivecollapse\]
+production and broader food security. ***Dennis and Kemp's study on
+honey bee hive collapse [@hivecollapse] provides important insights into
+Allee effects and ecological resilience.***
 
 {{< pagebreak >}}
 
@@ -63,7 +66,9 @@ its spread. The impact of climate change on honeybee colony losses is a
 growing area of research. While correlations have been found between
 higher winter temperatures and increased colony losses, the effects of
 warmer autumn and winter temperatures on colony dynamics and survival
-require further investigation.
+require further investigation. ***Dennis and Kemp's study on honey bee
+hive collapse [@hivecollapse] provides important insights into Allee
+effects and ecological resilience.***[@usda_honey_bees; @usda_nass]
 
 ### Composition of Honey
 
@@ -197,6 +202,8 @@ ggplot(data = states) +
 
 ```
 
+***[@varroamap] Varroa Map of infestation periods***
+
 ```{r}
 # Load necessary libraries
 library(tidyverse)
@@ -228,9 +235,13 @@ ggplot(data_long, aes(x = Year, y = Temperature, color = Measurement)) +
 
 ```
 
+[@epa_climate_indicator] ***Global warming trends from 1900-2024***
+
+***Spread of Varroa Mite by Year of First Apperance [@varroamap]***
 Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the
 United States. Beesource Beekeeping Forums.
 https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/
+
 \## General Background Information
 
 ### **Uncapped Honey Floresville,Texas Hive**
@@ -719,7 +730,7 @@ plot(predictions, data_clean$varroa_mites,
 
 ### Honey Bee with exposed bloated Varroa Mite
 
-![](/images/varroa-mite-bee-01.webp){fig-align="center" width="565"}
+![](images/varroa-mite-bee.jpg){fig-align="center"}
 
 ```{r}
 # Write the cleaned data to a new CSV file
@@ -736,7 +747,7 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 
 ## Full analysis
 
-#Citations
+##The full analysis is still pending###
 
 {{< pagebreak >}}
 

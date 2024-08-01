@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola">
+<meta name="author" content="Edward Cruz, Jr., Leonel G. Salazar, Amelia Tristan, Mojisola Popoola">
 <meta name="dcterms.date" content="2024-08-01">
 
-<title>Edward(Eddie) Cruz,Jr.&nbsp;Data Analysis Portfolio - Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming</title>
+<title>Edward(Eddie) Cruz,Jr.&nbsp;Data Analysis Portfolio - Honey Bee Colonies Impacted by Varroa, American Foulbrood and Global Warming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -183,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Honey Bee Colonies Impacted by Varroa, American Fouldbrood and Global Warming</h1>
+<h1 class="title">Honey Bee Colonies Impacted by Varroa, American Foulbrood and Global Warming</h1>
 </div>
 
 
@@ -193,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Edward Cruz, Jr, Leonel G. Salazar, Amelia Tristan, Mojisola Popoola </p>
+             <p>Edward Cruz, Jr., Leonel G. Salazar, Amelia Tristan, Mojisola Popoola </p>
           </div>
   </div>
     
@@ -214,12 +234,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="summaryabstract" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Summary/Abstract</h1>
-<p>Group Ten is conducting a comprehensive analysis of historical data from various public agencies to evaluate the impact of Varroa mites, American Foulbrood, and global warming on hive losses in the United States.This research utilizes extensive datasets from the National Agricultural Statistics Service, the Agricultural Statistics Board, and the United States Department of Agriculture (USDA), encompassing multiple years of data. The data highlights the topic on hive losses attributed to mites, bacterial infections, and environmental factors related to global warming. Through advanced data visualization techniques in R, we aim to demonstrate and validate the detrimental effects of these factors on honeybee colonies, highlighting the consequent implications for honey production and broader food security. [@hivecollapse]</p>
+<p>Group Ten is conducting a comprehensive analysis of historical data from various public agencies to evaluate the impact of Varroa mites, American Foulbrood, and global warming on hive losses in the United States.This research utilizes extensive datasets from the National Agricultural Statistics Service, the Agricultural Statistics Board, and the United States Department of Agriculture (USDA), encompassing multiple years of data. The data highlights the topic on hive losses attributed to mites, bacterial infections, and environmental factors related to global warming. Through advanced data visualization techniques in R, we aim to demonstrate and validate the detrimental effects of these factors on honeybee colonies, highlighting the consequent implications for honey production and broader food security. <strong><em>Dennis and Kemp’s study on honey bee hive collapse <span class="citation" data-cites="hivecollapse">(<a href="#ref-hivecollapse" role="doc-biblioref">Dennis &amp; Kemp, 2016</a>)</span> provides important insights into Allee effects and ecological resilience.</em></strong></p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="introduction" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
-<p>Honeybees have served as nature’s pollinators for centuries. With their relationship with humans documented as far back as ancient Egyptian and Hindu cultures. Historically, humans have maintained beehives and utilized honey for its medicinal properties in various civilizations, including the Egyptians, Assyrians, Chinese, Greeks, and Romans. Honey’s natural antibacterial qualities made it a valuable treatment for wounds. This was a practice continued by Romans and Russians during World War I. Honeybees and other pollinators are essential for food production and nutritional security. But even though they face numerous survival challenges Varroa mites pose a significant threat to bee colonies. These tiny red-brown parasites live on adult honeybees and reproduce on larvae and pupae. Another major threat is American Foulbrood Disease (AFB). This is caused by the bacterium Paenibacillus larvae, which is fatal to honeybee larvae and requires incineration of infected hives to prevent its spread. The impact of climate change on honeybee colony losses is a growing area of research. While correlations have been found between higher winter temperatures and increased colony losses, the effects of warmer autumn and winter temperatures on colony dynamics and survival require further investigation.</p>
+<p>Honeybees have served as nature’s pollinators for centuries. With their relationship with humans documented as far back as ancient Egyptian and Hindu cultures. Historically, humans have maintained beehives and utilized honey for its medicinal properties in various civilizations, including the Egyptians, Assyrians, Chinese, Greeks, and Romans. Honey’s natural antibacterial qualities made it a valuable treatment for wounds. This was a practice continued by Romans and Russians during World War I. Honeybees and other pollinators are essential for food production and nutritional security. But even though they face numerous survival challenges Varroa mites pose a significant threat to bee colonies. These tiny red-brown parasites live on adult honeybees and reproduce on larvae and pupae. Another major threat is American Foulbrood Disease (AFB). This is caused by the bacterium Paenibacillus larvae, which is fatal to honeybee larvae and requires incineration of infected hives to prevent its spread. The impact of climate change on honeybee colony losses is a growing area of research. While correlations have been found between higher winter temperatures and increased colony losses, the effects of warmer autumn and winter temperatures on colony dynamics and survival require further investigation. <strong><em>Dennis and Kemp’s study on honey bee hive collapse <span class="citation" data-cites="hivecollapse">(<a href="#ref-hivecollapse" role="doc-biblioref">Dennis &amp; Kemp, 2016</a>)</span> provides important insights into Allee effects and ecological resilience.</em></strong><span class="citation" data-cites="usda_honey_bees usda_nass">(<a href="#ref-usda_nass" role="doc-biblioref">USDA - National Agricultural Statistics Service, n.d.</a>; <a href="#ref-usda_honey_bees" role="doc-biblioref">USDA Economics, Statistics and Market Information System, n.d.-a</a>)</span></p>
 <section id="composition-of-honey" class="level3" data-number="2.0.1">
 <h3 data-number="2.0.1" class="anchored" data-anchor-id="composition-of-honey"><span class="header-section-number">2.0.1</span> Composition of Honey</h3>
 <p>The first image is a pie chart that illustrates the composition of honey by percentage. The main components are:</p>
@@ -267,6 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><strong><em><span class="citation" data-cites="varroamap">(<a href="#ref-varroamap" role="doc-biblioref">sdns6mchl4, 2016</a>)</span> Varroa Map of infestation periods</em></strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -340,7 +361,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the United States. Beesource Beekeeping Forums. https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/ ## General Background Information</p>
+<p><span class="citation" data-cites="epa_climate_indicator">(<a href="#ref-epa_climate_indicator" role="doc-biblioref"><strong>epa_climate_indicator?</strong></a>)</span> <strong><em>Global warming trends from 1900-2024</em></strong></p>
+<p><strong><em>Spread of Varroa Mite by Year of First Apperance <span class="citation" data-cites="varroamap">(<a href="#ref-varroamap" role="doc-biblioref">sdns6mchl4, 2016</a>)</span></em></strong> Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the United States. Beesource Beekeeping Forums. https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/</p>
+<p>## General Background Information</p>
 </section>
 <section id="uncapped-honey-floresvilletexas-hive" class="level3" data-number="2.0.3">
 <h3 data-number="2.0.3" class="anchored" data-anchor-id="uncapped-honey-floresvilletexas-hive"><span class="header-section-number">2.0.3</span> <strong>Uncapped Honey Floresville,Texas Hive</strong></h3>
@@ -1045,7 +1068,7 @@ Number of Support Vectors:  13</code></pre>
 <h3 data-number="3.3.9" class="anchored" data-anchor-id="honey-bee-with-exposed-bloated-varroa-mite"><span class="header-section-number">3.3.9</span> Honey Bee with exposed bloated Varroa Mite</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../..\images/varroa-mite-bee-01.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="565"></p>
+<p><img src="images/varroa-mite-bee.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <div class="cell">
@@ -1064,17 +1087,31 @@ Number of Support Vectors:  13</code></pre>
 </section>
 <section id="full-analysis" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="full-analysis"><span class="header-section-number">3.4</span> Full analysis</h2>
-<p>#Citations</p>
+<p>##The full analysis is still pending###</p>
 <div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-hivecollapse" class="csl-entry" role="listitem">
+Dennis, B., &amp; Kemp, W. P. (2016). How hives collapse: Allee effects, ecological resilience, and the honey bee. <em>PLOS ONE</em>, <em>11</em>(2), e0150055. <a href="https://doi.org/10.1371/journal.pone.0150055">https://doi.org/10.1371/journal.pone.0150055</a>
+</div>
+<div id="ref-varroamap" class="csl-entry" role="listitem">
+sdns6mchl4. (2016). <em>Varroa mite spread in the united states</em>. Retrieved from <a href="https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/">https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/</a>
+</div>
+<div id="ref-usda_nass" class="csl-entry" role="listitem">
+USDA - National Agricultural Statistics Service. (n.d.). <em>Surveys - honey bee surveys and reports</em>. Retrieved from <a href="https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/">https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/</a>
+</div>
+<div id="ref-usda_honey_bees" class="csl-entry" role="listitem">
+USDA Economics, Statistics and Market Information System. (n.d.-a). <em>Index catalog</em>. Retrieved from <a href="https://usda.library.cornell.edu/catalog?f%5Bkeywords_sim%5D%5B%5D=honey+bees&amp;locale=en">https://usda.library.cornell.edu/catalog?f%5Bkeywords_sim%5D%5B%5D=honey+bees&amp;locale=en</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
