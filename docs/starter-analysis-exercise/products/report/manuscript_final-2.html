@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -300,70 +266,6 @@ div.csl-indent {
 </div>
 <p><span class="citation" data-cites="varroamap">(<a href="#ref-varroamap" role="doc-biblioref">sdns6mchl4, 2016</a>)</span> <strong><em>Varroa Map of infestation periods</em></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyverse' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ lubridate 1.9.3     ✔ tibble    3.2.1
-✔ purrr     1.0.2     ✔ tidyr     1.3.1
-✔ readr     2.1.5     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ readr::col_factor() masks scales::col_factor()
-✖ purrr::discard()    masks scales::discard()
-✖ dplyr::filter()     masks stats::filter()
-✖ dplyr::lag()        masks stats::lag()
-✖ purrr::map()        masks maps::map()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with the provided data</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1901</span><span class="sc">:</span><span class="dv">2023</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Earth's surface</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.43</span>, <span class="sc">-</span><span class="fl">1.4</span>, <span class="sc">-</span><span class="fl">0.86</span>, <span class="sc">-</span><span class="fl">1.02</span>, <span class="sc">-</span><span class="fl">0.29</span>, <span class="sc">-</span><span class="fl">0.54</span>, <span class="fl">0.06</span>, <span class="sc">-</span><span class="fl">0.59</span>, <span class="fl">0.4</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="fl">1.79</span>, <span class="sc">-</span><span class="fl">0.48</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="sc">-</span><span class="fl">0.57</span>, <span class="sc">-</span><span class="fl">1.17</span>, <span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.47</span>, <span class="sc">-</span><span class="fl">0.95</span>, <span class="fl">1.78</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="fl">0.38</span>, <span class="sc">-</span><span class="fl">1.43</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.07</span>, <span class="fl">0.13</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="sc">-</span><span class="fl">1.17</span>, <span class="sc">-</span><span class="fl">0.04</span>, <span class="fl">1.52</span>, <span class="sc">-</span><span class="fl">0.29</span>, <span class="fl">0.97</span>, <span class="fl">2.08</span>, <span class="sc">-</span><span class="fl">0.12</span>, <span class="fl">0.13</span>, <span class="sc">-</span><span class="fl">0.47</span>, <span class="fl">1.16</span>, <span class="fl">1.24</span>, <span class="sc">-</span><span class="fl">0.13</span>, <span class="fl">0.64</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.19</span>, <span class="sc">-</span><span class="fl">0.27</span>, <span class="fl">0.93</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="sc">-</span><span class="fl">0.41</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.63</span>, <span class="sc">-</span><span class="fl">0.9</span>, <span class="fl">0.25</span>, <span class="fl">1.35</span>, <span class="fl">1.31</span>, <span class="sc">-</span><span class="fl">0.33</span>, <span class="fl">0.32</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.09</span>, <span class="fl">0.09</span>, <span class="sc">-</span><span class="fl">0.58</span>, <span class="sc">-</span><span class="fl">0.15</span>, <span class="sc">-</span><span class="fl">0.12</span>, <span class="fl">0.24</span>, <span class="sc">-</span><span class="fl">0.35</span>, <span class="sc">-</span><span class="fl">0.33</span>, <span class="sc">-</span><span class="fl">0.53</span>, <span class="sc">-</span><span class="fl">0.26</span>, <span class="sc">-</span><span class="fl">0.7</span>, <span class="sc">-</span><span class="fl">0.52</span>, <span class="sc">-</span><span class="fl">0.41</span>, <span class="sc">-</span><span class="fl">0.36</span>, <span class="sc">-</span><span class="fl">0.65</span>, <span class="fl">0.27</span>, <span class="fl">0.24</span>, <span class="sc">-</span><span class="fl">0.52</span>, <span class="sc">-</span><span class="fl">0.55</span>, <span class="fl">0.53</span>, <span class="sc">-</span><span class="fl">0.97</span>, <span class="sc">-</span><span class="fl">1.14</span>, <span class="fl">0.37</span>, <span class="fl">1.1</span>, <span class="sc">-</span><span class="fl">0.67</span>, <span class="sc">-</span><span class="fl">0.14</span>, <span class="sc">-</span><span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.72</span>, <span class="fl">1.3</span>, <span class="fl">1.31</span>, <span class="fl">0.61</span>, <span class="sc">-</span><span class="fl">0.18</span>, <span class="fl">1.49</span>, <span class="fl">1.14</span>, <span class="fl">0.58</span>, <span class="sc">-</span><span class="fl">0.76</span>, <span class="fl">0.85</span>, <span class="fl">0.63</span>, <span class="sc">-</span><span class="fl">0.13</span>, <span class="fl">0.18</span>, <span class="fl">2.21</span>, <span class="fl">1.86</span>, <span class="fl">1.25</span>, <span class="fl">1.68</span>, <span class="fl">1.19</span>, <span class="fl">1.24</span>, <span class="fl">1.08</span>, <span class="fl">1.62</span>, <span class="fl">2.23</span>, <span class="fl">1.63</span>, <span class="fl">0.27</span>, <span class="fl">0.37</span>, <span class="fl">0.96</span>, <span class="fl">1.16</span>, <span class="fl">3.26</span>, <span class="fl">0.41</span>, <span class="fl">0.52</span>, <span class="fl">2.38</span>, <span class="fl">2.9</span>, <span class="fl">2.53</span>, <span class="fl">1.5</span>, <span class="fl">0.66</span>, <span class="fl">2.35</span>, <span class="fl">2.49</span>, <span class="fl">1.37</span>, <span class="fl">2.39</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Lower troposphere (UAH)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">78</span>), <span class="fl">0.049093434</span>, <span class="fl">0.731593434</span>, <span class="fl">1.102093434</span>, <span class="fl">0.008593434</span>, <span class="fl">0.034093434</span>, <span class="fl">0.292093434</span>, <span class="fl">0.110593434</span>, <span class="fl">1.220593434</span>, <span class="fl">1.054093434</span>, <span class="fl">0.698593434</span>, <span class="fl">0.548593434</span>, <span class="fl">1.451593434</span>, <span class="fl">1.031593434</span>, <span class="fl">0.484093434</span>, <span class="sc">-</span><span class="fl">0.174406566</span>, <span class="fl">1.043593434</span>, <span class="fl">0.797593434</span>, <span class="fl">0.502093434</span>, <span class="fl">0.457093434</span>, <span class="fl">1.691593434</span>, <span class="fl">1.796593434</span>, <span class="fl">1.351093434</span>, <span class="fl">1.255093434</span>, <span class="fl">0.994093434</span>, <span class="fl">1.223593434</span>, <span class="fl">0.769093434</span>, <span class="fl">1.303093434</span>, <span class="fl">1.444093434</span>, <span class="fl">1.765093434</span>, <span class="fl">0.467593434</span>, <span class="fl">0.524593434</span>, <span class="fl">0.929593434</span>, <span class="fl">1.013593434</span>, <span class="fl">1.955593434</span>, <span class="fl">0.655093434</span>, <span class="fl">0.763093434</span>, <span class="fl">2.234593434</span>, <span class="fl">2.030593434</span>, <span class="fl">2.252593434</span>, <span class="fl">1.645093434</span>, <span class="fl">1.133593434</span>, <span class="fl">1.970593434</span>, <span class="fl">2.059093434</span>, <span class="fl">1.567093434</span>, <span class="cn">NA</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Lower troposphere (RSS)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">78</span>), <span class="sc">-</span><span class="fl">0.808971111</span>, <span class="fl">0.178178889</span>, <span class="fl">0.658778889</span>, <span class="sc">-</span><span class="fl">0.579771111</span>, <span class="sc">-</span><span class="fl">0.383871111</span>, <span class="sc">-</span><span class="fl">0.217371111</span>, <span class="sc">-</span><span class="fl">1.053021111</span>, <span class="fl">0.737978889</span>, <span class="fl">1.111328889</span>, <span class="fl">0.557978889</span>, <span class="fl">0.221828889</span>, <span class="fl">1.280228889</span>, <span class="fl">1.043228889</span>, <span class="fl">0.585278889</span>, <span class="sc">-</span><span class="fl">0.261321111</span>, <span class="fl">1.078178889</span>, <span class="fl">0.772628889</span>, <span class="fl">0.278078889</span>, <span class="fl">0.418178889</span>, <span class="fl">1.911578889</span>, <span class="fl">1.882928889</span>, <span class="fl">1.471328889</span>, <span class="fl">1.536578889</span>, <span class="fl">1.144628889</span>, <span class="fl">1.465628889</span>, <span class="fl">1.058528889</span>, <span class="fl">1.583078889</span>, <span class="fl">1.749278889</span>, <span class="fl">1.858928889</span>, <span class="fl">0.503378889</span>, <span class="fl">0.595928889</span>, <span class="fl">0.997028889</span>, <span class="fl">1.109378889</span>, <span class="fl">2.677328889</span>, <span class="fl">0.696278889</span>, <span class="fl">0.781478889</span>, <span class="fl">2.547878889</span>, <span class="fl">2.476328889</span>, <span class="fl">2.350478889</span>, <span class="fl">1.793978889</span>, <span class="fl">1.221428889</span>, <span class="fl">2.290628889</span>, <span class="fl">2.485328889</span>, <span class="fl">1.596878889</span>, <span class="fl">1.886228889</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot the data for plotting</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Earth's surface</span><span class="st">`</span>, <span class="st">`</span><span class="at">Lower troposphere (UAH)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Lower troposphere (RSS)</span><span class="st">`</span>), </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Measurement"</span>, <span class="at">values_to =</span> <span class="st">"Temperature"</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Temperature, <span class="at">color =</span> Measurement)) <span class="sc">+</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Temperature Changes Over the Years"</span>,</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Temperature Anomaly (°C)"</span>,</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Measurement"</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Earth's surface"</span> <span class="ot">=</span> <span class="st">"#254976"</span>, <span class="st">"Lower troposphere (UAH)"</span> <span class="ot">=</span> <span class="st">"#4A8C1D"</span>, <span class="st">"Lower troposphere (RSS)"</span> <span class="ot">=</span> <span class="st">"#B5153A"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 157 rows containing missing values or values outside the scale range
-(`geom_line()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 157 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -421,120 +323,26 @@ USDA - National Agricultural Statistics Service - Surveys - honey bee surveys an
 <p><em>Describe your methods. That should describe the data, the cleaning processes, and the analysis approaches. You might want to provide a shorter description here and all the details in the supplement.</em></p>
 <section id="schematic-of-workflow" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="schematic-of-workflow"><span class="header-section-number">3.1</span> Schematic of workflow</h2>
-<p>Sometimes you might want to show a schematic diagram/figure that was not created with code (if you can do it with code, do it). <strong>?@fig-schematic</strong> is an example of some - completely random/unrelated - schematic that was generated with Biorender. We store those figures in the <code>assets</code> folder.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DiagrammeR"</span>)) <span class="fu">install.packages</span>(<span class="st">"DiagrammeR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: DiagrammeR</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'DiagrammeR' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DiagrammeR package</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the flowchart using DiagrammeR</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">"</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">  digraph Data_Analysis_Flowchart {</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">    graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 45, labelloc = 't']</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">    node [style = filled, fontsize = 30, width = 2, height = 2]</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Define_Objectives [label = 'Define Objectives', shape = oval, color = lightblue]</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">    Collect_Data [label = 'Collect Data', shape = box, color = lightgrey]</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Clean_Data [label = 'Clean Data', shape = ellipse, color = lightyellow]</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">    Analyze_Data [label = 'Analyze Data', shape = diamond, color = lightcoral]</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="st">    Interpret_Results [label = 'Interpret Results', shape = trapezium, color = lightgrey]</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="st">    Visualize_Data [label = 'Visualize Data', shape = parallelogram, color = lightpink]</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="st">    Compile_Report [label = 'Compile Report', shape = house, color = lightcyan]</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="st">    Review_Revise [label = 'Review &amp; Revise', shape = invhouse, color = lightgoldenrodyellow]</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="st">    Present_Report [label = 'Present Report', shape = hexagon, color = lightseagreen]</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="st">    Define_Objectives -&gt; Collect_Data</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="st">    Collect_Data -&gt; Clean_Data</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="st">    Clean_Data -&gt; Analyze_Data</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Analyze_Data -&gt; Interpret_Results</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Interpret_Results -&gt; Visualize_Data</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="st">    Visualize_Data -&gt; Compile_Report</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="st">    Compile_Report -&gt; Review_Revise</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="st">    Review_Revise -&gt; Present_Report</span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-e2cf444a2ebebe1cf470" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-e2cf444a2ebebe1cf470">{"x":{"diagram":"\n  digraph Data_Analysis_Flowchart {\n    graph [layout = dot, rankdir = LR, label = \"Workflow Schematic\", fontsize = 45, labelloc = \"t\"]\n\n    node [style = filled, fontsize = 30, width = 2, height = 2]\n\n    Define_Objectives [label = \"Define Objectives\", shape = oval, color = lightblue]\n    Collect_Data [label = \"Collect Data\", shape = box, color = lightgrey]\n    Clean_Data [label = \"Clean Data\", shape = ellipse, color = lightyellow]\n    Analyze_Data [label = \"Analyze Data\", shape = diamond, color = lightcoral]\n    Interpret_Results [label = \"Interpret Results\", shape = trapezium, color = lightgrey]\n    Visualize_Data [label = \"Visualize Data\", shape = parallelogram, color = lightpink]\n    Compile_Report [label = \"Compile Report\", shape = house, color = lightcyan]\n    Review_Revise [label = \"Review & Revise\", shape = invhouse, color = lightgoldenrodyellow]\n    Present_Report [label = \"Present Report\", shape = hexagon, color = lightseagreen]\n\n    Define_Objectives -> Collect_Data\n    Collect_Data -> Clean_Data\n    Clean_Data -> Analyze_Data\n    Analyze_Data -> Interpret_Results\n    Interpret_Results -> Visualize_Data\n    Visualize_Data -> Compile_Report\n    Compile_Report -> Review_Revise\n    Review_Revise -> Present_Report\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-bf63386c108771267356" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-bf63386c108771267356">{"x":{"diagram":"\n  digraph Data_Analysis_Flowchart {\n    graph [layout = dot, rankdir = LR, label = \"Workflow Schematic\", fontsize = 45, labelloc = \"t\"]\n\n    node [style = filled, fontsize = 30, width = 2, height = 2]\n\n    Define_Objectives [label = \"Define Objectives\", shape = oval, color = lightblue]\n    Collect_Data [label = \"Collect Data\", shape = box, color = lightgrey]\n    Clean_Data [label = \"Clean Data\", shape = ellipse, color = lightyellow]\n    Analyze_Data [label = \"Analyze Data\", shape = diamond, color = lightcoral]\n    Interpret_Results [label = \"Interpret Results\", shape = trapezium, color = lightgrey]\n    Visualize_Data [label = \"Visualize Data\", shape = parallelogram, color = lightpink]\n    Compile_Report [label = \"Compile Report\", shape = house, color = lightcyan]\n    Review_Revise [label = \"Review & Revise\", shape = invhouse, color = lightgoldenrodyellow]\n    Present_Report [label = \"Present Report\", shape = hexagon, color = lightseagreen]\n\n    Define_Objectives -> Collect_Data\n    Collect_Data -> Clean_Data\n    Clean_Data -> Analyze_Data\n    Analyze_Data -> Interpret_Results\n    Interpret_Results -> Visualize_Data\n    Visualize_Data -> Compile_Report\n    Compile_Report -> Review_Revise\n    Review_Revise -> Present_Report\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="data-aquisition" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="data-aquisition"><span class="header-section-number">3.2</span> Data aquisition</h2>
-<p>We got our data from the United States Department of Agriculture (USDA).</p>
+<p>Data was derived from the United States Department of Agriculture (USDA) website, which permits data sets to be downloaded in CSV(comma-separated values) format.</p>
 </section>
 <section id="data-import-and-cleaning" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="data-import-and-cleaning"><span class="header-section-number">3.3</span> Data import and cleaning</h2>
 <p>We decided to clean out our data from a few different datasets. We had to remove blank spaces and columns that were not pertinent to our analysis. We then filtered out other observations that did not directly deal with the data we are exploring. We are looking for cause of death to bee colonies and how they are affected by mites and climate change so we wanted to single out data that represented the losses so we can explore the different states by year and determine how the colonies were affected.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the here package</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("here")</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 'data' directory within the project</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in dir.create(here("data")): 'C:\Users\ecruz\OneDrive\Documents\UTSA -
-Data Science Program\Semester Classes\Practicum II
-Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"Databystate.csv"</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data &lt;- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/DatabyState.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all columns except 3, 6, and 9</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Data_Clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(data, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output cleaned data file to a csv file.</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data_Clean, <span class="st">"Data_Clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Clean.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your data frame is named "data"</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for rows where "Loss" or "Deadout" is present in any column (case-insensitive)</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)  <span class="co"># Load stringr package for regular expressions</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> Data_Clean[<span class="fu">rowSums</span>(<span class="fu">sapply</span>(data, grepl, <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"Loss"</span>), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output cleaned data file to a csv file.</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_filtered, <span class="st">"Data_Filtered.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Filtered.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data str to see what class they are.</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   718 obs. of  6 variables:
  $ Year      : int  2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 ...
@@ -550,11 +358,6 @@ Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre
 <p>The third image is a boxplot comparing the values for “LOSS, COLONY COLLAPSE DISORDER” and “LOSS, DEADOUT” from 2015 to 2017. The boxplot provides insights into: - The central tendency and spread of losses due to both disorders. - Presence of outliers indicates that there are occasional, significantly higher losses. - Comparative analysis shows that both types of losses have varying distributions each year.</p>
 <p>This indicates that while both types of losses are present each year, the magnitude and frequency of extreme loss events can differ, suggesting variability in the factors contributing to colony losses.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   718 obs. of  6 variables:
  $ Year      : int  2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 ...
@@ -564,22 +367,6 @@ Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre
  $ Data.Item : chr  "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" "LOSS, COLONY COLLAPSE DISORDER" ...
  $ Value     : chr  "250" "2,600" "180" "19,000" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"Data_Filtered.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'Value' to numeric</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>data_filtered<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data_filtered<span class="sc">$</span>Value))</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle missing values by replacing NAs with the median value</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>data_filtered<span class="sc">$</span>Value[<span class="fu">is.na</span>(data_filtered<span class="sc">$</span>Value)] <span class="ot">&lt;-</span> <span class="fu">median</span>(data_filtered<span class="sc">$</span>Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of Value by Year and Data.Item</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year), <span class="at">y =</span> Value, <span class="at">fill =</span> Data.Item)) <span class="sc">+</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Value by Year and Data.Item"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -594,11 +381,6 @@ Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre
 <p>The fourth image is a scatterplot showing values for different states (ANSI coded) across the years 2015 to 2017. Key points include: - Each color represents a different year (2015: Red, 2016: Green, 2017: Blue). - The scatterplot reveals the distribution of values across states and highlights any trends or patterns over the three years.</p>
 <p>This scatterplot indicates that while some states experience consistently high or low values, others show significant variability year over year. This could suggest regional differences in factors affecting bee colony health.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of Value by State.ANSI</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> State.ANSI, <span class="at">y =</span> Value, <span class="at">color =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of Value by State.ANSI"</span>, <span class="at">x =</span> <span class="st">"State.ANSI"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -614,22 +396,6 @@ Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre
 <p>Key insights include: - Seasonal trends in colony losses, with some periods showing higher median losses or more variability. - Outliers indicate extreme loss events occurring in specific periods.</p>
 <p>This seasonal analysis suggests that certain times of the year are more prone to higher losses, potentially due to environmental factors, resource availability, or management practices.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming data_filtered is already loaded and has the required columns</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Period, <span class="at">y =</span> Value, <span class="at">fill =</span> Data.Item)) <span class="sc">+</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Value by Period and Data.Item"</span>, <span class="at">x =</span> <span class="st">"Period"</span>, <span class="at">y =</span> <span class="st">"Value"</span>)</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the plot</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -670,110 +436,9 @@ Repository\P2-Practicum-II-Portfolio-EdwardCruz\data' already exists</code></pre
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'reshape2' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'reshape2'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:tidyr':
-
-    smiths</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'cluster'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:maps':
-
-    votes.repub</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'car'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:purrr':
-
-    some</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    recode</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'factoextra' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'rpart.plot' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'randomForest' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>randomForest 4.7-1.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'randomForest'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    combine</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:ggplot2':
-
-    margin</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'e1071' was built under R version 4.3.3</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your dataset</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your data frame is named 'data_hcny'</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>data_hcny <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"hcny_CleanDraft.csv"</span>))</span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co">#data_hcny &lt;- read.csv("C:/Users/Leonel/Desktop/MSDA/MS Data Analytics/Current Class/DA 6833/Practicum 2 Github/leonelsalazar-P2-portfolio/Group Project/hcnydata_cleaned.csv")</span></span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data_hcny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive Statistics</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Descriptive Statistics:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Descriptive Statistics:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    state            varroa_mites    other_pests       disease      
  Length:11          Min.   : 8.00   Min.   : 1.70   Min.   : 0.100  
@@ -792,7 +457,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  7 variables:
  $ state       : chr  "Kansas" "Kentucky" "Michigan" "Mississippi" ...
@@ -807,13 +471,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizations</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Plot for varroa_mites by State</span></span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> varroa_mites)) <span class="sc">+</span></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Varroa Mites by State"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">x =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -823,7 +480,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  7 variables:
  $ state       : chr  "Kansas" "Kentucky" "Michigan" "Mississippi" ...
@@ -838,14 +494,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stacked Bar Plot</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"factor"</span>, <span class="at">value =</span> <span class="st">"percentage"</span>, <span class="sc">-</span>state)</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> percentage, <span class="at">fill =</span> factor)) <span class="sc">+</span></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Factors Affecting Bees by State"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">x =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -855,14 +503,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>data_melt <span class="ot">&lt;-</span> <span class="fu">melt</span>(data_clean, <span class="at">id.vars =</span> <span class="st">"state"</span>)</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_melt, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> state, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Factors Affecting Bees"</span>, <span class="at">y =</span> <span class="st">"State"</span>, <span class="at">x =</span> <span class="st">"Factor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -872,17 +512,6 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart for the United States</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>us_data <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state) <span class="sc">%&gt;%</span></span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"factor"</span>, <span class="at">value =</span> <span class="st">"percentage"</span>)</span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(us_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> percentage, <span class="at">fill =</span> factor)) <span class="sc">+</span></span>
-<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Factors Affecting Bees in the United States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -892,13 +521,9 @@ Attaching package: 'randomForest'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation Analysis</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>cor_data <span class="ot">&lt;-</span> <span class="fu">cor</span>(data_clean[,<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Correlation Matrix:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Correlation Matrix:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cor_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             varroa_mites other_pests   disease pesticides     other    unknown
 varroa_mites    1.0000000  0.62115999 0.5907042 0.65228365 0.6085037 0.55340334
@@ -910,20 +535,14 @@ unknown         0.5534033  0.05806591 0.9783323 0.86362322 0.8699315 1.00000000<
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assumption Checks for Descriptive Analysis</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Assumption Checks:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Assumption Checks:"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality check</span></span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>shapiro_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data_clean[<span class="sc">-</span><span class="dv">1</span>], <span class="cf">function</span>(column) <span class="fu">shapiro.test</span>(column))</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Shapiro-Wilk Test for Normality:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Shapiro-Wilk Test for Normality:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(shapiro_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$varroa_mites
 
@@ -974,18 +593,9 @@ W = 0.55542, p-value = 7.156e-06</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneity of variances</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>levene_results <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(varroa_mites <span class="sc">~</span> state, <span class="at">data =</span> data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in leveneTest.default(y = y, group = group, ...): group coerced to
-factor.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Levene's Test for Homogeneity of Variances:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Levene's Test for Homogeneity of Variances:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(levene_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
       Df F value Pr(&gt;F)
@@ -994,13 +604,6 @@ group 10     NaN    NaN
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cluster Analysis</span></span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>data_cluster <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state)</span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(data_cluster), <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hc, <span class="at">labels =</span> data_clean<span class="sc">$</span>state[data_clean<span class="sc">$</span>state <span class="sc">!=</span> <span class="st">"United States"</span>], <span class="at">main =</span> <span class="st">"Hierarchical Clustering of States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1010,15 +613,6 @@ group 10     NaN    NaN
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Principal Component Analysis (PCA)</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>data_pca <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">"United States"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>state) <span class="sc">%&gt;%</span></span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>pca_result <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data_pca, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1    PC2    PC3     PC4     PC5     PC6
@@ -1028,7 +622,6 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca_result, <span class="at">col.var =</span> <span class="st">"contrib"</span>, <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1038,7 +631,6 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  7 variables:
  $ state       : chr  "Kansas" "Kentucky" "Michigan" "Mississippi" ...
@@ -1053,9 +645,6 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Support Vector Machine (SVM)</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(varroa_mites <span class="sc">~</span> other_pests <span class="sc">+</span> disease <span class="sc">+</span> pesticides <span class="sc">+</span> other <span class="sc">+</span> unknown, <span class="at">data =</span> data_clean)</span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1075,29 +664,6 @@ Number of Support Vectors:  10</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming predictions and data_clean$varroa_mites are already created</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Varroa_Mites =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>),</span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">other_variable =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
-<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a linear model</span></span>
-<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Varroa_Mites <span class="sc">~</span> other_variable, <span class="at">data =</span> data_clean)</span>
-<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions</span></span>
-<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> data_clean)</span>
-<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
-<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(predictions, data_clean<span class="sc">$</span>varroa_mites, </span>
-<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Predictions"</span>, </span>
-<span id="cb96-19"><a href="#cb96-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Varroa Mites"</span>, </span>
-<span id="cb96-20"><a href="#cb96-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Predictions vs Varroa Mites"</span>,</span>
-<span id="cb96-21"><a href="#cb96-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">las =</span> <span class="dv">1</span>, <span class="co"># makes y-axis labels horizontal</span></span>
-<span id="cb96-22"><a href="#cb96-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.lab =</span> <span class="fl">1.2</span>, <span class="co"># increases axis labels size</span></span>
-<span id="cb96-23"><a href="#cb96-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis =</span> <span class="fl">1.2</span>) <span class="co"># increases tick labels size</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1121,18 +687,6 @@ Number of Support Vectors:  10</code></pre>
 <figure class="figure">
 <p><img src="images/varroa-mite-bee.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the cleaned data to a new CSV file</span></span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your dataset is named data_hcny</span></span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>data_hcny_clean <span class="ot">&lt;-</span> data_hcny <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data_hcny_clean, <span class="fu">here</span>(<span class="st">"hcnydata_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-10"><a href="#cb97-10" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(hcnydata_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/hcny_CleanDraft.csv", row.names = FALSE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

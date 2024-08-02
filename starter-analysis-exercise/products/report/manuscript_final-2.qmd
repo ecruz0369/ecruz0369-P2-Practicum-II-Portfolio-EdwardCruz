@@ -208,7 +208,7 @@ ggplot(data = states) +
 
 [@varroamap] ***Varroa Map of infestation periods***
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load necessary libraries
 library(tidyverse)
 
@@ -304,12 +304,7 @@ shorter description here and all the details in the supplement.*
 
 ## Schematic of workflow
 
-Sometimes you might want to show a schematic diagram/figure that was not
-created with code (if you can do it with code, do it). @fig-schematic is
-an example of some - completely random/unrelated - schematic that was
-generated with Biorender. We store those figures in the `assets` folder.
-
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Install necessary packages
 if (!require("DiagrammeR")) install.packages("DiagrammeR")
 
@@ -350,7 +345,7 @@ grViz("
 
 ## Data aquisition
 
-We got our data from the United States Department of Agriculture (USDA).
+Data was derived from the United States Department of Agriculture (USDA) website, which permits data sets to be downloaded in CSV(comma-separated values) format.
 
 ## Data import and cleaning
 
@@ -363,14 +358,14 @@ we wanted to single out data that represented the losses so we can
 explore the different states by year and determine how the colonies were
 affected.
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readxl)
 library(tidyverse)
 library(ggplot2)
 library(knitr)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(here)
 
@@ -392,12 +387,12 @@ data <- read.csv(here("Databystate.csv"))
 #data <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/DatabyState.csv")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Select all columns except 3, 6, and 9
 Data_Clean <- dplyr::select(data, -c(3, 6, 9))
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Output cleaned data file to a csv file.
 
 write.csv(Data_Clean, "Data_Clean.csv", row.names = FALSE)
@@ -405,7 +400,7 @@ write.csv(Data_Clean, "Data_Clean.csv", row.names = FALSE)
 #write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Clean.csv")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Assuming your data frame is named "data"
 
 # Filter for rows where "Loss" or "Deadout" is present in any column (case-insensitive)
@@ -414,7 +409,7 @@ library(stringr)  # Load stringr package for regular expressions
 data_filtered <- Data_Clean[rowSums(sapply(data, grepl, pattern = c("Loss"), ignore.case = TRUE)) > 0, ]
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Output cleaned data file to a csv file.
 
 write.csv(data_filtered, "Data_Filtered.csv", row.names = FALSE)
@@ -422,7 +417,7 @@ write.csv(data_filtered, "Data_Filtered.csv", row.names = FALSE)
 #write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Filtered.csv")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # View data str to see what class they are.
 
 str(data_filtered)
@@ -441,7 +436,7 @@ This indicates that while both types of losses are present each year,
 the magnitude and frequency of extreme loss events can differ,
 suggesting variability in the factors contributing to colony losses.
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Load necessary libraries
 library(ggplot2)
@@ -480,7 +475,7 @@ consistently high or low values, others show significant variability
 year over year. This could suggest regional differences in factors
 affecting bee colony health.
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Scatterplot of Value by State.ANSI
 ggplot(data_filtered, aes(x = State.ANSI, y = Value, color = factor(Year))) +
   geom_point() +
@@ -506,7 +501,7 @@ This seasonal analysis suggests that certain times of the year are more
 prone to higher losses, potentially due to environmental factors,
 resource availability, or management practices.
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load necessary library
 library(ggplot2)
 library(scales)
@@ -569,7 +564,7 @@ external threats like Varroa mites and seasonal variations in losses.
 
 ![](/images/Varrpa%201.webp){fig-align="center" width="527"}
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load necessary libraries
 library(ggplot2)
 library(dplyr)
@@ -585,7 +580,7 @@ library(e1071)
 
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load your dataset
 # Assuming your data frame is named 'data_hcny'
 
@@ -598,18 +593,18 @@ data_clean <- na.omit(data_hcny)
 
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Descriptive Statistics
 print("Descriptive Statistics:")
 summary(data_clean)
 
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 str(data_clean)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Visualizations
 
 # Bar Plot for varroa_mites by State
@@ -619,11 +614,11 @@ ggplot(data_clean, aes(x = state, y = varroa_mites)) +
   labs(title = "Varroa Mites by State", y = "Percentage", x = "State")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 str(data_clean)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Stacked Bar Plot
 data_long <- data_clean %>%
   gather(key = "factor", value = "percentage", -state)
@@ -634,7 +629,7 @@ ggplot(data_long, aes(x = state, y = percentage, fill = factor)) +
   labs(title = "Factors Affecting Bees by State", y = "Percentage", x = "State")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Heatmap
 data_melt <- melt(data_clean, id.vars = "state")
 
@@ -645,7 +640,7 @@ ggplot(data_melt, aes(x = variable, y = state, fill = value)) +
   labs(title = "Heatmap of Factors Affecting Bees", y = "State", x = "Factor")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Pie Chart for the United States
 us_data <- data_clean %>%
   filter(state == "United States") %>%
@@ -659,26 +654,26 @@ ggplot(us_data, aes(x = "", y = percentage, fill = factor)) +
   labs(title = "Distribution of Factors Affecting Bees in the United States")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Correlation Analysis
 cor_data <- cor(data_clean[,-1])
 print("Correlation Matrix:")
 print(cor_data)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Assumption Checks for Descriptive Analysis
 print("Assumption Checks:")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Normality check
 shapiro_results <- lapply(data_clean[-1], function(column) shapiro.test(column))
 print("Shapiro-Wilk Test for Normality:")
 print(shapiro_results)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Homogeneity of variances
 
 levene_results <- leveneTest(varroa_mites ~ state, data = data_clean)
@@ -686,7 +681,7 @@ print("Levene's Test for Homogeneity of Variances:")
 print(levene_results)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Cluster Analysis
 data_cluster <- data_clean %>%
   filter(state != "United States") %>%
@@ -696,7 +691,7 @@ hc <- hclust(dist(data_cluster), method = "complete")
 plot(hc, labels = data_clean$state[data_clean$state != "United States"], main = "Hierarchical Clustering of States")
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Principal Component Analysis (PCA)
 data_pca <- data_clean %>%
   filter(state != "United States") %>%
@@ -704,27 +699,27 @@ data_pca <- data_clean %>%
   scale()
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 pca_result <- prcomp(data_pca, center = TRUE, scale. = TRUE)
 summary(pca_result)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 fviz_pca_var(pca_result, col.var = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
 
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 str(data_clean)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Support Vector Machine (SVM)
 svm_model <- svm(varroa_mites ~ other_pests + disease + pesticides + other + unknown, data = data_clean)
 summary(svm_model)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Assuming predictions and data_clean$varroa_mites are already created
 
 # Example data
@@ -759,7 +754,7 @@ plot(predictions, data_clean$varroa_mites,
 
 ![](images/varroa-mite-bee.jpg){fig-align="center"}
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Write the cleaned data to a new CSV file
 
 
