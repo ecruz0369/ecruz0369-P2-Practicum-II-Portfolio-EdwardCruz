@@ -311,7 +311,7 @@ generated with Biorender. We store those figures in the `assets` folder.
 
 ```{r}
 # Install necessary packages
-#install.packages("DiagrammeR")
+if (!require("DiagrammeR")) install.packages("DiagrammeR")
 
 # Load the DiagrammeR package
 library(DiagrammeR)
@@ -319,19 +319,19 @@ library(DiagrammeR)
 # Create the flowchart using DiagrammeR
 grViz("
   digraph Data_Analysis_Flowchart {
-    graph [layout = dot, rankdir = TB]
+    graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 45, labelloc = 't']
 
-    node [shape = box, style = filled, color = lightblue]
-    
-    Define_Objectives [label = 'Define Objectives']
-    Collect_Data [label = 'Collect Data']
-    Clean_Data [label = 'Clean Data']
-    Analyze_Data [label = 'Analyze Data']
-    Interpret_Results [label = 'Interpret Results']
-    Visualize_Data [label = 'Visualize Data']
-    Compile_Report [label = 'Compile Report']
-    Review_Revise [label = 'Review & Revise']
-    Present_Report [label = 'Present Report']
+    node [style = filled, fontsize = 20, width = 2, height = 2]
+
+    Define_Objectives [label = 'Define Objectives', shape = oval, color = lightblue]
+    Collect_Data [label = 'Collect Data', shape = box, color = lightgreen]
+    Clean_Data [label = 'Clean Data', shape = ellipse, color = lightyellow]
+    Analyze_Data [label = 'Analyze Data', shape = diamond, color = lightcoral]
+    Interpret_Results [label = 'Interpret Results', shape = trapezium, color = lightgrey]
+    Visualize_Data [label = 'Visualize Data', shape = parallelogram, color = lightpink]
+    Compile_Report [label = 'Compile Report', shape = house, color = lightcyan]
+    Review_Revise [label = 'Review & Revise', shape = invhouse, color = lightgoldenrodyellow]
+    Present_Report [label = 'Present Report', shape = hexagon, color = lightseagreen]
 
     Define_Objectives -> Collect_Data
     Collect_Data -> Clean_Data
@@ -343,6 +343,9 @@ grViz("
     Review_Revise -> Present_Report
   }
 ")
+
+
+
 ```
 
 ## Data aquisition
