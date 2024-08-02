@@ -345,8 +345,6 @@ grViz("
 ")
 ```
 
-![](/images/FlowChart.jpg){fig-align="center"}
-
 ## Data aquisition
 
 We got our data from the United States Department of Agriculture (USDA).
