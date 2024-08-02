@@ -310,9 +310,42 @@ an example of some - completely random/unrelated - schematic that was
 generated with Biorender. We store those figures in the `assets` folder.
 
 ```{r}
+# Install necessary packages
+#install.packages("DiagrammeR")
 
-#knitr::include_graphics(here("assets","antigen-recognition.png"))
+# Load the DiagrammeR package
+library(DiagrammeR)
+
+# Create the flowchart using DiagrammeR
+grViz("
+  digraph Data_Analysis_Flowchart {
+    graph [layout = dot, rankdir = TB]
+
+    node [shape = box, style = filled, color = lightblue]
+    
+    Define_Objectives [label = 'Define Objectives']
+    Collect_Data [label = 'Collect Data']
+    Clean_Data [label = 'Clean Data']
+    Analyze_Data [label = 'Analyze Data']
+    Interpret_Results [label = 'Interpret Results']
+    Visualize_Data [label = 'Visualize Data']
+    Compile_Report [label = 'Compile Report']
+    Review_Revise [label = 'Review & Revise']
+    Present_Report [label = 'Present Report']
+
+    Define_Objectives -> Collect_Data
+    Collect_Data -> Clean_Data
+    Clean_Data -> Analyze_Data
+    Analyze_Data -> Interpret_Results
+    Interpret_Results -> Visualize_Data
+    Visualize_Data -> Compile_Report
+    Compile_Report -> Review_Revise
+    Review_Revise -> Present_Report
+  }
+")
 ```
+
+![](/images/FlowChart.jpg){fig-align="center"}
 
 ## Data aquisition
 
@@ -562,14 +595,16 @@ data_hcny <- read.csv(here("hcny_CleanDraft.csv"))
 
 data_clean <- na.omit(data_hcny)
 
-
-
 ```
 
 ```{r}
 # Descriptive Statistics
 print("Descriptive Statistics:")
 summary(data_clean)
+
+```
+
+```{r}
 str(data_clean)
 ```
 
@@ -715,11 +750,11 @@ plot(predictions, data_clean$varroa_mites,
 
 ```
 
-###  **Honey Bee Collecting Pollen**
+### **Honey Bee Collecting Pollen**
 
 ![](/images/Bee%20Feeding.jpg){fig-align="center" width="313"}
 
-###                             Honey Bee with exposed bloated Varroa Mite
+### Honey Bee with exposed bloated Varroa Mite
 
 ![](images/varroa-mite-bee.jpg){fig-align="center"}
 

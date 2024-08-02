@@ -1,0 +1,675 @@
+---
+title: "Assignment # 7 Analysis Workflow"
+author: Edward Cruz
+date: "`r Sys.Date()`"
+format: html
+editor: visual
+theme: cosmo
+---
+
+```{r}
+rm(list = ls())
+```
+
+
+# Load libraries
+
+
+```{r, message=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+```
+
+
+# Load the data
+
+
+```{r}
+finalist <- read.csv("C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/tidytuesday-exercise/finalists.csv")
+```
+
+```{r}
+# Display the first few rows of the dataset
+head(finalist)
+```
+
+```{r}
+# Summary of the dataset
+summary(finalist)
+```
+
+```{r}
+# Structure of the dataset
+str(finalist)
+```
+
+
+## Hypothesis: "Does the average age of finalists vary significantly by Season?"
+
+## Wrangle the Data
+
+Data wrangling involves cleaning and transforming the data to make it suitable for analysis.
+
+# Remove Unnecessary Columns
+
+
+```{r}
+finalist <- finalist %>%
+  select(-c(Hometown, Description))
+```
+
+
+# Convert Birthday Columns to standard Date format
+
+
+```{r, message=FALSE, warning=FALSE}
+finalist <- finalist %>%
+  mutate(Birthday = as.Date(Birthday, format = "%d-%b-%y"))
+```
+
+
+# Separate Birthplace into City and State
+
+
+```{r}
+library(tidyr)
+finalist <- finalist %>%
+  separate(Birthplace, into = c("City", "State"), sep = ", ")
+
+finalist$State <- as.factor(finalist$State)
+
+str(finalist)
+```
+
+
+# Handle Missing Values
+
+
+```{r}
+finalist <- na.omit(finalist)
+```
+
+
+# Calculate Age and create the Age column
+
+
+```{r}
+
+finalist <- finalist %>%
+  mutate(Age = as.numeric(difftime(Sys.Date(), as.Date(Birthday), units = "weeks")) %/% 52)
+```
+
+
+## Exploratory Data Analysis (EDA)
+
+EDA involves summarizing the main characteristics of the data often using visual methods.
+
+# Summary Statistics
+
+
+```{r}
+summary(finalist)
+```
+
+```{r}
+# Summary statistics for Age by State
+summary_stats <- finalist %>%
+  group_by(Season) %>%
+  summarise(
+    Mean_Age = round(mean(Age, na.rm = TRUE), 1),
+    Median_Age = round(median(Age, na.rm = TRUE), 1),
+    SD_Age = round(sd(Age, na.rm = TRUE), 1),
+    Count = n()
+  )
+
+# Print the summary statistics
+print(summary_stats)
+```
+
+
+# Distribution of Age
+
+```{r}
+# Histogram of Age with white background
+ggplot(finalist, aes(x = Age)) +
+  geom_histogram(binwidth = 1, fill = "#0000FF", color = "#424242") +
+  labs(title = "Distribution of Age", x = "Age", y = "Frequency") +
+  theme_minimal() +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(fill = "white", color = NA)
+  )
+```
+
+
+# Count by State
+
+
+```{r}
+# Set the color to light honey dew
+light_honeydew <- "#F0FFF0"
+
+# Create the bar plot with light honey dew background
+ggplot(finalist, aes(x = State)) +
+  geom_bar(fill = "#00BFFF", color = "#1E90FF") +
+  labs(title = "Count by State", x = "State", y = "Frequency") +
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.background = element_rect(fill = light_honeydew, color = NA),
+    plot.background = element_rect(fill = light_honeydew, color = NA)
+  )
+```
+
+
+
+# Scatter Plot (if applicable)
+
+
+
+```{r}
+ggplot(finalist, aes(x = Season, y = Age)) +
+   geom_point(color = "#00008B") +  # Dark blue color for dots
+   labs(title = "Scatter Plot of Season vs Age", x = "Season", y = "Age") +
+   theme_minimal(base_size = 15) +  # Use a minimal theme for a cleaner look
+   theme(
+     plot.background = element_rect(fill = "#F0FFF0"),  # Light honey dew background color
+     panel.background = element_rect(fill = "#F0FFF0"), # Light honey dew panel background
+     panel.grid.major = element_line(color = "gray80"), # Optional: Adjust grid lines if desired
+     panel.grid.minor = element_line(color = "gray90")  # Optional: Adjust grid lines if desired
+   )
+```
+
+
+## Split the Data into Train/Test Sets using createDataPartition
+
+
+```{r, message=FALSE, warning=FALSE}
+library(caret)
+library(tidymodels)
+library(rsample)
+
+set.seed(123)
+
+# Create a partition for training (80%) and testing (20%)
+trainIndex <- createDataPartition(finalist$Age, p = 0.8, list = FALSE)
+
+# Subset the data into training and testing sets
+train_data <- finalist[trainIndex, ]
+test_data <- finalist[-trainIndex, ]
+
+
+
+# Define train control
+cv_folds <- vfold_cv(train_data, v = 10, repeats = 5)
+```
+
+
+We will fit three different types of models to our data using the tidymodels framework:
+
+Linear Regression Random Forest Support Vector Machine (SVM) We'll use cross-validation (CV) for model training and fitting, and evaluate the models based on performance metrics such as RMSE, R-squared, and residuals.
+
+# Define a recipe for preprocessing
+
+
+```{r}
+age_recipe <- recipe(Age ~ State,Season, data = train_data) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_center(all_predictors()) %>%
+  step_scale(all_predictors())
+
+```
+
+
+# Linear Regression Model
+
+
+```{r}
+# Define the linear regression model
+lm_model <- linear_reg() %>%
+  set_engine("lm") %>%
+  set_mode("regression")
+```
+
+
+# Random Forest Model
+
+
+```{r}
+# Define the random forest model
+rf_model <- rand_forest() %>%
+  set_engine("ranger") %>%
+  set_mode("regression")
+```
+
+
+# Support Vector Machine (SVM) Model
+
+
+```{r}
+# Define the SVM model
+svm_model <- svm_rbf() %>%
+  set_engine("kernlab") %>%
+  set_mode("regression")
+```
+
+
+# Create Workflows
+
+We will create workflows that combine the recipe with each model.
+
+
+```{r}
+# Create workflows for each model
+lm_workflow <- workflow() %>%
+  add_recipe(age_recipe) %>%
+  add_model(lm_model)
+
+rf_workflow <- workflow() %>%
+  add_recipe(age_recipe) %>%
+  add_model(rf_model)
+
+svm_workflow <- workflow() %>%
+  add_recipe(age_recipe) %>%
+  add_model(svm_model)
+```
+
+
+# Train Models with Cross-Validation
+
+
+```{r,message=FALSE, warning=FALSE}
+# Control object to save predictions
+ctrl <- control_grid(save_pred = TRUE)
+
+# Train linear regression model with cross-validation
+lm_res <- lm_workflow %>%
+  tune_grid(resamples = cv_folds, control = ctrl)
+
+# Train random forest model with cross-validation
+rf_res <- rf_workflow %>%
+  tune_grid(resamples = cv_folds, control = ctrl)
+
+# Train SVM model with cross-validation
+svm_res <- svm_workflow %>%
+  tune_grid(resamples = cv_folds, control = ctrl)
+```
+
+
+# Fit Resamples
+
+Fit the models using cross-validation:
+
+
+```{r,message=FALSE,warning=FALSE}
+# Fit resamples for each workflow
+lm_res <- fit_resamples(lm_workflow, resamples = cv_folds, control = ctrl)
+rf_res <- fit_resamples(rf_workflow, resamples = cv_folds, control = ctrl)
+svm_res <- fit_resamples(svm_workflow, resamples = cv_folds, control = ctrl)
+```
+
+
+# Collect Predictions
+
+
+```{r}
+# Collect predictions for each model
+lm_predictions <- collect_predictions(lm_res)
+rf_predictions <- collect_predictions(rf_res)
+svm_predictions <- collect_predictions(svm_res)
+```
+
+
+# Calculate RMSE and R-squared to Evaluate Model Performance
+
+
+```{r}
+library(yardstick)
+
+# Calculate metrics for Linear Regression Model
+lm_metrics <- lm_predictions %>%
+  group_by(id) %>%
+  summarize(
+    rmse = rmse_vec(truth = Age, estimate = .pred),
+    rsq = rsq_vec(truth = Age, estimate = .pred)
+  )
+
+print("Linear Regression Metrics:")
+print(lm_metrics)
+
+# Calculate metrics for Random Forest Model
+rf_metrics <- rf_predictions %>%
+  group_by(id) %>%
+  summarize(
+    rmse = rmse_vec(truth = Age, estimate = .pred),
+    rsq = rsq_vec(truth = Age, estimate = .pred)
+  )
+
+print("Random Forest Metrics:")
+print(rf_metrics)
+
+# Calculate metrics for SVM Model
+svm_metrics <- svm_predictions %>%
+  group_by(id) %>%
+  summarize(
+    rmse = rmse_vec(truth = Age, estimate = .pred),
+    rsq = rsq_vec(truth = Age, estimate = .pred)
+  )
+
+print("SVM Metrics:")
+print(svm_metrics)
+```
+
+
+# Analyze Residuals and Uncertainty
+
+We can also analyze residuals and uncertainty for each model.
+
+
+```{r}
+# Residuals for linear regression model
+lm_residuals <- lm_predictions$.pred - lm_predictions$Age
+hist(lm_residuals, main = "Linear Regression Residuals", xlab = "Residuals")
+
+# Residuals for random forest model
+rf_residuals <- rf_predictions$.pred - rf_predictions$Age
+hist(rf_residuals, main = "Random Forest Residuals", xlab = "Residuals")
+
+# Residuals for SVM model
+svm_residuals <- svm_predictions$.pred - svm_predictions$Age
+hist(svm_residuals, main = "SVM Residuals", xlab = "Residuals")
+```
+
+
+***Model Evaluation Summary***
+Performance Metrics (Cross-validation results)
+***Linear Regression:***
+
+RMSE: 7.533, 7.469, 7.636, 7.322, 7.534
+R²: 0.000735, 0.000419, 0.003392, 0.000386, 0.002878
+
+***Random Forest:***
+
+RMSE: 7.227, 7.084, 7.202, 7.018, 7.128
+R²: 0.001538, 0.000015, 0.004366, 0.000328, 0.000998
+
+***SVM:***
+
+RMSE: 6.954, 6.974, 7.017, 6.884, 6.993
+R²: 0.010999, 0.013058, 0.030090, 0.004642, 0.020371
+
+
+```{r}
+# Create data frames for each model
+linear_regression <- data.frame(
+  Model = "Linear Regression",
+  RMSE = c(7.533, 7.469, 7.636, 7.322, 7.534),
+  R_squared = c(0.000735, 0.000419, 0.003392, 0.000386, 0.002878)
+)
+
+random_forest <- data.frame(
+  Model = "Random Forest",
+  RMSE = c(7.227, 7.084, 7.202, 7.018, 7.128),
+  R_squared = c(0.001538, 0.000015, 0.004366, 0.000328, 0.000998)
+)
+
+svm <- data.frame(
+  Model = "SVM",
+  RMSE = c(6.954, 6.974, 7.017, 6.884, 6.993),
+  R_squared = c(0.010999, 0.013058, 0.030090, 0.004642, 0.020371)
+)
+
+# Combine all data frames
+all_models <- rbind(linear_regression, random_forest, svm)
+
+# Calculate summary statistics
+summary_stats <- aggregate(all_models[, c("RMSE", "R_squared")], 
+                           by = list(Model = all_models$Model), 
+                           FUN = function(x) c(mean = mean(x), sd = sd(x)))
+
+# Flatten the summary statistics
+summary_stats_flat <- data.frame(
+  Model = summary_stats$Model,
+  RMSE_mean = summary_stats$RMSE[,1],
+  RMSE_sd = summary_stats$RMSE[,2],
+  R_squared_mean = summary_stats$R_squared[,1],
+  R_squared_sd = summary_stats$R_squared[,2]
+)
+
+# Round the results to 4 decimal places
+summary_stats_flat[,2:5] <- round(summary_stats_flat[,2:5], 4)
+
+# Print the summary
+print(summary_stats_flat)
+
+# If you want a nicer looking table, you can use the knitr package
+if (!require(knitr)) install.packages("knitr")
+library(knitr)
+
+# Create a nicely formatted table
+kable(summary_stats_flat, 
+      caption = "Model Evaluation Summary",
+      col.names = c("Model", "RMSE (Mean)", "RMSE (SD)", "R² (Mean)", "R² (SD)"),
+      align = c("l", "c", "c", "c", "c"),
+      format = "markdown")
+```
+
+```{r}
+
+library(knitr)
+# Create a data frame for decision criteria
+decision_criteria <- data.frame(
+  Criteria = c("Interpretability", "Computational Efficiency", "Robustness to Overfitting"),
+  Linear_Regression = c("High", "High", "Low"),
+  Random_Forest = c("Moderate", "Moderate", "High"),
+  SVM = c("Low", "Low", "Moderate")
+)
+# Create a nicely formatted table with a title
+table_with_title <- kable(decision_criteria, 
+                          format = "markdown", 
+                          align = c("l", "c", "c", "c"),
+                          caption = "Decision Criteria Beyond Performance Metrics")
+
+# Print the table with title
+cat("# Decision Criteria Beyond Performance Metrics\n\n")
+print(table_with_title)
+# Print the data frame
+print(decision_criteria)
+
+```
+
+
+***Alignment with Scientific Question/Hypothesis***
+
+Interpretability is crucial if the goal is to understand how average age of finalists varies by Season.
+
+Choice of the Best Model: Support Vector Machine (SVM)
+Reasons:
+
+Performance: Lowest RMSE and highest R² across all repeats.
+Robustness: Handles complex relationships well when properly tuned.
+Scientific Hypothesis: Superior choice if predictive accuracy is prioritized over interpretability.
+
+Conclusion
+Despite lower interpretability, the SVM model's superior predictive performance makes it the best choice for predicting age based on state data in this specific task.
+Final Assessment
+The Support Vector Machine (SVM) model will be used for the final assessment based on its overall performance and suitability for the task at hand.
+
+# Final Model Performance on Test Data
+
+
+```{r}
+set.seed(123)
+
+# Define the recipe
+age_recipe <- recipe(Age ~ State, data = train_data) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_center(all_predictors()) %>%
+  step_scale(all_predictors())
+
+# Define the SVM model
+svm_model <- svm_rbf() %>%
+  set_engine("kernlab") %>%
+  set_mode("regression")
+
+# Create the workflow
+svm_workflow <- workflow() %>%
+  add_recipe(age_recipe) %>%
+  add_model(svm_model)
+
+# Fit the model on the entire training data
+final_svm_fit <- svm_workflow %>%
+  fit(data = train_data)
+
+# Make predictions on the test data
+test_predictions <- predict(final_svm_fit, new_data = test_data) %>%
+  bind_cols(test_data)
+# Calculate performance metrics
+svm_rmse <- rmse(test_predictions, truth = Age, estimate = .pred)
+svm_rsq <- rsq(test_predictions, truth = Age, estimate = .pred)
+
+```
+
+```{r}
+# Assuming your code has been run and svm_rmse and svm_rsq are calculated
+
+# Create a data frame for the results
+final_results <- data.frame(
+  Metric = c("RMSE", "R-squared"),
+  Value = c(svm_rmse$.estimate, svm_rsq$.estimate)
+)
+
+# Round the values to 4 decimal places
+final_results$Value <- round(final_results$Value, 4)
+
+# Print the basic table
+print("Final Model Performance on Test Data:")
+print(final_results)
+
+# Create a nicely formatted table
+cat("\nFormatted Table:\n")
+kable(final_results, 
+      caption = "Final SVM Model Performance on Test Data",
+      col.names = c("Metric", "Value"),
+      align = c("l", "c"),
+      format = "markdown")
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(test_predictions, aes(x = .pred, y = Age)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, color = "blue") +  # Set line color to blue
+  labs(title = "Predicted vs Actual Ages", x = "Predicted Age", y = "Actual Age") +
+  theme(
+    panel.background = element_rect(fill = "#F0FFF0"),  # Set background color to light melon
+    plot.background = element_rect(fill = "#F0FFF0")
+  )
+
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(test_predictions, aes(x = .pred, y = .pred - Age)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "blue") +  # Set horizontal line color to blue
+  labs(title = "Residuals Plot", x = "Predicted Age", y = "Residuals") +
+  theme(
+    panel.background = element_rect(fill = "#F0FFF0"),  # Set background color to light melon
+    plot.background = element_rect(fill = "#F0FFF0")
+  )
+```
+
+# 7
+
+
+```{r}
+# Create a data frame for the summary
+summary_table <- data.frame(
+  Section = c("Objective", "Methodology", "Findings", "Conclusion"),
+  Description = c(
+    "Build and evaluate predictive models to estimate if average age of finalists varies by Season.",
+    "Data preparation, model training with cross-validation, model evaluation, and final assessment of chosen model (SVM).",
+    "SVM outperformed Linear Regression and Random Forest in cross-validation. SVM showed good performance on test data with lower RMSE and higher R².",
+    "SVM chosen as best model due to superior performance. Balance between performance, interpretability, and efficiency is crucial."
+  )
+)
+
+# Create a data frame for the cross-validation results
+cv_results <- data.frame(
+  Model = c("Linear Regression", "Random Forest", "SVM"),
+  RMSE_Mean = c(7.499, 7.132, 6.964),
+  R_Squared_Mean = c(0.0012, 0.0018, 0.0150)
+)
+
+# Print the summary table
+cat("Summary of Analysis:\n")
+print(knitr::kable(summary_table, format = "pipe"))
+
+# Print the cross-validation results
+cat("\nCross-Validation Results:\n")
+print(knitr::kable(cv_results, format = "pipe", digits = 4))
+```
+
+```{r}
+# Create a data frame for the summary results
+cv_summary <- data.frame(
+  Model = c("Linear Regression", "Random Forest", "SVM"),
+  RMSE_Mean = c(7.499, 7.132, 6.964),
+  R_Squared_Mean = c(0.0012, 0.0018, 0.0150)
+)
+
+# Round the values to 4 decimal places
+cv_summary$RMSE_Mean <- round(cv_summary$RMSE_Mean, 4)
+cv_summary$R_Squared_Mean <- round(cv_summary$R_Squared_Mean, 4)
+
+# Print the basic table
+print("Summary Table of Cross-Validation Results:")
+print(cv_summary)
+
+# If you want a nicer looking table, you can use the knitr package
+if (!require(knitr)) install.packages("knitr")
+library(knitr)
+
+# Create a nicely formatted table
+cat("\nFormatted Table:\n")
+kable(cv_summary, 
+      caption = "Summary Table of Cross-Validation Results",
+      col.names = c("Model", "RMSE (Mean)", "R² (Mean)"),
+      align = c("l", "c", "c"),
+      format = "markdown")
+```
+
+
+
+This summary provides a concise overview of your analysis, including the objective, methodology, key findings, and conclusion. The cross-validation results table offers a quick comparison of the performance of the three models you evaluated.
+
+
+# Residual Plot for SVM Model on Test Data
+
+
+
+```{r}
+library(ggplot2)
+
+ggplot(test_predictions, aes(x = .pred, y = Age)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, color = "blue") +  # Set line color to blue
+  labs(title = "Residual Plot for SVM Model",
+       x = "Predicted Age",
+       y = "Actual Age") +
+  theme(
+    panel.background = element_rect(fill = "#F0FFF0"),  # Set background color to light melon
+    plot.background = element_rect(fill = "#F0FFF0")
+  )
+```
+
+This study exemplifies a thorough methodology for assessing and choosing predictive models, highlighting the critical role of cross-validation and in-depth model evaluation. Our results indicate that while there is a discernible relationship between season and age, it is relatively modest, as evidenced by the low R² values across all models tested.
+The systematic comparison of linear regression, random forest, and support vector machine (SVM) models revealed varying levels of predictive accuracy. The SVM model emerged as the top performer, suggesting that the relationship between season and age may involve complex, non-linear patterns that simpler models struggle to capture.
+Despite the SVM model's superior performance, the overall low R² values across all models indicate that season alone is a weak predictor of age. This underscores the complexity of the relationship and suggests that other factors, not included in this analysis, may play significant roles in determining the age of participants.
+These findings emphasize the importance of careful model selection and the need to consider both statistical performance and practical interpretability when choosing a predictive model. While more sophisticated models like SVM can offer improved predictive power, the trade-off between complexity and interpretability should be carefully weighed in the context of the specific research or business objectives.
+In conclusion, this analysis not only provides insights into the relationship between season and age but also serves as a template for rigorous model evaluation in predictive analytics. It underscores the value of employing diverse modeling techniques and thorough validation processes to ensure robust and reliable predictions.
