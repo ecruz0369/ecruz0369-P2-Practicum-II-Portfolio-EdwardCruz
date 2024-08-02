@@ -321,10 +321,10 @@ grViz("
   digraph Data_Analysis_Flowchart {
     graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 45, labelloc = 't']
 
-    node [style = filled, fontsize = 20, width = 2, height = 2]
+    node [style = filled, fontsize = 30, width = 2, height = 2]
 
     Define_Objectives [label = 'Define Objectives', shape = oval, color = lightblue]
-    Collect_Data [label = 'Collect Data', shape = box, color = lightgreen]
+    Collect_Data [label = 'Collect Data', shape = box, color = lightgrey]
     Clean_Data [label = 'Clean Data', shape = ellipse, color = lightyellow]
     Analyze_Data [label = 'Analyze Data', shape = diamond, color = lightcoral]
     Interpret_Results [label = 'Interpret Results', shape = trapezium, color = lightgrey]
