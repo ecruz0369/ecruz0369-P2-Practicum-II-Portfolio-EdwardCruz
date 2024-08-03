@@ -265,7 +265,6 @@ The chart provided illustrates the changes in temperature anomalies over the yea
 ### Conclusion:
 The chart highlights a clear trend of increasing temperature anomalies, which can have profound implications on bee populations, varroa mite dynamics, and overall colony health. Understanding these trends is crucial for developing strategies to mitigate the adverse effects on bees and ensure the sustainability of pollination services essential for ecosystems and agriculture.
 
-
 [@epa_climate_indicator] ***Global warming trends from 1900-2024***
 
 ***Spread of Varroa Mite by Year of First Apperance [@varroamap]***
