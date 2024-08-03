@@ -1,18 +1,6 @@
 ---
-title: "Honey Bee Colonies Impacted by Varroa, American Foulbrood and Global Warming"
-subtitle: ""
-author: Edward Cruz, Jr., Leonel G. Salazar, Amelia Tristan, Mojisola Popoola
-date: today
-format:
-  html:
-    toc: false
-    number-sections: true
-    highlight-style: github
-bibliography: ../citations.bib 
-csl: ../apa.csl
-editor: 
-  markdown: 
-    wrap: 72
+title: "Group 10 Final Project"
+output: html_document
 ---
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -42,8 +30,7 @@ demonstrate and validate the detrimental effects of these factors on
 honeybee colonies, highlighting the consequent implications for honey
 production and broader food security. ***Dennis and Kemp's study on
 honey bee hive collapse [@hivecollapse] provides important insights into
-Allee effects and ecological resilience.*** ***Warmer climate may impact
-bees[@2024warmer]***
+Allee effects and ecological resilience.***
 
 {{< pagebreak >}}
 
@@ -69,10 +56,9 @@ higher winter temperatures and increased colony losses, the effects of
 warmer autumn and winter temperatures on colony dynamics and survival
 require further investigation. ***Dennis and Kemp's study on honey bee
 hive collapse [@hivecollapse] provides important insights into Allee
-effects and ecological resilience.*** [@usda_honey_bees;
-@usda_nass]\*\*\*
+effects and ecological resilience.***[@usda_honey_bees; @usda_nass]
 
-***Warmer climate may impact bees[@2024warmer]***
+
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Create a data frame with the composition of honey
@@ -105,7 +91,7 @@ ggplot(honey_data, aes(x = "", y = percentage, fill = component)) +
 ```
 ### Composition of Honey
 
-The first image is a pie chart that illustrates the composition of honey
+Compositions of honey is a pie chart that illustrates the composition of honey
 by percentage. The main components are:
 
 -   **Fructose**: 38.5%
@@ -163,6 +149,7 @@ states <- merge(states, varroa_data, by.x = "ID", by.y = "state", all.x = TRUE)
 ```
 
 
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = states) +
   geom_sf(aes(fill = year), color = "#292929", size = 0.2) +
@@ -185,7 +172,7 @@ ggplot(data = states) +
 ```
 ### Spread of Varroa Mites
 
-The second image is a map illustrating the spread of Varroa mites in the
+the spread of varroa mites image is a map illustrating the spread of Varroa mites in the
 United States from 1986 to 1995. The map uses different colors to
 represent the year of the first appearance of Varroa mites in each
 state:
@@ -204,6 +191,7 @@ gradually spread to more states over time. This visual representation
 highlights the increasing geographical distribution of Varroa mites and
 underscores the growing challenge they pose to beekeeping and
 agricultural industries in the United States.
+
 ***[@varroamap] Varroa Map of infestation periods***
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -236,6 +224,7 @@ ggplot(data_long, aes(x = Year, y = Temperature, color = Measurement)) +
   scale_color_manual(values = c("Earth's surface" = "#254976", "Lower troposphere (UAH)" = "#4A8C1D", "Lower troposphere (RSS)" = "#B5153A"))
 
 ```
+
 The chart provided illustrates the changes in temperature anomalies over the years, from 1900 to approximately 2025. The temperature anomaly, measured in degrees Celsius (°C), is plotted on the y-axis, while the years are plotted on the x-axis. The data is divided into three different measurements: Earth's surface, lower troposphere (RSS), and lower troposphere (UAH), each represented by different colors (blue, red, and green respectively).
 
 ### Detailed Description:
@@ -276,7 +265,8 @@ The chart provided illustrates the changes in temperature anomalies over the yea
 ### Conclusion:
 The chart highlights a clear trend of increasing temperature anomalies, which can have profound implications on bee populations, varroa mite dynamics, and overall colony health. Understanding these trends is crucial for developing strategies to mitigate the adverse effects on bees and ensure the sustainability of pollination services essential for ecosystems and agriculture.
 
-[@epa_climate] ***Global warming trends from 1900-2024***
+
+[@epa_climate_indicator] ***Global warming trends from 1900-2024***
 
 ***Spread of Varroa Mite by Year of First Apperance [@varroamap]***
 Written By:sdns6mchl4. (2016, February 24). Varroa mite spread in the
@@ -310,6 +300,9 @@ Bee colonies maintained by beekeepers are classified as livestock by the USDA du
 These sources provided reliable and extensive data necessary for analyzing the factors affecting bee colonies, honey production, and the broader implications for agriculture.
 
 ## Questions/Hypotheses to be addressed
+
+### Hypotheses
+
 **Hypothesis**:
 "The negative impacts of mites, bacterium, and global warming have detrimental effects on honeybee colonies in the United States and Texas, which in turn will lead to a decline in honey production and negatively impact food production." This hypothesis can be tested and validated through a visualization of outcomes using R, demonstrating the relationship between these factors and their effects on honeybee colonies.
 
@@ -329,82 +322,71 @@ These hypotheses will be tested using various data visualization techniques in R
 
 ![](/images/dead-bees-hive-colony-collapse-600nw-2289939105.webp)
 
+#Citation section To cite other work (important everywhere, but likely
+happens first in introduction), make sure your references are in the
+bibtex file specified in the YAML header above and have the right bibtex
+key. Then you can include like this:
 
-
-
-
-
-
+Examples of reproducible research projects can for instance be found in
+[@mckay2020; @mckay2020a].
 
 #Here are the BibTex entries for citations:
 
-@Article{hivecollapse,
-  author = {Brian Dennis and William P. Kemp},
-  title = {How Hives Collapse: Allee Effects, Ecological Resilience, and the Honey Bee},
-  journal = {PLOS ONE},
-  year = {2016},
-  volume = {11},
-  number = {2},
-  pages = {e0150055},
-  doi = {10.1371/journal.pone.0150055},
-  url = {https://doi.org/10.1371/journal.pone.0150055}
-A study performed to determine various elements impacting bee hive collapse}
-
-@USDAWebsite{varroamap,
-  author = {sdns6mchl4},
-  title = {Varroa mite spread in the United States},
-  year = {2016},
-  month = {February 24},
-  url = {https://www.beesource.com/threads/varroa-mite-spread-in-the-united-states.365462/},
-  note = {Beesource Beekeeping Forums}
-Map highlighting states of Varroa infestation from periods 1986-1995}
-
-@USDAWebsite{usda_honey_bees,
-  author = {{USDA Economics, Statistics and Market Information System}},
-  title = {Index Catalog},
-  year = {n.d.-a},
-  url = {https://usda.library.cornell.edu/catalog?f%5Bkeywords_sim%5D%5B%5D=honey+bees&locale=en},
-  note = {Accessed: 2024-07-31}
-Data sets}
-
-@USDAWebsite{usda_nass,
-  author = {{USDA - National Agricultural Statistics Service}},
-  title = {Surveys - honey bee surveys and reports},
-  year = {n.d.},
-  url = {https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/},
-  note = {Accessed: 2024-07-31}
-Data sets}
-
-@EPAWebsite{epa_climate,
-  author = {{U.S. Environmental Protection Agency}},
-  title = {Climate Change Indicators: U.S. and Global Temperature},
-  year = {2024},
-  howpublished = {\url{https://www.epa.gov/climate-indicators/climate-change-indicators-us-and-global-temperature}},
-  note = {Accessed: 2024-08-01}
-Climate change from periods of 1900-2024}
-
-@article{2024warmer,
-  title={Warmer autumns and winters could reduce honey bee overwintering survival with potential risks for pollination services},
-  author={Rajagopalan, K. and DeGrandi-Hoffman, G. and Pruett, M. and others},
-  journal={Scientific Reports},
-  volume={14},
-  pages={5410},
-  year={2024},
-  publisher={Nature Publishing Group},
-  doi={10.1038/s41598-024-55327-8}
-Peer reviewed article concering global warming possibly impacting bee hive survivability and viability during winter periods}
+Using this in RMarkdown: #Make sure to save these entries in a file
+names'reference.bib' and include it in your R Markdown document like
+this:
 
 {{< pagebreak >}}
 
 # Methodology
 
+
+## Schematic of workflow
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(DiagrammeR)
+
+DiagrammeR::grViz("
+digraph G {
+
+  node [shape = box, style = filled, color = lightblue, fontname = Helvetica]
+
+  subgraph cluster_0 {
+    label = 'Analytical Report Workflow'
+    
+    Introduction -> Data_Acquisition -> Data_Cleaning_Preparation -> Exploratory_Data_Analysis -> Data_Visualization -> Advanced_Statistical_Analysis -> Results_Discussion -> Conclusion -> Appendix -> References
+  }
+
+  Introduction [label = '1. Introduction']
+  Data_Acquisition [label = '2. Data Acquisition']
+  Data_Cleaning_Preparation [label = '3. Data Cleaning and Preparation']
+  Exploratory_Data_Analysis [label = '4. Exploratory Data Analysis (EDA)']
+  Data_Visualization [label = '5. Data Visualization']
+  Advanced_Statistical_Analysis [label = '6. Advanced Statistical Analysis']
+  Results_Discussion [label = '7. Results and Discussion']
+  Conclusion [label = '8. Conclusion']
+  Appendix [label = '9. Appendix']
+  References [label = '10. References']
+}
+")
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+#knitr::include_graphics(here("assets","antigen-recognition.png"))
+```
+
 ## Data aquisition
 
-The United States Department of Agriculture (USDA) website served as our data source. We downloaded CSV files containing vital information on honey production, colony health, and factors impacting bee populations. By using USDA data, we ensured our analysis was based on reliable, comprehensive, and relevant records widely recognized in agricultural and ecological research.
+### Data Acquisition
+
+We sourced our data from the United States Department of Agriculture (USDA), leveraging their comprehensive and authoritative datasets. This data provided crucial information for our analysis, including statistics on honey production, colony health, and factors affecting bee populations. Utilizing USDA data ensured the reliability and relevance of our analysis, as it encompasses extensive, well-documented records pertinent to agricultural and ecological studies.
 
 ## Data import and cleaning
 
 ### Data Cleaning and Preparation
+
 We integrated data from multiple datasets to ensure a comprehensive analysis. The cleaning process involved several key steps:
 
 1. **Removal of Irrelevant Data**:
@@ -419,49 +401,6 @@ We integrated data from multiple datasets to ensure a comprehensive analysis. Th
    - **State and Year Analysis**: By focusing on data that represented colony losses across different states and years, we aimed to explore the geographical and temporal impacts of these factors on bee colonies.
 
 These steps ensured that our dataset was clean, relevant, and well-prepared for subsequent analysis, enabling a focused exploration of the causes of bee colony losses and their relationship with mites and climate change.
-
-
-## Schematic of workflow
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Install necessary packages
-if (!require("DiagrammeR")) install.packages("DiagrammeR")
-
-# Load the DiagrammeR package
-library(DiagrammeR)
-
-# Create the flowchart using DiagrammeR
-grViz("
-  digraph Data_Analysis_Flowchart {
-    graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 45, labelloc = 't']
-
-    node [style = filled, fontsize = 30, width = 2, height = 2]
-
-    Define_Objectives [label = 'Define Objectives', shape = oval, color = lightblue]
-    Collect_Data [label = 'Collect Data', shape = box, color = lightgrey]
-    Clean_Data [label = 'Clean Data', shape = ellipse, color = lightyellow]
-    Analyze_Data [label = 'Analyze Data', shape = diamond, color = lightcoral]
-    Interpret_Results [label = 'Interpret Results', shape = trapezium, color = lightgrey]
-    Visualize_Data [label = 'Visualize Data', shape = parallelogram, color = lightpink]
-    Compile_Report [label = 'Compile Report', shape = house, color = lightcyan]
-    Review_Revise [label = 'Review & Revise', shape = invhouse, color = lightgoldenrodyellow]
-    Present_Report [label = 'Present Report', shape = hexagon, color = lightseagreen]
-
-    Define_Objectives -> Collect_Data
-    Collect_Data -> Clean_Data
-    Clean_Data -> Analyze_Data
-    Analyze_Data -> Interpret_Results
-    Interpret_Results -> Visualize_Data
-    Visualize_Data -> Compile_Report
-    Compile_Report -> Review_Revise
-    Review_Revise -> Present_Report
-  }
-")
-
-
-
-```
-
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readxl)
@@ -479,7 +418,6 @@ library(here)
 #install.packages("here")
 library(here)
 
-here()
 # Create a 'data' directory within the project
 dir.create(here("data"))
 
@@ -522,13 +460,14 @@ write.csv(data_filtered, "Data_Filtered.csv", row.names = FALSE)
 #write.csv(Data_Clean, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II #Repository/P2-Practicum-II-Portfolio-EdwardCruz/docs/Databystate_Filtered.csv")
 ```
 
+
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Load necessary libraries
 library(ggplot2)
 library(here)
 
-str(data_filtered)
 
 # Load the dataset
 data_filtered <- read.csv(here::here("Data_Filtered.csv"), stringsAsFactors = FALSE)
@@ -547,6 +486,7 @@ ggplot(data_filtered, aes(x = factor(Year), y = Value, fill = Data.Item)) +
   labs(title = "Boxplot of Value by Year and Data.Item", x = "Year", y = "Value") +
   theme_minimal()
 ```
+
 
 ### Analysis of Boxplot
 
@@ -571,17 +511,22 @@ The boxplot illustrates the distribution of values for "LOSS, COLONY COLLAPSE DI
 
 This highlights the trends and variations in honeybee colony losses due to Colony Collapse Disorder and Deadout over a three-year period, providing insights into the distribution and severity of these losses.
 
+
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Scatterplot of Value by State.ANSI
 ggplot(data_filtered, aes(x = State.ANSI, y = Value, color = factor(Year))) +
   geom_point() +
+  scale_y_continuous(labels = comma) +
   labs(title = "Scatterplot of Value by State.ANSI", x = "State.ANSI", y = "Value") +
   theme_minimal()
 
 
 
 ```
+
 ### Analysis of Scatterplot
+
 
 
 
@@ -606,7 +551,6 @@ The scatterplot visualizes the distribution of values across different states (r
    - The plot indicates that while overall losses may be high in certain states, the distribution and frequency of these high values vary across years. This suggests possible changes in factors affecting bee colony losses over time.
 
 This shows the distribution and variability of bee colony losses across different states over three years, providing insights into state-specific trends and the presence of extreme loss events.
-
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load necessary library
@@ -710,16 +654,14 @@ data_hcny <- read.csv(here("hcny_CleanDraft.csv"))
 
 data_clean <- na.omit(data_hcny)
 
+
+
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Descriptive Statistics
 print("Descriptive Statistics:")
 summary(data_clean)
-
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
 str(data_clean)
 ```
 
@@ -867,7 +809,7 @@ plot(predictions, data_clean$varroa_mites,
 
 ### **Honey Bee Collecting Pollen**
 
-![](/images/Bee%20Feeding.jpg){fig-align="center" width="313"}
+![](/images/Bee%20Feeding.jpg){fig-align="center"}
 
 ### Honey Bee with exposed bloated Varroa Mite
 
@@ -886,10 +828,7 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 #write.csv(hcnydata_cleaned, "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz/hcny_CleanDraft.csv", row.names = FALSE)
 ```
 
-## Full analysis
 
-##The full analysis is still pending###
 
-{{< pagebreak >}}
 
-# References
+
