@@ -433,9 +433,9 @@ library(DiagrammeR)
 # Create the flowchart using DiagrammeR
 grViz("
   digraph Data_Analysis_Flowchart {
-    graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 45, labelloc = 't']
+    graph [layout = dot, rankdir = LR, label = 'Workflow Schematic', fontsize = 75, labelloc = 't']
 
-    node [style = filled, fontsize = 30, width = 2, height = 2]
+    node [style = filled, fontsize = 50, width = 6, height = 6, penwidth = 8]
 
     Define_Objectives [label = 'Define Objectives', shape = oval, color = lightblue]
     Collect_Data [label = 'Collect Data', shape = box, color = lightgrey]
@@ -888,8 +888,8 @@ write.csv(data_hcny_clean, here("hcnydata_cleaned.csv"), row.names = FALSE)
 
 ## Full analysis
 
-##The full analysis is still pending###
+The full analysis is still pending
 
 {{< pagebreak >}}
 
-# References
+## References
