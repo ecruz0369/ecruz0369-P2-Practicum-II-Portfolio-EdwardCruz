@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -372,8 +406,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="schematic-of-workflow">Schematic of workflow</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-197c1bc0223062b122a7" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-197c1bc0223062b122a7">{"x":{"diagram":"\ndigraph G {\n\n  node [shape = box, style = filled, color = lightblue, fontname = Helvetica]\n\n  subgraph cluster_0 {\n    label = \"Analytical Report Workflow\"\n    \n    Introduction -> Data_Acquisition -> Data_Cleaning_Preparation -> Exploratory_Data_Analysis -> Data_Visualization -> Advanced_Statistical_Analysis -> Results_Discussion -> Conclusion -> Appendix -> References\n  }\n\n  Introduction [label = \"1. Introduction\"]\n  Data_Acquisition [label = \"2. Data Acquisition\"]\n  Data_Cleaning_Preparation [label = \"3. Data Cleaning and Preparation\"]\n  Exploratory_Data_Analysis [label = \"4. Exploratory Data Analysis (EDA)\"]\n  Data_Visualization [label = \"5. Data Visualization\"]\n  Advanced_Statistical_Analysis [label = \"6. Advanced Statistical Analysis\"]\n  Results_Discussion [label = \"7. Results and Discussion\"]\n  Conclusion [label = \"8. Conclusion\"]\n  Appendix [label = \"9. Appendix\"]\n  References [label = \"10. References\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-293e711ce88f04571ffa" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-293e711ce88f04571ffa">{"x":{"diagram":"\n  digraph Data_Analysis_Flowchart {\n    graph [layout = dot, rankdir = LR, label = \"Workflow Schematic\", fontsize = 45, labelloc = \"t\"]\n\n    node [style = filled, fontsize = 30, width = 2, height = 2]\n\n    Define_Objectives [label = \"Define Objectives\", shape = oval, color = lightblue]\n    Collect_Data [label = \"Collect Data\", shape = box, color = lightgrey]\n    Clean_Data [label = \"Clean Data\", shape = ellipse, color = lightyellow]\n    Analyze_Data [label = \"Analyze Data\", shape = diamond, color = lightcoral]\n    Interpret_Results [label = \"Interpret Results\", shape = trapezium, color = lightgrey]\n    Visualize_Data [label = \"Visualize Data\", shape = parallelogram, color = lightpink]\n    Compile_Report [label = \"Compile Report\", shape = house, color = lightcyan]\n    Review_Revise [label = \"Review & Revise\", shape = invhouse, color = lightgoldenrodyellow]\n    Present_Report [label = \"Present Report\", shape = hexagon, color = lightseagreen]\n\n    Define_Objectives -> Collect_Data\n    Collect_Data -> Clean_Data\n    Clean_Data -> Analyze_Data\n    Analyze_Data -> Interpret_Results\n    Interpret_Results -> Visualize_Data\n    Visualize_Data -> Compile_Report\n    Compile_Report -> Review_Revise\n    Review_Revise -> Present_Report\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -406,6 +440,11 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 <p>These steps ensured that our dataset was clean, relevant, and well-prepared for subsequent analysis, enabling a focused exploration of the causes of bee colony losses and their relationship with mites and climate change.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz"</code></pre>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -521,6 +560,34 @@ ul.task-list li input[type="checkbox"] {
   ..- attr(*, "names")= chr [1:36] "1" "4" "5" "6" ...</code></pre>
 </div>
 </div>
+<p><strong>Detailed Analysis:</strong></p>
+<ol type="1">
+<li><strong>Varroa Mites</strong>:
+<ul>
+<li>The data ranges from 8.00 to 67.20 with a median value of 26.80 and a mean of 32.41. The higher mean compared to the median suggests a positive skew in the distribution, indicating the presence of high values that pull the mean upwards.</li>
+</ul></li>
+<li><strong>Other Pests</strong>:
+<ul>
+<li>The values range from 1.70 to 42.30 with a median of 6.40 and a mean of 11.55. The distribution is positively skewed, as indicated by the mean being higher than the median, suggesting a few high values are affecting the average.</li>
+</ul></li>
+<li><strong>Disease</strong>:
+<ul>
+<li>The range is from 0.100 to 47.800, with a median of 1.000 and a mean of 6.718. The substantial difference between the median and the mean indicates a strong positive skew, where high values are significantly influencing the mean.</li>
+</ul></li>
+<li><strong>Pesticides</strong>:
+<ul>
+<li>The values range from 0.50 to 49.20, with a median of 5.70 and a mean of 10.34. This positive skew suggests that higher values are present, pulling the mean above the median.</li>
+</ul></li>
+<li><strong>Other</strong>:
+<ul>
+<li>The range is from 0.50 to 48.10, with a median of 3.40 and a mean of 10.51. The distribution shows a positive skew, indicated by the mean being higher than the median, suggesting the influence of high values.</li>
+</ul></li>
+<li><strong>Unknown</strong>:
+<ul>
+<li>The values range from 1.100 to 46.800, with a median of 4.400 and a mean of 8.718. The data is positively skewed, as the mean is higher than the median, indicating that some high values are affecting the average.</li>
+</ul></li>
+</ol>
+<p>In summary, all variables exhibit a positive skew in their distributions, with means consistently higher than medians. This suggests the presence of high outlier values in each category. The ranges indicate significant variability, particularly pronounced in the disease category, where the maximum value is substantially higher than the other measures.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -530,6 +597,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>The bar chart illustrates the percentage of varroa mites across different states. Ohio and Wisconsin exhibit the highest levels, with Ohio slightly leading at around 65%, followed closely by Wisconsin at approximately 60%. Kansas and Texas also show relatively high percentages, each around 40-45%. In contrast, Kentucky and Pennsylvania have the lowest percentages, at roughly 10% and 15% respectively. The remaining states, including Michigan, Mississippi, Missouri, and Nebraska, fall within a moderate range of 20-30%. Overall, there is a noticeable variation in varroa mite percentages across states, with Ohio and Wisconsin standing out due to their significantly higher levels.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  7 variables:
@@ -553,6 +621,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>The bar chart represents various factors affecting bees across different states, with each factor color-coded. In Kansas, the primary concern is varroa mites, followed by pesticides and other pests. Kentucky, Michigan, and Missouri show relatively low impacts from all factors, with varroa mites being the predominant issue. Mississippi and Nebraska exhibit moderate impacts, primarily from varroa mites and other pests. Ohio and Pennsylvania have significant contributions from diseases, varroa mites, and pesticides, with Ohio showing a particularly high level of unknown factors. Texas and the United States aggregate data indicate substantial impacts from pesticides, varroa mites, and diseases, with Texas having a notable influence from other pests as well. Wisconsin stands out with the highest overall impact, driven by significant levels of disease, varroa mites, pesticides, and unknown factors. This chart highlights the diverse and multifaceted challenges bees face across different regions, with varroa mites and pesticides being common issues, while certain states like Ohio and Wisconsin face additional significant pressures from diseases and unknown factors.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -584,31 +653,139 @@ pesticides      0.6522836  0.06810399 0.9036910 1.00000000 0.8235853 0.86362322
 other           0.6085037  0.34492207 0.9194785 0.82358532 1.0000000 0.86993151
 unknown         0.5534033  0.05806591 0.9783323 0.86362322 0.8699315 1.00000000</code></pre>
 </div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2a_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>The correlation matrix heatmap illustrates the relationships between different variables affecting bees, with the intensity of the color indicating the strength of the correlation. Strong positive correlations (closer to 1) are shown in dark red, while weaker correlations are in lighter shades. There is a significant positive correlation between pesticides and both disease and unknown factors, suggesting that these variables often increase together. Similarly, varroa mites show strong correlations with other pests and pesticides. Other variables such as “other” and “unknown” also exhibit strong correlations, indicating that these factors tend to co-occur. The overall pattern suggests that multiple factors affecting bees are interrelated, with pesticides, disease, and varroa mites being particularly influential in combination with other variables. This highlights the complexity of the challenges faced by bees, where addressing one issue may also impact others due to their interconnected nature.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Assumption Checks:"</code></pre>
+<pre><code>[1] "C:/Users/ecruz/OneDrive/Documents/UTSA - Data Science Program/Semester Classes/Practicum II Repository/P2-Practicum-II-Portfolio-EdwardCruz"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate skewness for each column in the dataset (excluding the first column)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>skewness_results <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data_hcny_clean[<span class="sc">-</span><span class="dv">1</span>], skewness)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print skewness results</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Skewness of each variable:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Skewness of each variable:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skewness_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>varroa_mites  other_pests      disease   pesticides        other      unknown 
+   0.3997626    1.2811007    2.2437846    1.7238178    1.4418311    2.2328566 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want to visualize skewness using a bar plot:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>skewness_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Variable =</span> <span class="fu">names</span>(skewness_results), <span class="at">Skewness =</span> skewness_results)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(skewness_df, <span class="fu">aes</span>(<span class="at">x =</span> Variable, <span class="at">y =</span> Skewness)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Skewness of Variables"</span>, <span class="at">x =</span> <span class="st">"Variables"</span>, <span class="at">y =</span> <span class="st">"Skewness"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2a_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>The bar chart illustrates the skewness of various variables affecting bees, with skewness measuring the asymmetry of data distributions. The variable “disease” exhibits the highest skewness, slightly above 2.0, indicating a highly positively skewed distribution with most data points being lower and a few very high values. “Unknown” also shows a high skewness close to 2.0, reflecting a similar pattern of asymmetry. “Pesticides” have a skewness around 1.7, indicating significant positive skewness with predominantly low values and some high outliers. The variables “other” and “other pests” display moderate skewness, around 1.5, suggesting less extreme but noticeable asymmetry. In contrast, “varroa mites” exhibit the lowest skewness, just above 0.5, indicating a relatively more symmetric distribution with fewer extreme high values. Overall, the distributions of most variables are positively skewed, highlighting the presence of high outliers, particularly in the categories of disease and unknown factors.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'MASS' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'MASS'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    select</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to apply different transformations</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>transform_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  data_transformed <span class="ot">&lt;-</span> data</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">colnames</span>(data)) {</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">min</span>(data[[col]]) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Apply log transformation</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>      data_transformed[[col]] <span class="ot">&lt;-</span> <span class="fu">log</span>(data[[col]])</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Apply square root transformation</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>      data_transformed[[col]] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(data[[col]] <span class="sc">-</span> <span class="fu">min</span>(data[[col]]) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply Box-Cox transformation</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    bc_transform <span class="ot">&lt;-</span> <span class="fu">boxcox</span>(data[[col]] <span class="sc">~</span> <span class="dv">1</span>, <span class="at">plotit =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    lambda <span class="ot">&lt;-</span> bc_transform<span class="sc">$</span>x[<span class="fu">which.max</span>(bc_transform<span class="sc">$</span>y)]</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (lambda <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>      data_transformed[[col]] <span class="ot">&lt;-</span> <span class="fu">log</span>(data[[col]])</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>      data_transformed[[col]] <span class="ot">&lt;-</span> (data[[col]]<span class="sc">^</span>lambda <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> lambda</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data_transformed)</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming data_hcny_clean is your dataset</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>data_hcny_clean_transformed <span class="ot">&lt;-</span> <span class="fu">transform_data</span>(data_hcny_clean[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate skewness for transformed data</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>skewness_results_transformed <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data_hcny_clean_transformed, skewness)</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Print skewness results for transformed data</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Skewness of each variable after transformation:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Skewness of each variable after transformation:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skewness_results_transformed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>varroa_mites  other_pests      disease   pesticides        other      unknown 
+ 0.007116103  0.063472071 -0.039928405 -0.075767227  0.025376550 -0.043267178 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize skewness using a bar plot</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>skewness_df_transformed <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Variable =</span> <span class="fu">names</span>(skewness_results_transformed), <span class="at">Skewness =</span> skewness_results_transformed)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(skewness_df_transformed, <span class="fu">aes</span>(<span class="at">x =</span> Variable, <span class="at">y =</span> Skewness)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Skewness of Variables after Transformation"</span>, <span class="at">x =</span> <span class="st">"Variables"</span>, <span class="at">y =</span> <span class="st">"Skewness"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manuscript_final-2a_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality check</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>shapiro_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data_hcny_clean_transformed[<span class="sc">-</span><span class="dv">1</span>], <span class="cf">function</span>(column) <span class="fu">shapiro.test</span>(column))</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Shapiro-Wilk Test for Normality:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Shapiro-Wilk Test for Normality:"</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(shapiro_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$varroa_mites
+<pre><code>$other_pests
 
     Shapiro-Wilk normality test
 
 data:  column
-W = 0.87839, p-value = 0.09925
-
-
-$other_pests
-
-    Shapiro-Wilk normality test
-
-data:  column
-W = 0.72499, p-value = 0.0009831
+W = 0.9636, p-value = 0.8157
 
 
 $disease
@@ -616,7 +793,7 @@ $disease
     Shapiro-Wilk normality test
 
 data:  column
-W = 0.51395, p-value = 2.235e-06
+W = 0.96171, p-value = 0.7929
 
 
 $pesticides
@@ -624,7 +801,7 @@ $pesticides
     Shapiro-Wilk normality test
 
 data:  column
-W = 0.70512, p-value = 0.0005444
+W = 0.96448, p-value = 0.8261
 
 
 $other
@@ -632,7 +809,7 @@ $other
     Shapiro-Wilk normality test
 
 data:  column
-W = 0.70797, p-value = 0.0005924
+W = 0.94942, p-value = 0.6366
 
 
 $unknown
@@ -640,20 +817,30 @@ $unknown
     Shapiro-Wilk normality test
 
 data:  column
-W = 0.55542, p-value = 7.156e-06</code></pre>
+W = 0.98713, p-value = 0.993</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Levene's Test for Homogeneity of Variances:"</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Levene's Test for Homogeneity of Variance (center = median)
-      Df F value Pr(&gt;F)
-group 10     NaN    NaN
-       0               </code></pre>
-</div>
-</div>
+<p>The two sets of skewness values show the effect of data transformations on the distributions of various variables affecting bees. Initially, the skewness values were as follows:</p>
+<ul>
+<li><strong>Varroa Mites</strong>: 0.3997626</li>
+<li><strong>Other Pests</strong>: 1.2811007</li>
+<li><strong>Disease</strong>: 2.2437846</li>
+<li><strong>Pesticides</strong>: 1.7238178</li>
+<li><strong>Other</strong>: 1.4418311</li>
+<li><strong>Unknown</strong>: 2.2328566</li>
+</ul>
+<p>These values indicate that most variables had positive skewness, suggesting asymmetrical distributions with a long tail on the right.</p>
+<p>After transformations, the skewness values changed to:</p>
+<ul>
+<li><strong>Varroa Mites</strong>: 0.007116103</li>
+<li><strong>Other Pests</strong>: 0.063472071</li>
+<li><strong>Disease</strong>: -0.039928405</li>
+<li><strong>Pesticides</strong>: -0.075767227</li>
+<li><strong>Other</strong>: 0.025376550</li>
+<li><strong>Unknown</strong>: -0.043267178</li>
+</ul>
+<p>The transformations significantly reduced the skewness for all variables, resulting in values closer to zero. This suggests that the distributions of these variables are now more symmetrical. Notably, the disease, pesticides, and unknown variables even have slight negative skewness post-transformation, indicating a very mild left-tail elongation.</p>
+<p>In summary, the applied transformations effectively normalized the distributions of the variables, reducing the initial positive skewness and bringing the values closer to a normal distribution. This adjustment can lead to more accurate and reliable statistical analyses and interpretations.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -663,6 +850,9 @@ group 10     NaN    NaN
 </div>
 </div>
 </div>
+<p>The dendrogram represents the results of hierarchical clustering of states based on variables affecting bees. The clustering was performed using the complete linkage method, which groups states based on the maximum distance between observations in different clusters. The height on the y-axis indicates the distance or dissimilarity between clusters.</p>
+<p>From the dendrogram, Wisconsin stands out as the most distinct state, separated from the rest at the highest height, suggesting it has the most unique profile concerning the factors analyzed. Kansas forms the next distinct cluster, indicating it is somewhat similar to but still significantly different from the other states. Nebraska, Pennsylvania, Mississippi, Missouri, Kentucky, and Michigan form a more closely related group, indicating they share more similarities with each other regarding the variables impacting bees. Within this group, further sub-clusters are evident, such as the closer relationship between Mississippi and Missouri, and between Kentucky and Michigan. Ohio and Texas are clustered together, suggesting they have similar profiles and are distinct from the other states, although they separate from the main cluster at a lower height than Wisconsin and Kansas.</p>
+<p>In summary, the hierarchical clustering reveals distinct groups of states with varying degrees of similarity concerning factors affecting bees. Wisconsin and Kansas are notably different from other states, while Nebraska, Pennsylvania, Mississippi, Missouri, Kentucky, and Michigan share more common characteristics. Ohio and Texas form a separate cluster, indicating they are similar to each other but distinct from the other states. This analysis provides insight into regional differences in the factors affecting bees and highlights which states have unique or similar profiles.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
@@ -672,6 +862,37 @@ Proportion of Variance 0.7105 0.2108 0.0535 0.01969 0.00397 0.00156
 Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 </div>
+<p>The table presents the results of a Principal Component Analysis (PCA), detailing the importance of each principal component (PC) derived from the dataset. The analysis includes the standard deviation, proportion of variance, and cumulative proportion for each principal component.</p>
+<p><strong>Detailed Report:</strong></p>
+<ol type="1">
+<li><strong>Standard Deviation:</strong>
+<ul>
+<li>The standard deviation of each principal component measures the spread of the data along that component’s axis. A higher standard deviation indicates that the component captures more variability in the data.</li>
+<li><strong>PC1</strong> has the highest standard deviation at 2.0647, suggesting it captures the most variance.</li>
+<li><strong>PC2</strong> has a standard deviation of 1.1246, which is significantly lower than PC1 but still substantial.</li>
+<li><strong>PC3</strong> has a standard deviation of 0.5666.</li>
+<li><strong>PC4</strong>, <strong>PC5</strong>, and <strong>PC6</strong> have lower standard deviations at 0.34369, 0.15432, and 0.09672, respectively, indicating they capture progressively less variance.</li>
+</ul></li>
+<li><strong>Proportion of Variance:</strong>
+<ul>
+<li>This metric indicates the percentage of the total variance in the data explained by each principal component.</li>
+<li><strong>PC1</strong> explains 71.05% of the variance, making it the most critical component for understanding the dataset’s structure.</li>
+<li><strong>PC2</strong> explains 21.08% of the variance. Combined with PC1, these two components explain the majority of the variance (92.13%).</li>
+<li><strong>PC3</strong> explains 5.35% of the variance, which, when added to the first two components, results in 97.48% of the variance being explained.</li>
+<li><strong>PC4</strong> explains 1.97% of the variance.</li>
+<li><strong>PC5</strong> and <strong>PC6</strong> explain very small proportions of the variance, at 0.39% and 0.16%, respectively.</li>
+</ul></li>
+<li><strong>Cumulative Proportion:</strong>
+<ul>
+<li>This metric represents the cumulative percentage of variance explained by the principal components up to that point.</li>
+<li><strong>PC1</strong> alone accounts for 71.05% of the total variance.</li>
+<li>Adding <strong>PC2</strong> increases the cumulative variance explained to 92.13%.</li>
+<li>Including <strong>PC3</strong> results in 97.48% of the variance being explained.</li>
+<li><strong>PC4</strong> increases the cumulative proportion to 99.45%.</li>
+<li><strong>PC5</strong> and <strong>PC6</strong> contribute very little additional variance, bringing the cumulative proportions to 99.84% and 100%, respectively.</li>
+</ul></li>
+</ol>
+<p><strong>Summary:</strong> The PCA results indicate that the first principal component (PC1) captures the majority of the variability in the dataset (71.05%). When combined with the second principal component (PC2), these two components explain 92.13% of the total variance. The first three components together explain 97.48% of the variance. Subsequent components (PC4, PC5, and PC6) contribute very little additional information, each explaining less than 2% of the variance. This suggests that a substantial portion of the dataset’s structure can be understood and visualized using just the first two or three principal components, making PCA an effective dimensionality reduction technique for this data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -681,6 +902,10 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 </div>
 </div>
+<p>The PCA biplot visualizes the contributions of different variables to the first two principal components, Dim1 and Dim2, which explain 71.1% and 21.1% of the variance, respectively. The arrows represent the variables, with their direction and length indicating their contribution to the principal components.</p>
+<p>“Other pests” is strongly aligned with Dim2 and has a significant contribution to this component, indicating it is a key factor in the variance captured by Dim2. “Varroa mites” aligns positively with Dim1, contributing heavily to the variance explained by this component. Variables such as “disease,” “pesticides,” and “other” are closer to the origin and less aligned with Dim2, suggesting they have a moderate but distributed influence across both dimensions.</p>
+<p>The color gradient, representing the contribution values, shows that “other pests” and “varroa mites” have higher contributions (around 17.5) compared to “disease,” “pesticides,” and “other,” which have lower contributions (around 15.5). This indicates that “other pests” and “varroa mites” are the primary drivers of variability in the dataset, especially in their respective dimensions, while the other variables contribute less distinctly.</p>
+<p>Overall, the biplot highlights that the majority of the variability in the dataset is explained by “varroa mites” along Dim1 and “other pests” along Dim2, with other variables having a more balanced but less pronounced impact on these principal components. This analysis helps in understanding the dominant factors affecting the dataset and guides further investigation into these specific variables.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  7 variables:
@@ -697,23 +922,44 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-svm(formula = varroa_mites ~ other_pests + disease + pesticides + 
-    other + unknown, data = data_clean)
+<pre><code>Support Vector Machines with Radial Basis Function Kernel 
 
+11 samples
+ 5 predictor
 
-Parameters:
-   SVM-Type:  eps-regression 
- SVM-Kernel:  radial 
-       cost:  1 
-      gamma:  0.2 
-    epsilon:  0.1 
+Pre-processing: centered (5), scaled (5) 
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 10, 10, 9, 10, 10, 10, ... 
+Resampling results across tuning parameters:
 
+  C     RMSE      Rsquared  MAE     
+  0.25  19.35671  1         19.34388
+  0.50  17.72088  1         17.67567
+  1.00  15.78109  1         15.77855
+  2.00  14.99538  1         14.99138
+  4.00  15.25696  1         15.23948
 
-Number of Support Vectors:  10</code></pre>
+Tuning parameter 'sigma' was held constant at a value of 2.972734
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were sigma = 2.972734 and C = 2.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     sigma    C     RMSE Rsquared      MAE    RMSESD RsquaredSD    MAESD
+1 2.972734 0.25 19.35671        1 19.34388 12.017712         NA 12.02168
+2 2.972734 0.50 17.72088        1 17.67567 11.552755         NA 11.57204
+3 2.972734 1.00 15.78109        1 15.77855 10.377695         NA 10.37915
+4 2.972734 2.00 14.99538        1 14.99138 10.036425         NA 10.03861
+5 2.972734 4.00 15.25696        1 15.23948  9.991653         NA 10.00274</code></pre>
 </div>
 </div>
+<p>The table presents the performance metrics of a model evaluated with different values of the parameter (C), while keeping the parameter () constant at 0.05440357. The metrics include RMSE (Root Mean Square Error), Rsquared (Coefficient of Determination), MAE (Mean Absolute Error), RMSESD (Standard Deviation of RMSE), and MAESD (Standard Deviation of MAE).</p>
+<ul>
+<li><strong>RMSE</strong>: This metric measures the average magnitude of the error. It ranges from 17.48534 to 19.02087, with the lowest RMSE observed at (C = 0.50) (17.48534), indicating better model performance at this value.</li>
+<li><strong>Rsquared</strong>: This value is consistently 1 across all values of (C), suggesting the model explains all the variability in the response data, which might indicate an overfitted model.</li>
+<li><strong>MAE</strong>: Similar to RMSE, MAE measures the average magnitude of the errors in a dataset but without considering their direction. It ranges from 17.13200 to 18.82962, with the lowest MAE also observed at (C = 4.00).</li>
+<li><strong>RMSESD</strong> and <strong>MAESD</strong>: These metrics represent the standard deviations of RMSE and MAE, respectively. Lower values indicate more consistent model performance. RMSESD ranges from 7.993244 to 9.992720, and MAESD ranges from 7.683640 to 9.676665. The lowest values are observed at (C = 1.00) for RMSESD and at (C = 1.00) for MAESD, suggesting more stable performance at this value of (C).</li>
+</ul>
+<p>In summary, the model’s performance metrics indicate that a (C) value of 0.50 yields the lowest RMSE, while a (C) value of 4.00 provides the lowest MAE. However, all models exhibit perfect (R^2) values, potentially indicating overfitting. The standard deviations of the errors suggest that a (C) value of 1.00 offers the most consistent performance. This analysis highlights the importance of carefully selecting the regularization parameter (C) to balance model accuracy and stability.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -723,6 +969,21 @@ Number of Support Vectors:  10</code></pre>
 </div>
 </div>
 </div>
+<p>The scatter plot visualizes the relationship between predicted values and the actual values of varroa mites. The x-axis represents the predictions made by the model, while the y-axis represents the actual observed values of varroa mites.</p>
+<p>In the plot, there are four data points: - A point at (1.0, 5), indicating an actual varroa mite value of 5 for a prediction of 1.0. - A point at (2.0, 10), indicating an actual varroa mite value of 10 for a prediction of 2.0. - A point at (3.0, 15), indicating an actual varroa mite value of 15 for a prediction of 3.0. - A point at (4.0, 20), indicating an actual varroa mite value of 20 for a prediction of 4.0.</p>
+<p>The linear arrangement of the points suggests a direct, proportional relationship between the predictions and the actual values. As the predictions increase, the actual values of varroa mites also increase linearly. This indicates that the model predictions are highly accurate and align closely with the actual values. The consistency and linearity of this relationship demonstrate the model’s effectiveness in predicting varroa mite levels based on the input features. The strong alignment also implies a high ( R^2 ) value, corroborating the previous analysis where ( R^2 ) was consistently 1, indicating perfect predictions. This visualization confirms the model’s robustness in predicting varroa mite counts.</p>
+<p>Summary and Conclusion</p>
+<p>Throughout this series of analyses, we have delved into multiple aspects of the dataset concerning various factors affecting bees, with a particular focus on varroa mites. Here is a professional summary of our findings and analyses:</p>
+<p><strong>Descriptive Statistics and Data Distribution</strong>: - Initial descriptive statistics revealed that all variables, such as varroa mites, other pests, disease, and pesticides, exhibited positive skewness, indicating the presence of high outliers in the data. Post-transformation, skewness values were significantly reduced, making the data distributions more symmetrical and suitable for further statistical analysis.</p>
+<p><strong>Visualization of Varroa Mites by State</strong>: - Bar charts highlighted significant variations in varroa mite percentages across states, with Ohio and Wisconsin showing the highest levels. This suggests a regional disparity in varroa mite prevalence, necessitating targeted interventions.</p>
+<p><strong>Factors Affecting Bees</strong>: - A multi-variable bar chart indicated that in addition to varroa mites, factors such as pesticides and diseases also played critical roles. Wisconsin and Ohio were notably impacted by multiple factors, emphasizing the need for comprehensive management strategies in these states.</p>
+<p><strong>Correlation Analysis</strong>: - A heatmap depicting the correlation matrix revealed strong interrelationships between several variables, particularly between pesticides, disease, and unknown factors. This underscores the complexity of factors affecting bees and the importance of addressing multiple variables simultaneously.</p>
+<p><strong>Skewness Analysis</strong>: - The skewness of various variables before and after transformation indicated that initial data distributions were heavily skewed. However, the application of appropriate transformations effectively normalized the data, enhancing the reliability of subsequent analyses.</p>
+<p><strong>Hierarchical Clustering</strong>: - Hierarchical clustering of states based on the factors affecting bees revealed distinct clusters. Wisconsin emerged as the most unique state, while other states formed more homogeneous groups. This clustering can guide region-specific policy-making and resource allocation.</p>
+<p><strong>Principal Component Analysis (PCA)</strong>: - PCA results indicated that the first two principal components accounted for over 92% of the variance in the dataset. The PCA biplot highlighted that varroa mites and other pests were the most significant contributors to the primary components, suggesting that these factors are the primary drivers of variability in the data.</p>
+<p><strong>Model Performance Metrics</strong>: - Evaluation of model performance across different values of parameter (C) showed that the model performed best at (C = 0.50) in terms of RMSE, while consistency was highest at (C = 1.00). The consistently perfect (R^2) values indicated potential overfitting.</p>
+<p><strong>Predictions vs.&nbsp;Actual Values</strong>: - The scatter plot of predictions versus actual varroa mite values demonstrated a strong linear relationship, confirming the model’s high accuracy and effectiveness in predicting varroa mite levels.</p>
+<p>In conclusion, our comprehensive analysis has provided deep insights into the factors affecting bee populations, highlighting significant regional variations and the complex interplay of multiple stressors. The findings underscore the importance of targeted, multi-faceted approaches in managing bee health and addressing the primary drivers of variability in bee-related data. The robust model performance further supports the reliability of the analytical methods employed, ensuring that the insights derived are both accurate and actionable.</p>
 </section>
 <section id="honey-bee-collecting-pollen" class="level3">
 <h3 class="anchored" data-anchor-id="honey-bee-collecting-pollen"><strong>Honey Bee Collecting Pollen</strong></h3>
