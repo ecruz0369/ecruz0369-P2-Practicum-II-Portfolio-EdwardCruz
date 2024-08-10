@@ -434,8 +434,13 @@ div.csl-indent {
 <h2 data-number="3.3" class="anchored" data-anchor-id="schematic-of-workflow"><span class="header-section-number">3.3</span> Schematic of workflow</h2>
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< Updated upstream
 <div class="grViz html-widget html-fill-item" id="htmlwidget-59340a7dc488bfe75570" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-59340a7dc488bfe75570">{"x":{"diagram":"\n  digraph Data_Analysis_Flowchart {\n    graph [layout = dot, rankdir = LR, label = \"Workflow Schematic\", fontsize = 75, labelloc = \"t\"]\n\n    node [style = filled, fontsize = 50, width = 6, height = 6, penwidth = 8]\n\n    Define_Objectives [label = \"Define Objectives\", shape = oval, color = lightblue]\n    Collect_Data [label = \"Collect Data\", shape = box, color = lightgrey]\n    Clean_Data [label = \"Clean Data\", shape = ellipse, color = lightyellow]\n    Analyze_Data [label = \"Analyze Data\", shape = diamond, color = lightcoral]\n    Interpret_Results [label = \"Interpret Results\", shape = trapezium, color = lightgrey]\n    Visualize_Data [label = \"Visualize Data\", shape = parallelogram, color = lightpink]\n    Compile_Report [label = \"Compile Report\", shape = house, color = lightcyan]\n    Review_Revise [label = \"Review & Revise\", shape = invhouse, color = lightgoldenrodyellow]\n    Present_Report [label = \"Present Report\", shape = hexagon, color = lightseagreen]\n\n    Define_Objectives -> Collect_Data\n    Collect_Data -> Clean_Data\n    Clean_Data -> Analyze_Data\n    Analyze_Data -> Interpret_Results\n    Interpret_Results -> Visualize_Data\n    Visualize_Data -> Compile_Report\n    Compile_Report -> Review_Revise\n    Review_Revise -> Present_Report\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+=======
+<div class="grViz html-widget html-fill-item" id="htmlwidget-fe32af25eb47be6feed8" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fe32af25eb47be6feed8">{"x":{"diagram":"\n  digraph Data_Analysis_Flowchart {\n    graph [layout = dot, rankdir = LR, label = \"Workflow Schematic\", fontsize = 75, labelloc = \"t\"]\n\n    node [style = filled, fontsize = 50, width = 6, height = 6, penwidth = 8]\n\n    Define_Objectives [label = \"Define Objectives\", shape = oval, color = lightblue]\n    Collect_Data [label = \"Collect Data\", shape = box, color = lightgrey]\n    Clean_Data [label = \"Clean Data\", shape = ellipse, color = lightyellow]\n    Analyze_Data [label = \"Analyze Data\", shape = diamond, color = lightcoral]\n    Interpret_Results [label = \"Interpret Results\", shape = trapezium, color = lightgrey]\n    Visualize_Data [label = \"Visualize Data\", shape = parallelogram, color = lightpink]\n    Compile_Report [label = \"Compile Report\", shape = house, color = lightcyan]\n    Review_Revise [label = \"Review & Revise\", shape = invhouse, color = lightgoldenrodyellow]\n    Present_Report [label = \"Present Report\", shape = hexagon, color = lightseagreen]\n\n    Define_Objectives -> Collect_Data\n    Collect_Data -> Clean_Data\n    Clean_Data -> Analyze_Data\n    Analyze_Data -> Interpret_Results\n    Interpret_Results -> Visualize_Data\n    Visualize_Data -> Compile_Report\n    Compile_Report -> Review_Revise\n    Review_Revise -> Present_Report\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+>>>>>>> Stashed changes
 </div>
 </div>
 <div class="cell">
@@ -858,6 +863,7 @@ Cumulative Proportion  0.7105 0.9213 0.9748 0.99447 0.99844 1.00000</code></pre>
 
 Pre-processing: centered (5), scaled (5) 
 Resampling: Cross-Validated (10 fold) 
+<<<<<<< Updated upstream
 Summary of sample sizes: 10, 9, 10, 10, 10, 10, ... 
 Resampling results across tuning parameters:
 
@@ -879,6 +885,29 @@ The final values used for the model were sigma = 0.9079286 and C = 2.</code></pr
 3 0.9079286 1.00 10.82210        1 10.82202 10.70837         NA 10.70832
 4 0.9079286 2.00 10.60953        1 10.60884 10.41633         NA 10.41596
 5 0.9079286 4.00 11.26390        1 11.26321 10.26891         NA 10.26858</code></pre>
+=======
+Summary of sample sizes: 10, 10, 10, 9, 10, 10, ... 
+Resampling results across tuning parameters:
+
+  C     RMSE       Rsquared  MAE      
+  0.25  17.667126  1         17.535118
+  0.50  14.852650  1         14.791673
+  1.00  10.854353  1         10.848203
+  2.00   9.649194  1          9.649193
+  4.00  10.208683  1         10.208682
+
+Tuning parameter 'sigma' was held constant at a value of 0.5281286
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were sigma = 0.5281286 and C = 2.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      sigma    C      RMSE Rsquared       MAE    RMSESD RsquaredSD     MAESD
+1 0.5281286 0.25 17.667126        1 17.535118 10.506020         NA 10.497026
+2 0.5281286 0.50 14.852650        1 14.791673 10.448399         NA 10.428025
+3 0.5281286 1.00 10.854353        1 10.848203  9.936124         NA  9.932393
+4 0.5281286 2.00  9.649194        1  9.649193  9.537500         NA  9.537500
+5 0.5281286 4.00 10.208683        1 10.208682  8.864867         NA  8.864867</code></pre>
+>>>>>>> Stashed changes
 </div>
 </div>
 <p>The table presents the performance metrics of a model evaluated with different values of the parameter (C), while keeping the parameter () constant at 0.05440357. The metrics include RMSE (Root Mean Square Error), Rsquared (Coefficient of Determination), MAE (Mean Absolute Error), RMSESD (Standard Deviation of RMSE), and MAESD (Standard Deviation of MAE).</p>
